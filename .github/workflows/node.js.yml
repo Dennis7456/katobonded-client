@@ -24,6 +24,9 @@ jobs:
       - name: Dependencies
         run: npm ci
 
+      - name: Validate
+        run: npm run validate
+
       - name: Build
         run: npm run build --if-present
 
