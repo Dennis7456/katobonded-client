@@ -10,6 +10,7 @@ module.exports = {
     'plugin:security/recommended',
     'plugin:import/typescript',
     'prettier',
+    'plugin:storybook/recommended',
   ],
   overrides: [
     {
