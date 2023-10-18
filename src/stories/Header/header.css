@@ -1,0 +1,68 @@
+.main-header {
+  width: auto;
+  height: 80px;
+  background: #134427;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 13px;
+}
+
+.logo {
+  background: url('assets/logo.svg') lightgray 50% / cover no-repeat;
+  width: 201.975px;
+  height: 50px;
+  flex-shrink: 0;
+  padding: 10px;
+}
+
+.links {
+  display: flex;
+  justify-content: space-between;
+  padding: 30px;
+  font-size: 20px;
+  gap: 30px;
+}
+
+.search {
+  display: block;
+  text-align: center;
+}
+.dollar {
+  display: block;
+  text-align: center;
+  color: var(--OFFF-White, #fff);
+}
+.icon {
+  height: auto;
+}
+.search a {
+  font-size: 5px;
+  color: var(--OFFF-White, #fff);
+}
+
+.drop-1 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.user {
+  display: block;
+  text-align: center;
+}
+
+.heart {
+  display: block;
+  text-align: center;
+  margin-right: 25px;
+}
+.text {
+  color: var(--OFFF-White, #fff);
+}
+.chevron {
+  display: flex;
+  align-items: center;
+  padding: auto;
+}
