@@ -1,5 +1,5 @@
 import React from 'react'
-import './header.css'
+import './styles.css'
 import iconsearch from './assets/icons/icon-search.svg'
 import icondollar from './assets/icons/icon-dollar.svg'
 import iconuser from './assets/icons/icon-user.svg'

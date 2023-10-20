@@ -1,0 +1,13 @@
+.label .create-your-trip {
+  height: 33px;
+  width: 180px;
+  color: var(--vader-dark);
+  font-family: 'Nunito Sans', Helvetica;
+  font-size: 24px;
+  font-weight: 700;
+  left: 0;
+  letter-spacing: 0;
+  line-height: normal;
+  position: fixed;
+  top: 0;
+}

@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { Page } from './Page'
+import { Box } from '.'
 
-const meta: Meta<typeof Page> = {
-  title: 'Components/Page',
-  component: Page,
+const meta: Meta<typeof Box> = {
+  title: 'Components/Box',
+  component: Box,
   parameters: {
     layout: 'fullscreen',
   },
@@ -13,4 +13,4 @@ export default meta
 
 type Story = StoryObj<typeof meta>
 
-export const MainFooter: Story = {}
+export const Default: Story = {}
