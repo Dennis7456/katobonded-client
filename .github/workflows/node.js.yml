@@ -37,6 +37,9 @@ jobs:
       - name: Check git status
         run: git status
 
+      - name: Clean Working Directory
+        run: git clean -fdX
+
       - name: Increase version
         run: npm version patch
 
