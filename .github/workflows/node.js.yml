@@ -38,7 +38,7 @@ jobs:
         run: git status
 
       - name: Clean Working Directory
-        run: git clean -fdX
+        run: git restore src/assets/main.css
 
       - name: Increase version
         run: npm version patch
