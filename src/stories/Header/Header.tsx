@@ -1,11 +1,7 @@
 import React from 'react'
 import logo from './assets/logo.svg'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {
-  icon,
-  solid,
-  regular,
-} from '@fortawesome/fontawesome-svg-core/import.macro'
+import { solid, regular } from '@fortawesome/fontawesome-svg-core/import.macro'
 
 const Header: React.FC = () => {
   return (
