@@ -1,9 +1,7 @@
 import React from 'react'
-// import logo from './logo.svg'
-import './App.css'
 import { Header } from './components/Header'
 
-function App(): JSX.Element {
+const App: React.FC = () => {
   return (
     <div>
       <section>
@@ -12,6 +10,7 @@ function App(): JSX.Element {
           heart="URL_TO_HEART_IMAGE"
         ></Header>
       </section>
+      <div className="text-red-500 font-bold">Text</div>
     </div>
   )
 }
