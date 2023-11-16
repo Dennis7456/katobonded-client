@@ -33,7 +33,7 @@ jobs:
       - name: Save version
         id: version
         run: echo ::set-output name=tag::$(echo $(node -p -e "require('./package.json').version"))
-        
+
       - name: Check git status
         run: git status
 
