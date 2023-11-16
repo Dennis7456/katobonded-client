@@ -1,16 +1,12 @@
 import React from 'react'
-import { Header } from './components/Header'
+import { Button } from './components/Button'
+import Text from './components/Text'
 
 const App: React.FC = () => {
   return (
     <div>
-      <section>
-        <Header
-          chevronDown="URL_TO_CHEVRON_DOWN_IMAGE"
-          heart="URL_TO_HEART_IMAGE"
-        ></Header>
-      </section>
-      <div className="text-red-500 font-bold">Text</div>
+      <Button text="some text"></Button>
+      <Text />
     </div>
   )
 }
