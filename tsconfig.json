@@ -16,7 +16,9 @@
     "noEmit": true,
     "jsx": "react-jsx",
     "noImplicitAny": true,
-    "baseUrl": "."
+    "baseUrl": ".",
+    "outDir": "./dist",
+    "rootDir": "./src"
   },
   "include": ["src"]
 }
