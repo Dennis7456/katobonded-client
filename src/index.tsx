@@ -1,8 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App'
-// import './assets/tailwind-output.css';
-import './assets/tailwind-input.css'
+import './assets/tailwind.css'
 // import reportWebVitals from './reportWebVitals'
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
