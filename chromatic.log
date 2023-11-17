@@ -8,16 +8,16 @@ Authenticated with Chromatic
     → Using project token '****************1419'
 Retrieving git information
 Retrieved git information
-    → Commit 'cf1e202' on branch 'main'; found 1 parent build
+    → Commit 'a85ad6c' on branch 'main'; found 1 parent build
 Collecting Storybook metadata
 Collected Storybook metadata
     → Storybook 7.5.3 for React; using the @storybook/react-webpack5 builder (7.5.3); no supported addons found
 Initializing build
 Initialized build
-    → Build 2 initialized
+    → Build 7 initialized
 Building your Storybook
-    → Running command: npm run build-storybook -- --output-dir /var/folders/_9/4pqw7vzd6_98vk0p3_l203y40000gn/T/chromatic--66335-ZHZdusENsh06
-Storybook built in 1 minute 21 seconds
+    → Running command: npm run build-storybook -- --output-dir /var/folders/_9/4pqw7vzd6_98vk0p3_l203y40000gn/T/chromatic--79642-Db3IDZi9oilw
+Storybook built in 1 minute 15 seconds
     → View build log at /Users/des/Documents/katobonded-client/build-storybook.log
 Publish your built Storybook
     → Validating Storybook files
@@ -26,25 +26,26 @@ Publishing your built Storybook
     → Starting publish
     → [                    ] 1%
     → [=                   ] 6%
+    → [=                   ] 7%
     → [==                  ] 9%
-    → [==                  ] 12%
-    → [===                 ] 17%
-    → [====                ] 18%
-    → [====                ] 19%
-    → [====                ] 20%
+    → [===                 ] 13%
+    → [===                 ] 14%
     → [====                ] 21%
     → [====                ] 22%
-    → [=====               ] 27%
+    → [=====               ] 23%
+    → [=====               ] 24%
+    → [=====               ] 25%
     → [======              ] 28%
     → [======              ] 29%
+    → [======              ] 30%
     → [======              ] 31%
+    → [======              ] 32%
     → [=======             ] 33%
     → [=======             ] 34%
     → [=======             ] 35%
     → [=======             ] 36%
     → [=======             ] 37%
     → [========            ] 38%
-    → [========            ] 39%
     → [========            ] 40%
     → [========            ] 41%
     → [========            ] 42%
@@ -54,51 +55,30 @@ Publishing your built Storybook
     → [=========           ] 46%
     → [=========           ] 47%
     → [==========          ] 48%
+    → [==========          ] 49%
     → [==========          ] 51%
-    → [==========          ] 52%
-    → [===========         ] 54%
-    → [===========         ] 55%
-    → [===========         ] 56%
-    → [===========         ] 57%
     → [============        ] 58%
     → [============        ] 59%
-    → [============        ] 61%
-    → [============        ] 62%
     → [=============       ] 63%
     → [=============       ] 64%
     → [=============       ] 65%
-    → [=============       ] 66%
+    → [=============       ] 67%
     → [==============      ] 68%
+    → [==============      ] 69%
     → [==============      ] 70%
     → [==============      ] 71%
     → [==============      ] 72%
     → [===============     ] 73%
-    → [===============     ] 74%
-    → [===============     ] 75%
-    → [===============     ] 76%
-    → [===============     ] 77%
-    → [================    ] 79%
-    → [================    ] 81%
-    → [================    ] 82%
-    → [=================   ] 83%
-    → [=================   ] 85%
-    → [=================   ] 86%
-    → [=================   ] 87%
-    → [==================  ] 89%
-    → [==================  ] 90%
-    → [==================  ] 91%
-    → [=================== ] 93%
     → [=================== ] 96%
-    → [=================== ] 97%
     → [====================] 98%
     → [====================] 99%
     → [====================] 100%
-Publish complete in 37 seconds
-    → View your Storybook at https://6556ace2fddebeaf2c8d842e-srmikeskwa.chromatic.com
+Publish complete in 1 minute 27 seconds
+    → View your Storybook at https://6556ace2fddebeaf2c8d842e-epslpbjnhk.chromatic.com
 Verifying your Storybook
     → This may take a few minutes
-Started build 2
-    → View build details at https://www.chromatic.com/build?appId=6556ace2fddebeaf2c8d842e&number=2
+Started build 7
+    → View build details at https://www.chromatic.com/build?appId=6556ace2fddebeaf2c8d842e&number=7
 Running 7 tests
     → This may take a few minutes
 ℹ Speed up Continuous Integration
@@ -106,10 +86,10 @@ Your project is linked to GitHub so Chromatic will report results there.
 This means you can pass the --exit-once-uploaded flag to skip waiting for build results.
 Read more here: https://www.chromatic.com/docs/cli#chromatic-options
     → [===                 ] 1/7  Button › Primary 
+    → [======              ] 2/7  Button › Secondary 
     → [===========         ] 4/7  Button › Small 
     → [==============      ] 5/7  CreateYourTrip › Default 
-    → [=================   ] 6/7  Header › Default 
     → [====================] 7/7  Text › Default 
-✔ Build 2 passed!
+✔ Build 7 passed!
 No visual changes were found in this build.
-ℹ View build details at https://www.chromatic.com/build?appId=6556ace2fddebeaf2c8d842e&number=2
+ℹ View build details at https://www.chromatic.com/build?appId=6556ace2fddebeaf2c8d842e&number=7
