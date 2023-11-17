@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react'
 import CreateYourTrip from './CreateYourTrip'
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
-const meta = {
+const meta: Meta<typeof Text> = {
   title: 'Example/CreateYourTrip',
   component: CreateYourTrip,
   parameters: {
@@ -12,7 +12,7 @@ const meta = {
   },
   // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/react/writing-docs/autodocs
   tags: ['autodocs'],
-} satisfies Meta<typeof Text>
+}
 
 export default meta
 type Story = StoryObj<typeof meta>
