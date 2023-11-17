@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react'
 import CreateYourTrip from './CreateYourTrip'
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
-const meta: Meta<typeof Text> = {
+const meta: Meta<typeof CreateYourTrip> = {
   title: 'Example/CreateYourTrip',
   component: CreateYourTrip,
   parameters: {
