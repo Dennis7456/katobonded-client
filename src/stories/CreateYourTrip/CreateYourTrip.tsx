@@ -65,7 +65,7 @@ export const CreateYourTrip: React.FC = () => {
   return (
     <div>
       <div
-        className="h-[420px] w-full relative overflow-hidden rounded-lg bg-cover bg-no-repeat p-12 text-center"
+        className="h-[520px] w-full relative overflow-hidden rounded-lg bg-cover bg-no-repeat p-12 text-center"
         style={{ backgroundImage: `url(${background})` }}
       >
         <form className="h-[340px] bg-[#ffffff] rounded-[5px] py-[35px] px-[70px]">
@@ -76,28 +76,31 @@ export const CreateYourTrip: React.FC = () => {
                 <label className="text-[15px] text-gray-600">
                   Select Destination
                 </label>
-                {/* <input type="text" id="first_name" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-red-500 focus:border-red-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="John" required></input> */}
-                <LoadScript
-                  googleMapsApiKey={googleMapsApiKey}
-                  libraries={['places']}
-                >
-                  <StandaloneSearchBox
-                    onLoad={(ref) => (inputRef.current = ref)}
-                    onPlacesChanged={handlePlaceChanged}
+                <div className="relative">
+                  <LoadScript
+                    googleMapsApiKey={googleMapsApiKey}
+                    libraries={['places']}
                   >
-                    <input
-                      className="-translate-y-[4px] left-[100px] w-[348px] h-[49px] border-[#E8E8ED] border-[2px] rounded-[3px] bg-gray-50 p-[10px] text-gray-600 focus:ring-gray-500 focus:border-gray-500"
-                      placeholder="Where to?"
-                      type="text"
-                      required
-                    ></input>
-                  </StandaloneSearchBox>
-                </LoadScript>
-                <FontAwesomeIcon
-                  icon={solid('location-dot')}
-                  size="lg"
-                  className="text-gray-500 pointer-events-none absolute top-1/2 transform -translate-y-[4px] left-[430px]"
-                />
+                    <StandaloneSearchBox
+                      onLoad={(ref) => (inputRef.current = ref)}
+                      onPlacesChanged={handlePlaceChanged}
+                    >
+                      <input
+                        className="-translate-y-[4px] left-[100px] w-[348px] h-[49px] border-[#E8E8ED] border-[2px] rounded-[3px] bg-gray-50 p-[10px] text-gray-600 focus:ring-gray-500 focus:border-gray-500"
+                        placeholder="Where to?"
+                        type="text"
+                        required
+                      ></input>
+                    </StandaloneSearchBox>
+                  </LoadScript>
+                  <span className="absolute top-[10px] left-[300px] flex items-center pl-2">
+                    <FontAwesomeIcon
+                      icon={solid('location-dot')}
+                      size="lg"
+                      className="text-gray-500 pointer-events-none relative"
+                    />
+                  </span>
+                </div>
               </div>
               <div className="flex flex-col items-start gap-[10px]">
                 <DateComponent />

@@ -102,9 +102,9 @@ export const DateComponent: React.FC = () => {
       return
     }
 
-    setSecondDate(selectedDate)
-    // setShowDatepicker(() => false);
-    if (firstDate !== null) {
+    setShowDatePicker(() => false)
+    if (firstDate !== null && selectedDate > firstDate) {
+      setSecondDate(selectedDate)
       const difference =
         (selectedDate.getTime() - firstDate.getTime()) / (1000 * 60 * 60 * 24)
       console.log(`Difference in days: ${difference}`)
@@ -172,9 +172,7 @@ export const DateComponent: React.FC = () => {
             size="lg"
             className="text-gray-500 pointer-events-none absolute top-1/2 transform -translate-y-[4px] right-[680px]"
           />
-          <p className="text-gray-400">
-            {firstDate?.toDateString().slice(0, 10)}
-          </p>
+          <p className="text-gray-400 text-xs">{firstDate?.toDateString()}</p>
         </div>
       </div>
       <div className="flex flex-col items-start gap-[10px]">
@@ -191,15 +189,13 @@ export const DateComponent: React.FC = () => {
             size="lg"
             className="text-gray-500 pointer-events-none absolute top-1/2 transform -translate-y-[4px] left-[530px]"
           />
-          <p className="text-gray-400">
-            {secondDate?.toDateString().slice(0, 10)}
-          </p>
+          <p className="text-gray-400 text-sm">{secondDate?.toDateString()}</p>
         </div>
       </div>
       <AnimatePresence initial={false}>
         {showDatepicker && (
           <motion.div
-            className="bg-white mt-10 rounded-[3px] shadow p-4 absolute top-[220px] left-[530px] w-[348px] "
+            className="bg-white mt-10 rounded-[3px] shadow p-4 absolute top-[220px] left-[530px] w-[300px] z-[100px]"
             initial="collapsed"
             animate="open"
             exit="collapsed"
@@ -221,7 +217,7 @@ export const DateComponent: React.FC = () => {
               transition={{ duration: 0.5, ease: 'easeIn' }}
             >
               <div>
-                <span className="text-lg font-bold text-gray-800">
+                <span className="text-lg font-semibold text-gray-800">
                   {' '}
                   {MONTH_NAMES[month]}
                 </span>
@@ -234,9 +230,12 @@ export const DateComponent: React.FC = () => {
                 <button
                   type="button"
                   className="transition ease-in-out duration-100 inline-flex cursor-pointer hover:bg-gray-200 p-1 rounded-[3px]"
-                  disabled={month === 0}
                   onClick={() => {
                     console.log(`Left button`)
+                    if (month === 0) {
+                      setYear((prev) => prev - 1)
+                      setMonth(12)
+                    }
                     setMonth((prev) => prev - 1)
                   }}
                 >
@@ -257,11 +256,15 @@ export const DateComponent: React.FC = () => {
                 <button
                   type="button"
                   className="transition ease-in-out duration-100 inline-flex cursor-pointer hover:bg-gray-200 p-1 rounded-[3px]"
-                  disabled={month === 11}
                   onClick={() => {
                     console.log(`Right button`)
-
-                    setMonth((prev) => prev + 1)
+                    if (month === 11) {
+                      // const year = new Date().getFullYear() + 1;
+                      setYear((prev) => prev + 1)
+                      setMonth(0)
+                    } else {
+                      setMonth((prev) => prev + 1)
+                    }
                   }}
                 >
                   <svg
@@ -328,14 +331,23 @@ export const DateComponent: React.FC = () => {
                 )
               })}
               {numOfDays.map((day, index) => {
+                const currentDate = new Date(year, month, day)
+                const isDisabled = currentDate <= new Date()
+
                 return (
                   <div className="px-1 mb-1" key={index}>
                     <div
                       key={index}
                       onClick={() => {
-                        evalRange(day)
+                        if (!isDisabled) {
+                          evalRange(day)
+                        }
                       }}
-                      className="cursor-pointer text-center text-sm rounded-[3px] leading-loose w-7 hover:bg-blue-400"
+                      className={`cursor-pointer text-center text-sm rounded-[3px] leading-loose w-7 ${
+                        isDisabled
+                          ? 'text-gray-400 cursor-not-allowed line-through'
+                          : 'hover:bg-blue-400'
+                      }`}
                       style={{
                         backgroundColor: isToday(day)
                           ? '#f3533d'
