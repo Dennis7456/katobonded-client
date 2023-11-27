@@ -1,10 +1,10 @@
 import React, { useRef, useState, useEffect } from 'react'
-import { StandaloneSearchBox, LoadScript } from '@react-google-maps/api'
 import background from './assets/background.svg'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { solid, regular } from '@fortawesome/fontawesome-svg-core/import.macro'
+import { regular, solid } from '@fortawesome/fontawesome-svg-core/import.macro'
 import { DateComponent } from './DateComponent'
 import { AnimatePresence, motion } from 'framer-motion'
+import { LocationCompnent } from './LocationCompnent'
 
 interface Option {
   label: string
@@ -16,24 +16,13 @@ export const CreateYourTrip: React.FC = () => {
     { label: '2 Travellers', value: 2 },
     { label: '3 Travellers', value: 3 },
     { label: '4 Travellers', value: 4 },
-    { label: 'Group', value: 5 },
+    { label: 'Group travel', value: 5 },
   ]
 
   const [selectedOption, setSelectedOption] = useState<Option>(options[0])
   const [isOpen, setIsOpen] = useState(false)
-  const inputRef = useRef<google.maps.places.SearchBox>()
-  const clickRef = useRef<HTMLDivElement>(null)
 
-  const handlePlaceChanged = (): void => {
-    const places =
-      inputRef.current?.getPlaces() as google.maps.places.PlaceResult[]
-    if (places !== undefined && places.length > 0) {
-      const place = places[0]
-      console.log(place.formatted_address)
-      console.log(place.geometry?.location?.lat())
-      console.log(place.geometry?.location?.lng())
-    }
-  }
+  const clickRef = useRef<HTMLDivElement>(null)
 
   const handleOptionClick = (option: Option): void => {
     setSelectedOption(option)
@@ -60,49 +49,20 @@ export const CreateYourTrip: React.FC = () => {
     }
   }
 
-  const googleMapsApiKey = process.env.REACT_APP_GOOGLE_MAPS_API_KEY ?? ''
-
   return (
     <div>
       <div
-        className="h-[520px] w-full relative overflow-hidden rounded-lg bg-cover bg-no-repeat p-12 text-center"
+        className="h-[520px] w-full relative overflow-hidden bg-cover bg-no-repeat p-[35px] text-center"
         style={{ backgroundImage: `url(${background})` }}
       >
         <form className="h-[340px] bg-[#ffffff] rounded-[5px] py-[35px] px-[70px]">
           <div className="flex flex-col items-start gap-[35px]">
             <div className="text-[25px] text-gray-600">Create Your Trip</div>
-            <div className="flex items-center justify-center gap-[50px]">
-              <div className="flex flex-col items-start gap-[10px]">
-                <label className="text-[15px] text-gray-600">
-                  Select Destination
-                </label>
-                <div className="relative">
-                  <LoadScript
-                    googleMapsApiKey={googleMapsApiKey}
-                    libraries={['places']}
-                  >
-                    <StandaloneSearchBox
-                      onLoad={(ref) => (inputRef.current = ref)}
-                      onPlacesChanged={handlePlaceChanged}
-                    >
-                      <input
-                        className="-translate-y-[4px] left-[100px] w-[348px] h-[49px] border-[#E8E8ED] border-[2px] rounded-[3px] bg-gray-50 p-[10px] text-gray-600 focus:ring-gray-500 focus:border-gray-500"
-                        placeholder="Where to?"
-                        type="text"
-                        required
-                      ></input>
-                    </StandaloneSearchBox>
-                  </LoadScript>
-                  <span className="absolute top-[10px] left-[300px] flex items-center pl-2">
-                    <FontAwesomeIcon
-                      icon={solid('location-dot')}
-                      size="lg"
-                      className="text-gray-500 pointer-events-none relative"
-                    />
-                  </span>
-                </div>
+            <div className="flex items-center justify-center gap-[35px]">
+              <div>
+                <LocationCompnent />
               </div>
-              <div className="flex flex-col items-start gap-[10px]">
+              <div>
                 <DateComponent />
               </div>
               <div
@@ -110,21 +70,18 @@ export const CreateYourTrip: React.FC = () => {
                 ref={clickRef}
               >
                 <label className="text-[15px] text-gray-600">Travellers</label>
-                {/* <input
-                  className="w-[170px] h-[49px] border-[#E8E8ED] border-[2px] rounded-[3px] bg-gray-50 p-[10px] pl-[45px]"
-                  type="text"
-                  placeholder="2 Travellers"
-                ></input> */}
-                <div
-                  className="w-[170px] h-[49px] border-[#E8E8ED] border-[2px] rounded-[3px] bg-gray-50 p-[10px] pl-[45px] text-gray-400"
-                  onClick={toggleDropDown}
-                >
-                  {selectedOption.label}
+                <span className="absolute flex items-center top-[190px] right-[450px]">
                   <FontAwesomeIcon
                     icon={solid('person-walking-luggage')}
                     size="lg"
-                    className="text-gray-500 pointer-events-none absolute top-1/2 transform -translate-y-[4px] right-[465px]"
+                    className="text-gray-500 cursor-pointer relative"
                   />
+                </span>
+                <div
+                  className="cursor-pointer w-[170px] h-[49px] text-gray-700 text-left border-[#E8E8ED] border-[2px] rounded-[3px] bg-gray-50 p-[10px] pl-[45px] text-gray-400"
+                  onClick={toggleDropDown}
+                >
+                  {selectedOption.label}
                 </div>
                 <AnimatePresence initial={false}>
                   {isOpen && (
@@ -137,7 +94,7 @@ export const CreateYourTrip: React.FC = () => {
                         collapsed: { opacity: 0 },
                       }}
                       transition={{ duration: 0.5, ease: 'easeIn' }}
-                      className="options bg-white mt-10 rounded-[3px] shadow p-4 absolute top-[210px] right-[330px] w-[170px] "
+                      className="options bg-white mt-10 rounded-[3px] shadow p-4 absolute top-[210px] right-[310px] w-[170px] "
                     >
                       {options.map((option) => (
                         <div
@@ -161,8 +118,11 @@ export const CreateYourTrip: React.FC = () => {
                 </button>
               </div>
             </div>
-            <div className="flex items-start justify-center gap-[330px]">
-              <div>Checkbox</div>
+            <div className="flex items-start justify-center gap-[240px]">
+              <div className="text-gray-500 flex items-center gap-[10px] hover:bg-gray-200 hover:text-white rounded-[3px] px-[10px] cursor-pointer">
+                <FontAwesomeIcon icon={solid('plus')} size="lg" />
+                <p>Add Destination</p>
+              </div>
               <div className="flex items-center justify-between gap-[10px] text-[2px]">
                 <input
                   type="checkbox"

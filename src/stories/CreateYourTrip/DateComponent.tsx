@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { solid, regular } from '@fortawesome/fontawesome-svg-core/import.macro'
+import { regular } from '@fortawesome/fontawesome-svg-core/import.macro'
 
 export const DateComponent: React.FC = () => {
   const MONTH_NAMES = [
@@ -157,41 +157,54 @@ export const DateComponent: React.FC = () => {
   }, [])
 
   return (
-    <div ref={clickRef} className="flex items-center justify-center gap-[50px]">
+    <div ref={clickRef} className="flex items-center justify-center gap-[35px]">
       <div className="flex flex-col items-start gap-[10px]">
         <label className="text-[15px] text-gray-600">Departing</label>
+        <span className="absolute flex items-center top-[190px] left-[500px]">
+          <FontAwesomeIcon
+            icon={regular('calendar')}
+            size="lg"
+            className="text-gray-500 pointer-events-none relative cursor-pointer"
+          />
+        </span>
         <div
           onClick={() => {
             setShowDatePicker(() => !showDatepicker)
             console.log(showDatepicker)
           }}
-          className="w-[162px] h-[49px] border-[#E8E8ED] border-[2px] rounded-[3px] bg-gray-50 p-[10px] pl-[45px]"
+          className="cursor-pointer w-[162px] h-[49px] border-[#E8E8ED] border-[2px] rounded-[3px] bg-gray-50 p-[10px] pl-[45px]"
         >
-          <FontAwesomeIcon
-            icon={regular('calendar')}
-            size="lg"
-            className="text-gray-500 pointer-events-none absolute top-1/2 transform -translate-y-[4px] right-[680px]"
-          />
-          <p className="text-gray-400 text-xs">{firstDate?.toDateString()}</p>
+          <p className="text-left text-gray-700 text-md">
+            {firstDate !== null && firstDate !== undefined
+              ? `${firstDate.toDateString().slice(0, 10)}`
+              : new Date().toDateString().slice(0, 10)}
+          </p>
         </div>
       </div>
       <div className="flex flex-col items-start gap-[10px]">
         <label className="text-[15px] text-gray-600">Returning</label>
+        <span className="absolute flex items-center top-[190px] right-[653px] cursor-pointer">
+          <FontAwesomeIcon
+            icon={regular('calendar')}
+            size="lg"
+            className="text-gray-500 relative"
+          />
+        </span>
         <div
           onClick={() => {
             setShowDatePicker(() => !showDatepicker)
             console.log(showDatepicker)
           }}
-          className="w-[162px] h-[49px] border-[#E8E8ED] border-[2px] rounded-[3px] bg-gray-50 p-[10px] pl-[45px]"
+          className="cursor-pointer w-[162px] h-[49px] border-[#E8E8ED] border-[2px] rounded-[3px] bg-gray-50 p-[10px] pl-[45px]"
         >
-          <FontAwesomeIcon
-            icon={regular('calendar')}
-            size="lg"
-            className="text-gray-500 pointer-events-none absolute top-1/2 transform -translate-y-[4px] left-[530px]"
-          />
-          <p className="text-gray-400 text-sm">{secondDate?.toDateString()}</p>
+          <p className="text-left text-gray-700 text-md">
+            {secondDate !== null && secondDate !== undefined
+              ? `${secondDate.toDateString().slice(0, 10)}`
+              : new Date().toDateString().slice(0, 10)}
+          </p>
         </div>
       </div>
+
       <AnimatePresence initial={false}>
         {showDatepicker && (
           <motion.div
