@@ -1,10 +1,11 @@
 import React, { useRef, useState, useEffect } from 'react'
 import background from './assets/background.svg'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { regular, solid } from '@fortawesome/fontawesome-svg-core/import.macro'
+import { solid } from '@fortawesome/fontawesome-svg-core/import.macro'
 import { DateComponent } from './DateComponent'
 import { AnimatePresence, motion } from 'framer-motion'
 import { LocationCompnent } from './LocationCompnent'
+import './styles.css'
 
 interface Option {
   label: string
@@ -52,12 +53,14 @@ export const CreateYourTrip: React.FC = () => {
   return (
     <div>
       <div
-        className="h-[520px] w-full relative overflow-hidden bg-cover bg-no-repeat p-[35px] text-center"
+        className="p-[5vmin] background"
         style={{ backgroundImage: `url(${background})` }}
       >
-        <form className="h-[340px] bg-[#ffffff] rounded-[5px] py-[35px] px-[70px]">
+        <form className="w-[95vw] bg-[#ffffff] rounded-[5px] p-[5vmin]">
           <div className="flex flex-col items-start gap-[35px]">
-            <div className="text-[25px] text-gray-600">Create Your Trip</div>
+            <div className="text-[25px] text-gray-600 md:text-red-500">
+              Create Your Trip
+            </div>
             <div className="flex items-center justify-center gap-[35px]">
               <div>
                 <LocationCompnent />
@@ -65,12 +68,12 @@ export const CreateYourTrip: React.FC = () => {
               <div>
                 <DateComponent />
               </div>
-              <div
+              {/* <div
                 className="flex flex-col items-start gap-[10px]"
                 ref={clickRef}
               >
                 <label className="text-[15px] text-gray-600">Travellers</label>
-                <span className="absolute flex items-center top-[190px] right-[450px]">
+                <span className="absolute top-[155px] right-[415px] flex items-center pl-2">
                   <FontAwesomeIcon
                     icon={solid('person-walking-luggage')}
                     size="lg"
@@ -95,6 +98,53 @@ export const CreateYourTrip: React.FC = () => {
                       }}
                       transition={{ duration: 0.5, ease: 'easeIn' }}
                       className="options bg-white mt-10 rounded-[3px] shadow p-4 absolute top-[210px] right-[310px] w-[170px] "
+                    >
+                      {options.map((option) => (
+                        <div
+                          key={option.value}
+                          className="option text-gray-600 text-center hover:rounded-[3px] hover:text-white cursor-pointer hover:bg-[#1181d7] tracking-normal"
+                          onClick={() => {
+                            handleOptionClick(option)
+                          }}
+                        >
+                          {option.label}
+                        </div>
+                      ))}
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div> */}
+              <div ref={clickRef}>
+                <div className="flex flex-col gap-[10px]">
+                  <label className="text-[15px] text-gray-600">
+                    Travellers
+                  </label>
+                  <div
+                    className="flex items-start justify-start gap-[5px] cursor-pointer w-[162px] h-[49px] border-[#E8E8ED] border-[2px] rounded-[3px] py-[10px] text-gray-700"
+                    onClick={toggleDropDown}
+                  >
+                    <span className="px-[10px]">
+                      <FontAwesomeIcon
+                        icon={solid('person-walking-luggage')}
+                        size="lg"
+                        className="text-gray-500 cursor-pointer text-left"
+                      />
+                    </span>
+                    {selectedOption.label}
+                  </div>
+                </div>
+                <AnimatePresence initial={false}>
+                  {isOpen && (
+                    <motion.div
+                      initial="collapsed"
+                      animate="open"
+                      exit="collapsed"
+                      variants={{
+                        open: { opacity: 1 },
+                        collapsed: { opacity: 0 },
+                      }}
+                      transition={{ duration: 0.5, ease: 'easeIn' }}
+                      className="options bg-white mt-[10px] rounded-[3px] shadow p-4 absolute w-[170px] "
                     >
                       {options.map((option) => (
                         <div

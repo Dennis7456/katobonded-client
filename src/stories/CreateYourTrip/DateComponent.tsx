@@ -157,69 +157,62 @@ export const DateComponent: React.FC = () => {
   }, [])
 
   return (
-    <div ref={clickRef} className="flex items-center justify-center gap-[35px]">
-      <div className="flex flex-col items-start gap-[10px]">
-        <label className="text-[15px] text-gray-600">Departing</label>
-        <span className="absolute flex items-center top-[190px] left-[500px]">
-          <FontAwesomeIcon
-            icon={regular('calendar')}
-            size="lg"
-            className="text-gray-500 pointer-events-none relative cursor-pointer"
-          />
-        </span>
-        <div
-          onClick={() => {
-            setShowDatePicker(() => !showDatepicker)
-            console.log(showDatepicker)
-          }}
-          className="cursor-pointer w-[162px] h-[49px] border-[#E8E8ED] border-[2px] rounded-[3px] bg-gray-50 p-[10px] pl-[45px]"
-        >
-          <p className="text-left text-gray-700 text-md">
-            {firstDate !== null && firstDate !== undefined
-              ? `${firstDate.toDateString().slice(0, 10)}`
-              : new Date().toDateString().slice(0, 10)}
-          </p>
-        </div>
-      </div>
-      <div className="flex flex-col items-start gap-[10px]">
-        <label className="text-[15px] text-gray-600">Returning</label>
-        <span className="absolute flex items-center top-[190px] right-[653px] cursor-pointer">
-          <FontAwesomeIcon
-            icon={regular('calendar')}
-            size="lg"
-            className="text-gray-500 relative"
-          />
-        </span>
-        <div
-          onClick={() => {
-            setShowDatePicker(() => !showDatepicker)
-            console.log(showDatepicker)
-          }}
-          className="cursor-pointer w-[162px] h-[49px] border-[#E8E8ED] border-[2px] rounded-[3px] bg-gray-50 p-[10px] pl-[45px]"
-        >
-          <p className="text-left text-gray-700 text-md">
-            {secondDate !== null && secondDate !== undefined
-              ? `${secondDate.toDateString().slice(0, 10)}`
-              : new Date().toDateString().slice(0, 10)}
-          </p>
-        </div>
-      </div>
-
-      <AnimatePresence initial={false}>
-        {showDatepicker && (
-          <motion.div
-            className="bg-white mt-10 rounded-[3px] shadow p-4 absolute top-[220px] left-[530px] w-[300px] z-[100px]"
-            initial="collapsed"
-            animate="open"
-            exit="collapsed"
-            variants={{
-              open: { opacity: 1 },
-              collapsed: { opacity: 0 },
+    <div ref={clickRef}>
+      <div className="flex items-center justify-center gap-[35px]">
+        <div className="flex flex-col gap-[10px]">
+          <label className="text-[15px] text-gray-600">Departing</label>
+          <div
+            className="flex items-start justify-start cursor-pointer w-[162px] h-[49px] border-[#E8E8ED] border-[2px] rounded-[3px] py-[10px]"
+            onClick={() => {
+              setShowDatePicker(!showDatepicker)
             }}
-            transition={{ duration: 0.5, ease: 'easeIn' }}
           >
+            <span className="px-[10px]">
+              <FontAwesomeIcon
+                icon={regular('calendar')}
+                size="lg"
+                className="text-gray-500 cursor-pointer text-left"
+              />
+            </span>
+            <p className="text-left text-gray-700 text-md">
+              {firstDate !== null && firstDate !== undefined
+                ? `${firstDate.toDateString().slice(0, 10)}, ${firstDate
+                    .toDateString()
+                    .slice(13, 15)}`
+                : new Date().toDateString().slice(0, 10)}
+            </p>
+          </div>
+        </div>
+        <div className="flex flex-col gap-[10px]">
+          <label className="text-[15px] text-gray-600">Departing</label>
+          <div
+            className="flex items-start justify-start cursor-pointer w-[162px] h-[49px] border-[#E8E8ED] border-[2px] rounded-[3px] py-[10px]"
+            onClick={() => {
+              setShowDatePicker(!showDatepicker)
+            }}
+          >
+            <span className="px-[10px]">
+              <FontAwesomeIcon
+                icon={regular('calendar')}
+                size="lg"
+                className="text-gray-500 cursor-pointer text-left"
+              />
+            </span>
+            <p className="text-left text-gray-700 text-md">
+              {secondDate !== null && secondDate !== undefined
+                ? `${secondDate.toDateString().slice(0, 10)}, ${secondDate
+                    .toDateString()
+                    .slice(13, 15)}`
+                : new Date().toDateString().slice(0, 10)}
+            </p>
+          </div>
+        </div>
+      </div>
+      <div>
+        <AnimatePresence initial={false}>
+          {showDatepicker && (
             <motion.div
-              className="flex justify-between items-center"
+              className="bg-white mt-[10px] rounded-[3px] shadow p-4 absolute w-[300px] z-[100px]"
               initial="collapsed"
               animate="open"
               exit="collapsed"
@@ -229,161 +222,173 @@ export const DateComponent: React.FC = () => {
               }}
               transition={{ duration: 0.5, ease: 'easeIn' }}
             >
-              <div>
-                <span className="text-lg font-semibold text-gray-800">
-                  {' '}
-                  {MONTH_NAMES[month]}
-                </span>
-                <span className="ml-1 text-lg text-gray-600 font-normal">
-                  {' '}
-                  {year}
-                </span>
-              </div>{' '}
-              <div>
-                <button
-                  type="button"
-                  className="transition ease-in-out duration-100 inline-flex cursor-pointer hover:bg-gray-200 p-1 rounded-[3px]"
-                  onClick={() => {
-                    console.log(`Left button`)
-                    if (month === 0) {
-                      setYear((prev) => prev - 1)
-                      setMonth(12)
-                    }
-                    setMonth((prev) => prev - 1)
-                  }}
-                >
-                  <svg
-                    className="h-6 w-6 text-gray-500 inline-flex"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
+              <motion.div
+                className="flex justify-between items-center"
+                initial="collapsed"
+                animate="open"
+                exit="collapsed"
+                variants={{
+                  open: { opacity: 1 },
+                  collapsed: { opacity: 0 },
+                }}
+                transition={{ duration: 0.5, ease: 'easeIn' }}
+              >
+                <div>
+                  <span className="text-lg font-semibold text-gray-800">
+                    {' '}
+                    {MONTH_NAMES[month]}
+                  </span>
+                  <span className="ml-1 text-lg text-gray-600 font-normal">
+                    {' '}
+                    {year}
+                  </span>
+                </div>{' '}
+                <div>
+                  <button
+                    type="button"
+                    className="transition ease-in-out duration-100 inline-flex cursor-pointer hover:bg-gray-200 p-1 rounded-[3px]"
+                    onClick={() => {
+                      console.log(`Left button`)
+                      if (month === 0) {
+                        setYear((prev) => prev - 1)
+                        setMonth(12)
+                      }
+                      setMonth((prev) => prev - 1)
+                    }}
                   >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M15 19l-7-7 7-7"
-                    />
-                  </svg>
-                </button>
-                <button
-                  type="button"
-                  className="transition ease-in-out duration-100 inline-flex cursor-pointer hover:bg-gray-200 p-1 rounded-[3px]"
-                  onClick={() => {
-                    console.log(`Right button`)
-                    if (month === 11) {
-                      // const year = new Date().getFullYear() + 1;
-                      setYear((prev) => prev + 1)
-                      setMonth(0)
-                    } else {
-                      setMonth((prev) => prev + 1)
-                    }
-                  }}
-                >
-                  <svg
-                    className="h-6 w-6 text-gray-500 inline-flex"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
+                    <svg
+                      className="h-6 w-6 text-gray-500 inline-flex"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M15 19l-7-7 7-7"
+                      />
+                    </svg>
+                  </button>
+                  <button
+                    type="button"
+                    className="transition ease-in-out duration-100 inline-flex cursor-pointer hover:bg-gray-200 p-1 rounded-[3px]"
+                    onClick={() => {
+                      console.log(`Right button`)
+                      if (month === 11) {
+                        // const year = new Date().getFullYear() + 1;
+                        setYear((prev) => prev + 1)
+                        setMonth(0)
+                      } else {
+                        setMonth((prev) => prev + 1)
+                      }
+                    }}
                   >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M9 5l7 7-7 7"
-                    />
-                  </svg>
-                </button>
-              </div>
-            </motion.div>{' '}
-            <motion.div
-              className="flex flex-wrap mb-3 -mx-1"
-              initial="collapsed"
-              animate="open"
-              exit="collapsed"
-              variants={{
-                open: { opacity: 1, height: 'auto' },
-                collapsed: { opacity: 0, height: 0 },
-              }}
-              transition={{ duration: 0.5, ease: 'easeIn' }}
-            >
-              {DAYS.map((day, index) => {
-                return (
-                  <div className="px-1" key={index}>
-                    <div
-                      key={index}
-                      className="text-gray-800 font-medium text-center text-xs w-7 "
+                    <svg
+                      className="h-6 w-6 text-gray-500 inline-flex"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
                     >
-                      {day}
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M9 5l7 7-7 7"
+                      />
+                    </svg>
+                  </button>
+                </div>
+              </motion.div>{' '}
+              <motion.div
+                className="flex flex-wrap mb-3 -mx-1"
+                initial="collapsed"
+                animate="open"
+                exit="collapsed"
+                variants={{
+                  open: { opacity: 1, height: 'auto' },
+                  collapsed: { opacity: 0, height: 0 },
+                }}
+                transition={{ duration: 0.5, ease: 'easeIn' }}
+              >
+                {DAYS.map((day, index) => {
+                  return (
+                    <div className="px-1" key={index}>
+                      <div
+                        key={index}
+                        className="text-gray-800 font-medium text-center text-xs w-7 "
+                      >
+                        {day}
+                      </div>
                     </div>
-                  </div>
-                )
-              })}
-            </motion.div>
-            <motion.div
-              className="flex flex-wrap -mx-1"
-              initial="collapsed"
-              animate="open"
-              exit="collapsed"
-              variants={{
-                open: { opacity: 1, height: 'auto' },
-                collapsed: { opacity: 0, height: 0 },
-              }}
-              transition={{ duration: 0.5, ease: 'easeIn' }}
-            >
-              {blankDays.map((day, index) => {
-                return (
-                  <div className="px-1 mb-1" key={index}>
-                    <div
-                      key={index}
-                      className="cursor-pointer text-center text-sm rounded-[3px] leading-loose w-7 text-gray-700"
-                    >
-                      {}
+                  )
+                })}
+              </motion.div>
+              <motion.div
+                className="flex flex-wrap -mx-1"
+                initial="collapsed"
+                animate="open"
+                exit="collapsed"
+                variants={{
+                  open: { opacity: 1, height: 'auto' },
+                  collapsed: { opacity: 0, height: 0 },
+                }}
+                transition={{ duration: 0.5, ease: 'easeIn' }}
+              >
+                {blankDays.map((day, index) => {
+                  return (
+                    <div className="px-1 mb-1" key={index}>
+                      <div
+                        key={index}
+                        className="cursor-pointer text-center text-sm rounded-[3px] leading-loose w-7 text-gray-700"
+                      >
+                        {}
+                      </div>
                     </div>
-                  </div>
-                )
-              })}
-              {numOfDays.map((day, index) => {
-                const currentDate = new Date(year, month, day)
-                const isDisabled = currentDate <= new Date()
+                  )
+                })}
+                {numOfDays.map((day, index) => {
+                  const currentDate = new Date(year, month, day)
+                  const isDisabled = currentDate <= new Date()
 
-                return (
-                  <div className="px-1 mb-1" key={index}>
-                    <div
-                      key={index}
-                      onClick={() => {
-                        if (!isDisabled) {
-                          evalRange(day)
-                        }
-                      }}
-                      className={`cursor-pointer text-center text-sm rounded-[3px] leading-loose w-7 ${
-                        isDisabled
-                          ? 'text-gray-400 cursor-not-allowed line-through'
-                          : 'hover:bg-blue-400'
-                      }`}
-                      style={{
-                        backgroundColor: isToday(day)
-                          ? '#f3533d'
-                          : dateFromDay(day) || betweenDays(day)
-                            ? '#1181d7'
-                            : 'white',
-                        color: isToday(day)
-                          ? '#fff'
-                          : dateFromDay(day) || betweenDays(day)
+                  return (
+                    <div className="px-1 mb-1" key={index}>
+                      <div
+                        key={index}
+                        onClick={() => {
+                          if (!isDisabled) {
+                            evalRange(day)
+                          }
+                        }}
+                        className={`cursor-pointer text-center text-sm rounded-[3px] leading-loose w-7 ${
+                          isDisabled
+                            ? 'text-gray-400 cursor-not-allowed line-through'
+                            : 'hover:bg-blue-400'
+                        }`}
+                        style={{
+                          backgroundColor: isToday(day)
+                            ? '#f3533d'
+                            : dateFromDay(day) || betweenDays(day)
+                              ? '#1181d7'
+                              : 'white',
+                          color: isToday(day)
                             ? '#fff'
-                            : 'black',
-                      }}
-                    >
-                      {' '}
-                      {day}
+                            : dateFromDay(day) || betweenDays(day)
+                              ? '#fff'
+                              : 'black',
+                        }}
+                      >
+                        {' '}
+                        {day}
+                      </div>
                     </div>
-                  </div>
-                )
-              })}
+                  )
+                })}
+              </motion.div>
             </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+          )}
+        </AnimatePresence>
+      </div>
     </div>
   )
 }
