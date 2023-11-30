@@ -184,7 +184,7 @@ export const DateComponent: React.FC = () => {
           </div>
         </div>
         <div className="flex flex-col gap-[10px]">
-          <label className="text-[15px] text-gray-600">Departing</label>
+          <label className="text-[15px] text-gray-600">Returning</label>
           <div
             className="flex items-start justify-start cursor-pointer w-[162px] h-[49px] border-[#E8E8ED] border-[2px] rounded-[3px] py-[10px]"
             onClick={() => {
@@ -212,7 +212,7 @@ export const DateComponent: React.FC = () => {
         <AnimatePresence initial={false}>
           {showDatepicker && (
             <motion.div
-              className="bg-white mt-[10px] rounded-[3px] shadow p-4 absolute w-[300px] z-[100px]"
+              className="bg-white mt-[10px] rounded-[3px] shadow p-4 absolute w-[300px] z-10 border-[5px]"
               initial="collapsed"
               animate="open"
               exit="collapsed"
