@@ -2,10 +2,11 @@ import React from 'react'
 import logo from './assets/logo.svg'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { solid, regular } from '@fortawesome/fontawesome-svg-core/import.macro'
+import './Header.css'
 
 const Header: React.FC = () => {
   return (
-    <div className="flex">
+    <div className="flex sticky top-0 z-50" id="header">
       <div className=" flex items-center justify-start basis-[65%] h-[80px] bg-[#134427] w-full">
         <img className="cursor-pointer" src={logo} alt="logo" />
         <span className="px-[20px]"></span>

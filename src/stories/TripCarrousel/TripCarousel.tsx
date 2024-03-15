@@ -20,7 +20,7 @@ const TripCarousel: React.FC = () => {
   }
 
   return (
-    <div className="flex items-center justify-center gap-[50px]">
+    <div className="flex items-center justify-center gap-[50px] mt-4">
       <div>
         <button
           className="carousel-control text-gray-300 hover:text-gray-700"

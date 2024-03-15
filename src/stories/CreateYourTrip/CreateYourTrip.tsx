@@ -5,6 +5,7 @@ import { solid } from '@fortawesome/fontawesome-svg-core/import.macro'
 import { DateComponent } from './DateComponent'
 import { AnimatePresence, motion } from 'framer-motion'
 import { LocationCompnent } from './LocationCompnent'
+import './CreateYourTrip.css'
 
 interface Option {
   label: string
@@ -50,12 +51,17 @@ export const CreateYourTrip: React.FC = () => {
   }
 
   return (
-    <div>
+    <div className="content">
+      {/* <div className='h-[5vw]'></div> */}
       <div
-        className="p-[5vmin] background"
-        style={{ backgroundImage: `url(${background})` }}
+        className="bg-none p-[5vmin] background-container"
+        style={{
+          backgroundImage: `url(${background})`,
+          backgroundRepeat: 'no-repeat',
+          backgroundSize: '2200px',
+        }}
       >
-        <form className="w-[95vw] bg-[#ffffff] rounded-[5px] p-[5vmin]">
+        <form className="w-[95vw] bg-[#ffffff] rounded-[5px] p-[5vmin] mt-[10vmin]">
           <div className="flex flex-col items-start justify-center gap-[35px]">
             <div className="text-[25px] text-gray-600">Create Your Trip</div>
             <div className="flex items-center justify-center gap-[35px]">
