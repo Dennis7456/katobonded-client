@@ -58,7 +58,7 @@ export const CreateYourTrip: React.FC = () => {
         style={{
           backgroundImage: `url(${background})`,
           backgroundRepeat: 'no-repeat',
-          backgroundSize: '2200px',
+          width: '100%',
         }}
       >
         <form className="w-[95vw] bg-[#ffffff] rounded-[5px] p-[5vmin] mt-[7vmin]">

@@ -7,6 +7,7 @@ import React, {
 } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { regular, solid } from '@fortawesome/fontawesome-svg-core/import.macro'
+import './LoginModal.css'
 
 interface User {
   email: string
@@ -42,7 +43,12 @@ export const LoginModal: React.FC = () => {
 
   return (
     <>
-      <div className="flex flex-col cursor-pointer">
+      <div
+        className="flex flex-col cursor-pointer"
+        onClick={() => {
+          setShowModal(true)
+        }}
+      >
         <FontAwesomeIcon
           className="py-[5px]"
           icon={regular('user')}
@@ -54,33 +60,34 @@ export const LoginModal: React.FC = () => {
       {ShowModal ? (
         <>
           {/* modal */}
-          <div className="modal-bg">
+          <div className="modal-bg z-41">
             <div className=" opacity-100 justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
               {' '}
               <div className="rounded relative w-full my-6 mx-auto max-w-xs">
                 {/* content */}
                 <form onSubmit={handleSubmit}>
-                  <div className=" dark:bg-on_background border-0 rounded-md shadow-lg relative flex flex-col w-full bg-on_primary outline-none focus:outline-none">
+                  <div className="bg-[#fff] border-0 rounded-md shadow-lg relative flex flex-col w-full bg-on_primary outline-none focus:outline-none">
                     {/* header */}
                     <div className="flex items-center justify-center p-5 border-solid border-slate-200 rounded-t">
-                      <h3 className="text-2xl font-semibold text-center dark:text-on_primary">
+                      <h3 className="text-2xl font-semibold text-center text-gray-600">
                         Login
                       </h3>
-
                       <button
-                        className="p-1 ml-auto bg-transparent border-0 opacity-60 text-error float-right text-3xl leading-none font-semibold outline-none focus:outline-none"
+                        className="p-1 ml-auto bg-transparent border-0 opacity-60 text-error float-right text-3xl leading-none font-semibold outline-none focus:outline-none cursor-pointer bg-red"
                         onClick={() => {
                           setShowModal(false)
                         }}
                       >
-                        {/* <Icon path={mdiCloseCircle} size={1}></Icon> */}
-                        <FontAwesomeIcon icon={solid('circle-xmark')} />
+                        <FontAwesomeIcon
+                          icon={solid('circle-xmark')}
+                          className=""
+                        />
                       </button>
                     </div>
                     {/* body */}
                     <div className="relative p-6 flex-auto">
                       <div>
-                        <label className="pb-2 text-start block text-on_background text-sm font-light dark:text-on_primary">
+                        <label className="pb-2 text-start block text-sm font-light text-gray-600">
                           Email
                         </label>
                         <input
@@ -119,7 +126,17 @@ export const LoginModal: React.FC = () => {
                           className="absolute mr-4 hover:text-info "
                           onClick={handleClick}
                         >
-                          {/* {showPassword ? <Icon className="dark:text-on_background hover:text-info" path={ mdiEyeOutline } size={1}></Icon> : <Icon className="dark:text-on_background hover:text-info" path={ mdiEyeOffOutline } size={1}></Icon>} */}
+                          {showPassword ? (
+                            <FontAwesomeIcon
+                              icon={regular('eye')}
+                              className="dark:text-on_background hover:text-info"
+                            />
+                          ) : (
+                            <FontAwesomeIcon
+                              icon={regular('eye-slash')}
+                              className="dark:text-on_background hover:text-info"
+                            />
+                          )}
                         </button>
                       </span>
                     </div>
