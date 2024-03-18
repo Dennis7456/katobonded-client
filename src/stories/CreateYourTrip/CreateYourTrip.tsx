@@ -6,6 +6,7 @@ import { DateComponent } from './DateComponent'
 import { AnimatePresence, motion } from 'framer-motion'
 import { LocationCompnent } from './LocationCompnent'
 import './CreateYourTrip.css'
+import chatboticon from '../ChatBot/assets/pngwing.png'
 
 interface Option {
   label: string
@@ -61,7 +62,7 @@ export const CreateYourTrip: React.FC = () => {
           backgroundSize: '2200px',
         }}
       >
-        <form className="w-[95vw] bg-[#ffffff] rounded-[5px] p-[5vmin] mt-[10vmin]">
+        <form className="w-[95vw] bg-[#ffffff] rounded-[5px] p-[5vmin] mt-[7vmin]">
           <div className="flex flex-col items-start justify-center gap-[35px]">
             <div className="text-[25px] text-gray-600">Create Your Trip</div>
             <div className="flex items-center justify-center gap-[35px]">
@@ -317,6 +318,13 @@ export const CreateYourTrip: React.FC = () => {
               </div>
             </div> */}
         </form>
+        <div className="flow-root w-[100px] mt-[15px] rounded-[10px]">
+          <img
+            className="cursor-pointer float-right bg-[#134427]"
+            src={chatboticon}
+            alt="chatboticon"
+          />
+        </div>
       </div>
     </div>
   )
