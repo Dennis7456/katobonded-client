@@ -53,9 +53,8 @@ export const CreateYourTrip: React.FC = () => {
 
   return (
     <div className="content">
-      {/* <div className='h-[5vw]'></div> */}
       <div
-        className="bg-none p-[5vmin] background-container"
+        className="bg-none p-[4vmin] background-container"
         style={{
           backgroundImage: `url(${background})`,
           backgroundRepeat: 'no-repeat',
@@ -318,12 +317,13 @@ export const CreateYourTrip: React.FC = () => {
               </div>
             </div> */}
         </form>
-        <div className="flow-root w-[100px] mt-[15px] rounded-[10px]">
-          <img
-            className="cursor-pointer float-right bg-[#134427]"
-            src={chatboticon}
-            alt="chatboticon"
-          />
+        <div
+          className="chatboticon mt-[25px] flow-root float-right drop-shadow-lg cursor-pointer"
+          onClick={() => {
+            alert('clicked')
+          }}
+        >
+          <img className="w-[100px] object-right-bottom" src={chatboticon} />
         </div>
       </div>
     </div>

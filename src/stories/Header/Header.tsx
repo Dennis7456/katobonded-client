@@ -3,6 +3,7 @@ import logo from './assets/logo.svg'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { solid, regular } from '@fortawesome/fontawesome-svg-core/import.macro'
 import './Header.css'
+import { LoginModal } from '../LoginModal/LoginModal'
 
 const Header: React.FC = () => {
   return (
@@ -35,7 +36,7 @@ const Header: React.FC = () => {
           />
           <div className="">USD</div>
         </div>
-        <div className="flex flex-col cursor-pointer">
+        {/* <div className="flex flex-col cursor-pointer">
           <FontAwesomeIcon
             className="py-[5px]"
             icon={regular('user')}
@@ -43,7 +44,8 @@ const Header: React.FC = () => {
             style={{ color: '#ffffff' }}
           />
           <div className="">Agent Login</div>
-        </div>
+        </div> */}
+        <LoginModal />
         <div className="flex flex-col cursor-pointer">
           <FontAwesomeIcon
             className="py-[5px]"
