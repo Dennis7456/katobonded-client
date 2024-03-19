@@ -10,7 +10,6 @@ const App: React.FC = () => {
       <Header />
       <CreateYourTrip />
       {/* <ChatBot /> */}
-      <TripCarousel />/{/* <Header /> */}
     </div>
   )
 }
