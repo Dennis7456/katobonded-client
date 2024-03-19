@@ -6,3 +6,10 @@
   height: 100%;
   background: rgba(0, 0, 0, 0.5);
 }
+
+.chatboticon {
+  position: fixed;
+  right: 50px;
+  bottom: 50px;
+  transform: translateX(-50%);
+}

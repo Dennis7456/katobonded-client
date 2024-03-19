@@ -7,6 +7,7 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { LocationCompnent } from './LocationCompnent'
 import './CreateYourTrip.css'
 import chatboticon from '../ChatBot/assets/pngwing.png'
+import { ChatBotModal } from '../ChatBotModal/ChatBotModal'
 
 interface Option {
   label: string
@@ -54,7 +55,7 @@ export const CreateYourTrip: React.FC = () => {
   return (
     <div className="content">
       <div
-        className="bg-none p-[4vmin] background-container"
+        className="bg-none p-[5vmin] background-container pt-[13vmin]"
         style={{
           backgroundImage: `url(${background})`,
           backgroundRepeat: 'no-repeat',
@@ -317,14 +318,7 @@ export const CreateYourTrip: React.FC = () => {
               </div>
             </div> */}
         </form>
-        {/* <div
-          className="chatboticon mt-[25px] flow-root float-right drop-shadow-lg cursor-pointer"
-          onClick={() => {
-            alert('clicked')
-          }}
-        >
-          <img className="w-[100px] object-right-bottom" src={chatboticon} />
-        </div> */}
+        <ChatBotModal />
       </div>
     </div>
   )

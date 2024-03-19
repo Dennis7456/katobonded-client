@@ -7,13 +7,13 @@ import { ChatBot } from './stories/ChatBot/ChatBot'
 
 const App: React.FC = () => {
   return (
-    <div className="container">
+    <div className="">
       <Header />
       <CreateYourTrip />
-      <ChatBot />
+      {/* <ChatBot /> */}
       {/* <TripCarousel /> */}
       {/* <div className='z-50'>Another element</div> */}
-      <Header />
+      {/* <Header /> */}
     </div>
   )
 }

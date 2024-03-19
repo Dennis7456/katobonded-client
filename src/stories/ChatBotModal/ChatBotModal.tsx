@@ -7,14 +7,15 @@ import React, {
 } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { regular, solid } from '@fortawesome/fontawesome-svg-core/import.macro'
-import './LoginModal.css'
+import './ChatBotModal.css'
+import chatboticon from '../ChatBot/assets/pngwing.png'
 
 interface User {
   email: string
   password: string
 }
 
-export const LoginModal: React.FC = () => {
+export const ChatBotModal: React.FC = () => {
   const [ShowModal, setShowModal] = useState(false)
   const [showPassword, setShowPassword] = useState(false)
   const [isLoggedIn, setIsLoggedIn] = useState(false)
@@ -44,18 +45,12 @@ export const LoginModal: React.FC = () => {
   return (
     <>
       <div
-        className="flex flex-col cursor-pointer"
+        className="chatboticon mt-[25px] flow-root float-right drop-shadow-lg cursor-pointer"
         onClick={() => {
           setShowModal(true)
         }}
       >
-        <FontAwesomeIcon
-          className="py-[5px]"
-          icon={regular('user')}
-          size="lg"
-          style={{ color: '#ffffff' }}
-        />
-        <div className="">Agent Login</div>
+        <img className="w-[100px] object-right-bottom" src={chatboticon} />
       </div>
       {ShowModal ? (
         <>
