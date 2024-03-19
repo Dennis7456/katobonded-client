@@ -1,12 +1,15 @@
 .background-container {
+  position: absolute;
   background-image: url('./assets/background.svg');
   background-repeat: no-repeat;
   background-size: cover;
-  width: auto;
+  height: 155vh;
+  top: 50px;
+  /* overflow-x: hidden; */
 }
 
 .content {
-  padding-top: 80px;
+  /* padding-top: 80px; */
 }
 
 .chatboticon {

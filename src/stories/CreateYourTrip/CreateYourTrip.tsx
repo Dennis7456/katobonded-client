@@ -61,7 +61,7 @@ export const CreateYourTrip: React.FC = () => {
           width: '100%',
         }}
       >
-        <form className="w-[95vw] bg-[#ffffff] rounded-[5px] p-[5vmin] mt-[7vmin]">
+        <form className="w-[95vw] bg-[#ffffff] rounded-[5px] p-[5vmin] mt-[7vmin] pr-[7vmin]">
           <div className="flex flex-col items-start justify-center gap-[35px]">
             <div className="text-[25px] text-gray-600">Create Your Trip</div>
             <div className="flex items-center justify-center gap-[35px]">
@@ -317,14 +317,14 @@ export const CreateYourTrip: React.FC = () => {
               </div>
             </div> */}
         </form>
-        <div
+        {/* <div
           className="chatboticon mt-[25px] flow-root float-right drop-shadow-lg cursor-pointer"
           onClick={() => {
             alert('clicked')
           }}
         >
           <img className="w-[100px] object-right-bottom" src={chatboticon} />
-        </div>
+        </div> */}
       </div>
     </div>
   )
