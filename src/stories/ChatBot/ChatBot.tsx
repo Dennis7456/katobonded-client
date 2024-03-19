@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react'
 import './ChatBot.css'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { regular } from '@fortawesome/fontawesome-svg-core/import.macro'
 
 interface Props {
   userResponse: string
@@ -74,15 +76,17 @@ const ChatBot: React.FC<Props> = (props) => {
 
   return (
     <div className="message-container" ref={bodyRef}>
-      {messages.map((chat) => (
-        <div key={chat.message}>
+      {messages.map((chat, index) => (
+        <div key={`${chat.message}_${index}`}>
           <div className={`message ${chat.sender}`}>
-            <p>{chat.message}</p>
+            <p className="text-on_primary bg-gray-600 px-[5px] py-[5px] text-left rounded-md">
+              {chat.message}
+            </p>
           </div>
           {chat.options !== null && chat.options !== undefined ? (
             <div className="options">
-              <div>
-                <i className="far fa-hand-pointer"></i>
+              <div className="text-gray-100">
+                <FontAwesomeIcon icon={regular('hand-pointer')} />
               </div>
               {chat.options.map((option) => (
                 <p

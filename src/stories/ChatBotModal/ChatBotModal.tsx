@@ -56,9 +56,9 @@ export const ChatBotModal: React.FC = () => {
     }
   }
 
-  const handleChange = (e: React.ChangeEvent<HTMLAreaElement>): void => {
-    // const { name, value } = e.target
-    // setUser({ ...user, [name]: value })
+  const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>): void => {
+    const { name, value } = e.target
+    setUserResponse(value)
   }
 
   const handleClick: React.MouseEventHandler<HTMLButtonElement> = (
@@ -98,14 +98,18 @@ export const ChatBotModal: React.FC = () => {
                 <form onSubmit={handleSubmit}>
                   <div className="bg-[#fff] border-0 rounded-md shadow-lg relative flex flex-col w-full bg-on_primary outline-none focus:outline-none">
                     {/* header */}
-                    <div className="flex items-center justify-center p-2 border-solid border-slate-200">
-                      <img
+                    <div className="flex items-center justify-center px-[5px] my-[5px] border-solid border-slate-200">
+                      {/* <img
                         src={chatboticon}
                         alt=""
                         style={{ height: '60px' }}
-                      ></img>
+                        className='mx-[10px]'
+                      ></img> */}
+                      <div className="text-2xl mx-[10px] font-semibold text-center text-gray-600">
+                        ChatBot
+                      </div>
                       <button
-                        className="p-1 ml-auto bg-transparent border-0 opacity-60 text-error float-right text-3xl leading-none font-semibold outline-none focus:outline-none cursor-pointer bg-red"
+                        className="mx-[10px] p-1 ml-auto bg-transparent border-0 opacity-60 text-error float-right text-3xl leading-none font-semibold outline-none focus:outline-none cursor-pointer bg-red"
                         onClick={() => {
                           setShowModal(false)
                         }}
@@ -125,12 +129,12 @@ export const ChatBotModal: React.FC = () => {
                       />
                       <div className="flex items-center justify-between relative">
                         <textarea
-                          // onChange={handleChange}
+                          onChange={handleChange}
                           name="user-response"
                           id="user-response"
                           placeholder="say something"
                           value={userResponse}
-                          className=" border-[#E8E8ED] border-[2px] focus:border-gray-500 truncate ... focus:bg-on_secondary text-[20px] ml-[2px] required:border-error invalid:border-error shadow border-0 focus:border-1 rounded-md w-full py-2 px-3 focus:outline-none focus:shadow-outline text-gray-600 dark:text-on_background bg-gray-200"
+                          className=" border-[#E8E8ED] px-[10px] pr-[48px] focus:border-gray-500 focus:bg-on_secondary text-[20px] ml-[2px] required:border-error invalid:border-error shadow border-0 focus:border-1 rounded-md w-full py-2 focus:outline-none focus:shadow-outline text-gray-600 dark:text-on_background bg-gray-200"
                           rows={3}
                           // cols={40}
                         ></textarea>

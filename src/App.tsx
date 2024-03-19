@@ -9,6 +9,7 @@ const App: React.FC = () => {
     <div className="">
       <Header />
       <CreateYourTrip />
+      <TripCarousel />
       {/* <ChatBot /> */}
     </div>
   )
