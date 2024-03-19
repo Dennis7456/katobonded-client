@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { ChatBot } from './ChatBot'
+import ChatBot from './ChatBot'
 
 const meta: Meta<typeof ChatBot> = {
   title: 'Example/Chatbot',

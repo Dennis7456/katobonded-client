@@ -3,7 +3,7 @@
   background-image: url('./assets/background.svg');
   background-repeat: no-repeat;
   background-size: cover;
-  height: 155vh;
+  /* height: 155vh; */
   /* top: 50px; */
   /* overflow-x: hidden; */
 }

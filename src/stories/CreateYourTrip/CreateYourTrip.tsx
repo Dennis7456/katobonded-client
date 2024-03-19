@@ -55,7 +55,7 @@ export const CreateYourTrip: React.FC = () => {
   return (
     <div className="content">
       <div
-        className="bg-none p-[5vmin] background-container pt-[13vmin]"
+        className="bg-none p-[5vmin] background-container pt-[13vmin] h-screen"
         style={{
           backgroundImage: `url(${background})`,
           backgroundRepeat: 'no-repeat',
