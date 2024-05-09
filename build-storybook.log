@@ -1,15 +1,15 @@
 
 > katobonded-client@0.1.38 build-storybook
-> storybook build --output-dir /var/folders/_9/4pqw7vzd6_98vk0p3_l203y40000gn/T/chromatic--69884-vLtU1RJpC1QT
+> storybook build --output-dir /var/folders/_9/4pqw7vzd6_98vk0p3_l203y40000gn/T/chromatic--70214-KdQgSRDOjlQA
 
 @storybook/cli v7.6.2
 
-info => Cleaning outputDir: /var/folders/_9/4pqw7vzd6_98vk0p3_l203y40000gn/T/chromatic--69884-vLtU1RJpC1QT
+info => Cleaning outputDir: /var/folders/_9/4pqw7vzd6_98vk0p3_l203y40000gn/T/chromatic--70214-KdQgSRDOjlQA
 info => Loading presets
 info => Building manager..
-info => Manager built (218 ms)
+info => Manager built (201 ms)
 info => Building preview..
-info => Copying static files: /Users/des/Documents/katobonded-client/node_modules/@storybook/manager/static at /var/folders/_9/4pqw7vzd6_98vk0p3_l203y40000gn/T/chromatic--69884-vLtU1RJpC1QT/sb-common-assets
+info => Copying static files: /Users/des/Documents/katobonded-client/node_modules/@storybook/manager/static at /var/folders/_9/4pqw7vzd6_98vk0p3_l203y40000gn/T/chromatic--70214-KdQgSRDOjlQA/sb-common-assets
 info Using Babel compiler
 info Addon-docs: using MDX2
 info => Loading Webpack configuration from `node_modules/react-scripts`
@@ -124,35 +124,36 @@ info => Using default Webpack5 setup
 <s> [webpack.Progress] 9% setup compilation
 <s> [webpack.Progress] 10% building
 <s> [webpack.Progress] 10% building 0/1 entries 0/0 dependencies 0/0 modules
-info => Copying static files: /Users/des/Documents/katobonded-client/public at /var/folders/_9/4pqw7vzd6_98vk0p3_l203y40000gn/T/chromatic--69884-vLtU1RJpC1QT/
+info => Copying static files: /Users/des/Documents/katobonded-client/public at /var/folders/_9/4pqw7vzd6_98vk0p3_l203y40000gn/T/chromatic--70214-KdQgSRDOjlQA/
 <s> [webpack.Progress] 10% building import loader ./node_modules/@storybook/preset-react-webpack/dist/loaders/react-docgen-loader.js
 <s> [webpack.Progress] 10% building 0/1 entries 1/1 dependencies 0/1 modules
 <s> [webpack.Progress] 18% building import loader ./node_modules/react-scripts/node_modules/babel-loader/lib/index.js
 <s> [webpack.Progress] 18% building import loader ./node_modules/source-map-loader/dist/cjs.js
 <s> [webpack.Progress] 18% building 0/1 entries 19/32 dependencies 3/19 modules
-<s> [webpack.Progress] 19% building import loader ./node_modules/@storybook/mdx2-csf/loader.js
-<s> [webpack.Progress] 19% building 0/1 entries 30/60 dependencies 4/23 modules
+<s> [webpack.Progress] 26% building import loader ./node_modules/@storybook/mdx2-csf/loader.js
+<s> [webpack.Progress] 26% building 0/1 entries 31/60 dependencies 7/24 modules
 <s> [webpack.Progress] 22% building import loader ./node_modules/@storybook/builder-webpack5/dist/loaders/export-order-loader.js
 <s> [webpack.Progress] 22% building import loader ./node_modules/unplugin/dist/webpack/loaders/load.js
 <s> [webpack.Progress] 22% building 0/1 entries 44/89 dependencies 7/30 modules
-<s> [webpack.Progress] 30% building import loader ./node_modules/mini-css-extract-plugin/dist/loader.js
-<s> [webpack.Progress] 30% building import loader ./node_modules/css-loader/dist/cjs.js
-<s> [webpack.Progress] 30% building import loader ./node_modules/postcss-loader/dist/cjs.js
-<s> [webpack.Progress] 30% building 0/1 entries 59/89 dependencies 17/45 modules
+<s> [webpack.Progress] 28% building import loader ./node_modules/mini-css-extract-plugin/dist/loader.js
+<s> [webpack.Progress] 28% building import loader ./node_modules/css-loader/dist/cjs.js
+<s> [webpack.Progress] 28% building import loader ./node_modules/postcss-loader/dist/cjs.js
+<s> [webpack.Progress] 28% building 0/1 entries 68/100 dependencies 17/51 modules
 <s> [webpack.Progress] 27% building import loader ./node_modules/@svgr/webpack/lib/index.js
 <s> [webpack.Progress] 27% building import loader ./node_modules/file-loader/dist/cjs.js
 <s> [webpack.Progress] 27% building 0/1 entries 72/101 dependencies 17/55 modules
-<s> [webpack.Progress] 33% building 0/1 entries 147/175 dependencies 38/90 modules
+<s> [webpack.Progress] 34% building 0/1 entries 141/176 dependencies 38/87 modules
 <s> [webpack.Progress] 33% building 0/1 entries 179/234 dependencies 44/102 modules
-<s> [webpack.Progress] 31% building 0/1 entries 500/549 dependencies 103/260 modules
-<s> [webpack.Progress] 35% building 0/1 entries 761/830 dependencies 183/400 modules
-<s> [webpack.Progress] 37% building 0/1 entries 1200/1244 dependencies 267/536 modules
+<s> [webpack.Progress] 34% building 0/1 entries 439/543 dependencies 100/222 modules
+<s> [webpack.Progress] 32% building 0/1 entries 552/600 dependencies 118/286 modules
+<s> [webpack.Progress] 33% building 0/1 entries 1100/1175 dependencies 228/531 modules
+<s> [webpack.Progress] 40% building 0/1 entries 1282/1300 dependencies 311/569 modules
 [BABEL] Note: The code generator has deoptimised the styling of /Users/des/Documents/katobonded-client/src/stories/BookTrip/assets/Lamu.svg as it exceeds the max of 500KB.
 [BABEL] Note: The code generator has deoptimised the styling of undefined as it exceeds the max of 500KB.
-<s> [webpack.Progress] 48% building 0/1 entries 1561/1600 dependencies 453/641 modules
+<s> [webpack.Progress] 48% building 0/1 entries 1551/1600 dependencies 449/639 modules
 [BABEL] Note: The code generator has deoptimised the styling of /Users/des/Documents/katobonded-client/src/stories/CreateYourTrip/assets/background.svg as it exceeds the max of 500KB.
 [BABEL] Note: The code generator has deoptimised the styling of undefined as it exceeds the max of 500KB.
-<s> [webpack.Progress] 61% building 0/1 entries 1788/1800 dependencies 646/694 modules
+<s> [webpack.Progress] 59% building 0/1 entries 1784/1800 dependencies 628/694 modules
 <s> [webpack.Progress] 65% building 1/1 entries 1924/1924 dependencies 737/737 modules
 <s> [webpack.Progress] 65% building
 <s> [webpack.Progress] 69% building finish
@@ -261,12 +262,12 @@ info => Copying static files: /Users/des/Documents/katobonded-client/public at /
 <s> [webpack.Progress] 92% sealing asset processing SourceMapDevToolPlugin static/css/main.b036bbed.css generated SourceMap
 <s> [webpack.Progress] 92% sealing asset processing SourceMapDevToolPlugin main.d1b0a89e.iframe.bundle.js generate SourceMap
 <s> [webpack.Progress] 92% sealing asset processing SourceMapDevToolPlugin main.d1b0a89e.iframe.bundle.js generated SourceMap
-<s> [webpack.Progress] 92% sealing asset processing SourceMapDevToolPlugin runtime~main.d7b50781.iframe.bundle.js generate SourceMap
-<s> [webpack.Progress] 92% sealing asset processing SourceMapDevToolPlugin runtime~main.d7b50781.iframe.bundle.js generated SourceMap
+<s> [webpack.Progress] 92% sealing asset processing SourceMapDevToolPlugin runtime~main.23b434a3.iframe.bundle.js generate SourceMap
+<s> [webpack.Progress] 92% sealing asset processing SourceMapDevToolPlugin runtime~main.23b434a3.iframe.bundle.js generated SourceMap
 <s> [webpack.Progress] 92% sealing asset processing SourceMapDevToolPlugin stories-Configure-mdx.92424e42.iframe.bundle.js generate SourceMap
 <s> [webpack.Progress] 92% sealing asset processing SourceMapDevToolPlugin stories-Configure-mdx.92424e42.iframe.bundle.js generated SourceMap
-<s> [webpack.Progress] 92% sealing asset processing SourceMapDevToolPlugin stories-BookTrip-BookTrip-stories.75cca792.iframe.bundle.js generate SourceMap
-<s> [webpack.Progress] 92% sealing asset processing SourceMapDevToolPlugin stories-BookTrip-BookTrip-stories.75cca792.iframe.bundle.js generated SourceMap
+<s> [webpack.Progress] 92% sealing asset processing SourceMapDevToolPlugin stories-BookTrip-BookTrip-stories.6eea32ed.iframe.bundle.js generate SourceMap
+<s> [webpack.Progress] 92% sealing asset processing SourceMapDevToolPlugin stories-BookTrip-BookTrip-stories.6eea32ed.iframe.bundle.js generated SourceMap
 <s> [webpack.Progress] 92% sealing asset processing SourceMapDevToolPlugin static/css/stories-Button-Button-stories.271853bb.chunk.css generate SourceMap
 <s> [webpack.Progress] 92% sealing asset processing SourceMapDevToolPlugin static/css/stories-Button-Button-stories.271853bb.chunk.css generated SourceMap
 <s> [webpack.Progress] 92% sealing asset processing SourceMapDevToolPlugin stories-Button-Button-stories.e5213d82.iframe.bundle.js generate SourceMap
@@ -322,10 +323,10 @@ info => Copying static files: /Users/des/Documents/katobonded-client/public at /
 <s> [webpack.Progress] 92% sealing asset processing RealContentHashPlugin
 <s> [webpack.Progress] 92% sealing asset processing RealContentHashPlugin main.966d1fe5.iframe.bundle.js generate SourceMap
 <s> [webpack.Progress] 92% sealing asset processing RealContentHashPlugin main.966d1fe5.iframe.bundle.js generated SourceMap
-<s> [webpack.Progress] 92% sealing asset processing RealContentHashPlugin runtime~main.c90d748a.iframe.bundle.js generate SourceMap
-<s> [webpack.Progress] 92% sealing asset processing RealContentHashPlugin runtime~main.c90d748a.iframe.bundle.js generated SourceMap
-<s> [webpack.Progress] 92% sealing asset processing RealContentHashPlugin stories-BookTrip-BookTrip-stories.c8889ce9.iframe.bundle.js generate SourceMap
-<s> [webpack.Progress] 92% sealing asset processing RealContentHashPlugin stories-BookTrip-BookTrip-stories.c8889ce9.iframe.bundle.js generated SourceMap
+<s> [webpack.Progress] 92% sealing asset processing RealContentHashPlugin runtime~main.7d393867.iframe.bundle.js generate SourceMap
+<s> [webpack.Progress] 92% sealing asset processing RealContentHashPlugin runtime~main.7d393867.iframe.bundle.js generated SourceMap
+<s> [webpack.Progress] 92% sealing asset processing RealContentHashPlugin stories-BookTrip-BookTrip-stories.48a8ed24.iframe.bundle.js generate SourceMap
+<s> [webpack.Progress] 92% sealing asset processing RealContentHashPlugin stories-BookTrip-BookTrip-stories.48a8ed24.iframe.bundle.js generated SourceMap
 <s> [webpack.Progress] 92% sealing asset processing RealContentHashPlugin stories-CreateYourTrip-CreateYourTrip-stories.7be2e46d.iframe.bundle.js generate SourceMap
 <s> [webpack.Progress] 92% sealing asset processing RealContentHashPlugin stories-CreateYourTrip-CreateYourTrip-stories.7be2e46d.iframe.bundle.js generated SourceMap
 <s> [webpack.Progress] 92% sealing asset processing RealContentHashPlugin stories-Header-Header-stories.14ace271.iframe.bundle.js generate SourceMap
@@ -391,15 +392,15 @@ WARN   Line 70:10:   'travellers' is assigned a value but never used            
 WARN   Line 70:22:   'setTravellers' is assigned a value but never used            @typescript-eslint/no-unused-vars
 WARN   Line 71:10:   'addedSuggestions' is assigned a value but never used         @typescript-eslint/no-unused-vars
 WARN   Line 71:28:   'setAddedSuggestions' is assigned a value but never used      @typescript-eslint/no-unused-vars
-WARN   Line 88:9:    'handleDestinationChange' is assigned a value but never used  @typescript-eslint/no-unused-vars
-WARN   Line 94:9:    'handleDateChange' is assigned a value but never used         @typescript-eslint/no-unused-vars
-WARN   Line 98:9:    'hanldeTravellerChange' is assigned a value but never used    @typescript-eslint/no-unused-vars
-WARN   Line 117:9:   'dateError' is assigned a value but never used                @typescript-eslint/no-unused-vars
-WARN   Line 195:43:  Generic Object Injection Sink                                 security/detect-object-injection
-WARN   Line 199:10:  Unexpected var, use let or const instead                      no-var
-WARN   Line 204:10:  Unexpected var, use let or const instead                      no-var
-WARN   Line 232:11:  'selectedDate' is assigned a value but never used             @typescript-eslint/no-unused-vars
-WARN   Line 575:22:  Generic Object Injection Sink                                 security/detect-object-injection
+WARN   Line 89:9:    'handleDestinationChange' is assigned a value but never used  @typescript-eslint/no-unused-vars
+WARN   Line 95:9:    'handleDateChange' is assigned a value but never used         @typescript-eslint/no-unused-vars
+WARN   Line 99:9:    'hanldeTravellerChange' is assigned a value but never used    @typescript-eslint/no-unused-vars
+WARN   Line 118:9:   'dateError' is assigned a value but never used                @typescript-eslint/no-unused-vars
+WARN   Line 194:43:  Generic Object Injection Sink                                 security/detect-object-injection
+WARN   Line 198:10:  Unexpected var, use let or const instead                      no-var
+WARN   Line 203:10:  Unexpected var, use let or const instead                      no-var
+WARN   Line 231:11:  'selectedDate' is assigned a value but never used             @typescript-eslint/no-unused-vars
+WARN   Line 583:32:  Generic Object Injection Sink                                 security/detect-object-injection
 WARN 
 WARN src/stories/CreateYourTrip/DateComponent.tsx
 WARN   Line 27:10:   'datePickerValue' is assigned a value but never used  @typescript-eslint/no-unused-vars
@@ -432,7 +433,7 @@ WARN   937.cd97fe14.iframe.bundle.js (817 KiB)
 WARN entrypoint size limit: The following entrypoint(s) combined asset size exceeds the recommended limit (244 KiB). This can impact web performance.
 WARN Entrypoints:
 WARN   main (859 KiB)
-WARN       runtime~main.c90d748a.iframe.bundle.js
+WARN       runtime~main.7d393867.iframe.bundle.js
 WARN       937.cd97fe14.iframe.bundle.js
 WARN       main.966d1fe5.iframe.bundle.js
 WARN       static/css/main.8d1480f2.css
@@ -441,5 +442,5 @@ WARN
 <s> [webpack.Progress] 99% cache shutdown
 <s> [webpack.Progress] 100% 
 
-info => Preview built (35 s)
-info => Output directory: /var/folders/_9/4pqw7vzd6_98vk0p3_l203y40000gn/T/chromatic--69884-vLtU1RJpC1QT
+info => Preview built (40 s)
+info => Output directory: /var/folders/_9/4pqw7vzd6_98vk0p3_l203y40000gn/T/chromatic--70214-KdQgSRDOjlQA
