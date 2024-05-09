@@ -4,7 +4,13 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { regular } from '@fortawesome/fontawesome-svg-core/import.macro'
 
 interface Props {
-  userResponse: string
+  userResponse: {
+    purpose: string
+    message: string
+    options?: string[]
+    sender: string
+  }
+
   botResponse: {
     purpose: string
     message: string
@@ -34,8 +40,9 @@ const ChatBot: React.FC<Props> = (props) => {
         {
           purpose: 'introduction',
           message:
-            "Hi there. If you're here, that means you're looking for a job. Tell me, what's your name?",
+            'Hi there. If you are here, that means you need a vacation. Might I suggest a relaxing beach getaway or perhaps an adventurous mountain retreat?',
           sender: 'bot',
+          options: ['Ask a question', 'Login', 'Register'],
         },
       ])
     } else {
@@ -57,35 +64,31 @@ const ChatBot: React.FC<Props> = (props) => {
       top: dummyRef.current?.offsetTop,
       behavior: 'smooth',
     })
-    // if (
-    //   dummyRef !== null &&
-    //   dummyRef !== undefined &&
-    //   dummyRef.current !== undefined &&
-    //   dummyRef.current !== null &&
-    //   bodyRef !== undefined &&
-    //   bodyRef !== null &&
-    //   bodyRef.current !== undefined &&
-    //   bodyRef.current !== null
-    // ) {
-    //   bodyRef.current.scrollTo({
-    //     top: dummyRef.current.offsetTop,
-    //     behavior: 'smooth',
-    //   })
-    // }
+
+    if (dummyRef.current !== null && bodyRef.current !== null) {
+      bodyRef.current.scrollTo({
+        top: dummyRef.current.offsetTop,
+        behavior: 'smooth',
+      })
+    }
+
+    console.log(messages)
   }, [messages])
 
   return (
-    <div className="message-container" ref={bodyRef}>
+    <div className="message-container">
       {messages.map((chat, index) => (
-        <div key={`${chat.message}_${index}`}>
+        <div
+          key={`${chat.message}_${index}`}
+          className="my-[5px] text-left"
+          ref={bodyRef}
+        >
           <div className={`message ${chat.sender}`}>
-            <p className="text-on_primary bg-gray-600 px-[5px] py-[5px] text-left rounded-md">
-              {chat.message}
-            </p>
+            <p className="text-on_primary">{chat.message}</p>
           </div>
           {chat.options !== null && chat.options !== undefined ? (
             <div className="options">
-              <div className="text-gray-100">
+              <div className="text-gray-900">
                 <FontAwesomeIcon icon={regular('hand-pointer')} />
               </div>
               {chat.options.map((option) => (
@@ -95,6 +98,7 @@ const ChatBot: React.FC<Props> = (props) => {
                   }}
                   data-id={option}
                   key={option}
+                  className="bg-info text-on_primary hover:bg-primary px-[10px] rounded-[3px] "
                 >
                   {option}
                 </p>

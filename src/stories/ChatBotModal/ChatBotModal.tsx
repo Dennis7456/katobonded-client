@@ -11,7 +11,8 @@ import { regular, solid } from '@fortawesome/fontawesome-svg-core/import.macro'
 import './ChatBotModal.css'
 import chatboticon from '../ChatBot/assets/pngwing.png'
 import ChatBot from '../ChatBot/ChatBot'
-import { analyzeNextSteps } from './HelperFunctions/anaLyzeNextSteps'
+import { analyzeOptions } from './HelperFunctions/analyzeOptions'
+// import { useModalContext } from './ModalContext';
 
 // interface User {
 //   email: string
@@ -26,11 +27,14 @@ interface ResponseObject {
 }
 
 export const ChatBotModal: React.FC = () => {
-  const [userResponse, setUserResponse] = useState<string>('')
+  const [userResponse, setUserResponse] = useState<ResponseObject>({
+    purpose: '',
+    message: '',
+    sender: '',
+  })
   const [ShowModal, setShowModal] = useState(true)
   const [showPassword, setShowPassword] = useState(false)
   const [isLoggedIn, setIsLoggedIn] = useState(false)
-  // const [userResponse, setUserResponse] = useState<string>("");
   // const [user, setUser] = useState<User>({ email: '', password: '' })
   const [step, setStep] = useState<number>(0)
   const [botResponse, setBotResponse] = useState<ResponseObject>({
@@ -40,13 +44,15 @@ export const ChatBotModal: React.FC = () => {
   })
   const [sendUserResponse, setSendUserResponse] = useState<string>('')
 
+  // const { isModalOpen, openModal, closeModal } = useModalContext();
+
   // setting next step when there's response and option click
   const setNextStep = (response: string): void => {
     setStep((prevState) => prevState + 1)
     setSendUserResponse(response)
-    const res = analyzeNextSteps(step, response)
+    const res = analyzeOptions(response)
     setBotResponse({ ...res, sender: 'bot' })
-    setUserResponse('')
+    setUserResponse({ options: [], message: '', purpose: '', sender: 'user' })
   }
 
   const optionClick = (e: React.MouseEvent<HTMLElement>): void => {
@@ -56,25 +62,33 @@ export const ChatBotModal: React.FC = () => {
     }
   }
 
+  // const setShowModal = () => {
+
+  //   setShowModal(true);
+  // }
+
   const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>): void => {
     const { name, value } = e.target
-    setUserResponse(value)
+    console.log(name, value)
+    setUserResponse({ ...userResponse, message: value, sender: 'user' })
   }
 
-  const handleClick: React.MouseEventHandler<HTMLButtonElement> = (
-    e: React.MouseEvent,
-  ) => {
-    e.preventDefault()
-    if (showPassword) {
-      setShowModal(false)
-    } else {
-      setShowModal(true)
-    }
-  }
+  // const handleClick: React.MouseEventHandler<HTMLButtonElement> = (
+  //   e: React.MouseEvent,
+  // ) => {
+  //   e.preventDefault()
+  //   if (showPassword) {
+  //     setShowModal(false)
+  //   } else {
+  //     setShowModal(true)
+  //   }
+  // }
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
     e.preventDefault()
-    // auth
+    // setSendUserResponse(userResponse)
+    console.log(userResponse)
+    alert('submitted')
   }
 
   return (
@@ -133,17 +147,19 @@ export const ChatBotModal: React.FC = () => {
                           name="user-response"
                           id="user-response"
                           placeholder="say something"
-                          value={userResponse}
-                          className=" border-[#E8E8ED] px-[10px] pr-[48px] focus:border-gray-500 focus:bg-on_secondary text-[20px] ml-[2px] required:border-error invalid:border-error shadow border-0 focus:border-1 rounded-md w-full py-2 focus:outline-none focus:shadow-outline text-gray-600 dark:text-on_background bg-gray-200"
+                          value={userResponse.message}
+                          className="textarea border-[#E8E8ED] px-[10px] pr-[48px] focus:border-gray-500 focus:bg-on_secondary text-[20px] ml-[2px] required:border-error invalid:border-error shadow border-0 focus:border-1 rounded-md w-full py-2 focus:outline-none focus:shadow-outline text-gray-600 dark:text-on_background bg-gray-200"
                           rows={3}
                           // cols={40}
                         ></textarea>
-                        <span className="absolute left-[422px] top-[60px] bg-info hover:text-on_primary hover:bg-primary p-[12px] mr-[2px] rounded-br-md cursor-pointer text-on_primary">
-                          <FontAwesomeIcon
-                            icon={regular('paper-plane')}
-                            size="xl"
-                          />
-                        </span>
+                        <button type="submit">
+                          <span className="absolute left-[422px] top-[60px] bg-info hover:text-on_primary hover:bg-primary p-[12px] mr-[2px] rounded-br-md cursor-pointer text-on_primary">
+                            <FontAwesomeIcon
+                              icon={regular('paper-plane')}
+                              size="xl"
+                            />
+                          </span>
+                        </button>
                       </div>
                       {/* <input 
                       onChange={handleChange} 

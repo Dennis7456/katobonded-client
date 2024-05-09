@@ -14,8 +14,10 @@ $bubble-border-radius: 17px;
 }
 
 .message-container {
-  overflow-y: scroll;
+  overflow-y: flow;
   margin-bottom: 2em;
+  display: flex;
+  flex-direction: column;
 
   > div {
     display: flex;
@@ -81,4 +83,20 @@ $bubble-border-radius: 17px;
   .dummy-div {
     padding: 0.5em 0;
   }
+}
+
+.message.bot {
+  background-color: #4b5563;
+  color: #333;
+  padding: 10px;
+  border-radius: 5px;
+  align-self: flex-start;
+}
+
+.message.user {
+  background-color: #6d5e00;
+  color: #333;
+  padding: 10px;
+  border-radius: 5px;
+  align-self: end;
 }

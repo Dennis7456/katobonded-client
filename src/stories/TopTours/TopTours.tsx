@@ -68,7 +68,9 @@ export const TopTours: React.FC = () => {
       <div className="text-[25px] text-gray-400 text-center">Top Tours</div>
       <div className="flex items-center justify-center gap-[20px] pt-[35px]">
         {getaways.map((getaway, index) => (
-          <div key={index}>{getaway.title}</div>
+          <div key={index} className="rounded-full bg-[#272d3d]">
+            {getaway.title}
+          </div>
         ))}
       </div>
       <div className="flex items-center justify-center pt-[20px]">

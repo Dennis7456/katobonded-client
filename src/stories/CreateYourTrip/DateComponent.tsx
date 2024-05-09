@@ -46,7 +46,7 @@ export const DateComponent: React.FC = () => {
   }
 
   useEffect(() => {
-    console.log(`Month changed to: ${month}`)
+    // console.log(`Month changed to: ${month}`)
     getNoOfDays()
   }, [month])
 
@@ -74,9 +74,9 @@ export const DateComponent: React.FC = () => {
 
   // Calculates the number of days in the given month
   const getNoOfDays = (): void => {
-    console.log(`Month: ${month}`)
+    // console.log(`Month: ${month}`)
     const daysInMonth = new Date(year, month + 1, 0).getDate()
-    console.log(`${daysInMonth} days in ${MONTH_NAMES[month]}`)
+    // console.log(`${daysInMonth} days in ${MONTH_NAMES[month]}`)
     const dayOfWeek = new Date(year, month).getDay()
 
     const blankdaysArray: number[] = []

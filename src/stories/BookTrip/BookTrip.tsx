@@ -1,4 +1,4 @@
-import React, { FormEvent, useState, useRef, useEffect } from 'react'
+import React, { useRef, useEffect, useState } from 'react'
 import { Header } from './Header'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { solid, regular } from '@fortawesome/fontawesome-svg-core/import.macro'
