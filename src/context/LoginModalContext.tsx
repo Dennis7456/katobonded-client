@@ -1,15 +1,17 @@
 import React, { createContext, useContext, useState } from 'react'
 
-interface ModalContextType {
+interface BotModalContextType {
   isModalOpen: boolean
   openModal: () => void
   closeModal: () => void
 }
 
-const ModalContext = createContext<ModalContextType | undefined>(undefined)
+const LoginModalContext = createContext<BotModalContextType | undefined>(
+  undefined,
+)
 
-export const useModalContext = (): ModalContextType => {
-  const context = useContext(ModalContext)
+export const useLoginModalContext = (): BotModalContextType => {
+  const context = useContext(LoginModalContext)
   if (context === undefined) {
     throw new Error('useModalContext must be used within a ModalProvider')
   }
@@ -20,7 +22,7 @@ interface ModalProviderProps {
   children: React.ReactNode
 }
 
-export const ModalProvider: React.FC<ModalProviderProps> = ({
+export const LoginModalProvider: React.FC<ModalProviderProps> = ({
   children,
 }): JSX.Element => {
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false)
@@ -32,11 +34,15 @@ export const ModalProvider: React.FC<ModalProviderProps> = ({
     setIsModalOpen(false)
   }
 
-  const value: ModalContextType = {
+  const value: BotModalContextType = {
     isModalOpen,
     openModal,
     closeModal,
   }
 
-  return <ModalContext.Provider value={value}>{children}</ModalContext.Provider>
+  return (
+    <LoginModalContext.Provider value={value}>
+      {children}
+    </LoginModalContext.Provider>
+  )
 }

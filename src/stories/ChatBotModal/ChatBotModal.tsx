@@ -1,10 +1,11 @@
 import React, {
+  useRef,
   useState,
-  MouseEvent,
   ChangeEvent,
   FormEvent,
   MouseEventHandler,
   TextareaHTMLAttributes,
+  useEffect,
 } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { regular, solid } from '@fortawesome/fontawesome-svg-core/import.macro'
@@ -12,6 +13,7 @@ import './ChatBotModal.css'
 import chatboticon from '../ChatBot/assets/pngwing.png'
 import ChatBot from '../ChatBot/ChatBot'
 import { analyzeOptions } from './HelperFunctions/analyzeOptions'
+import { useBotModalContext } from 'src/context/BotModalContext'
 // import { useModalContext } from './ModalContext';
 
 // interface User {
@@ -24,71 +26,95 @@ interface ResponseObject {
   message: string
   options?: string[]
   sender: string
+  time: string
 }
 
 export const ChatBotModal: React.FC = () => {
+  const { isModalOpen, openModal, closeModal } = useBotModalContext()
   const [userResponse, setUserResponse] = useState<ResponseObject>({
     purpose: '',
     message: '',
     sender: '',
+    time: '',
   })
-  const [ShowModal, setShowModal] = useState(true)
   const [showPassword, setShowPassword] = useState(false)
   const [isLoggedIn, setIsLoggedIn] = useState(false)
-  // const [user, setUser] = useState<User>({ email: '', password: '' })
   const [step, setStep] = useState<number>(0)
   const [botResponse, setBotResponse] = useState<ResponseObject>({
     purpose: '',
     message: '',
     sender: 'bot',
+    time: '',
   })
-  const [sendUserResponse, setSendUserResponse] = useState<string>('')
+  const [sendUserResponse, setSendUserResponse] = useState<ResponseObject>({
+    purpose: '',
+    message: '',
+    sender: '',
+    time: '',
+  })
+  const clickRef = useRef<HTMLDivElement>(null)
 
-  // const { isModalOpen, openModal, closeModal } = useModalContext();
+  const getTime = (): string => {
+    const currentTime = new Date(Date.now())
+    const hours = currentTime.getHours()
+    const minutes = currentTime.getMinutes()
+    const period = hours >= 12 ? 'PM' : 'AM'
+    const formattedHours = hours === 0 ? 12 : hours % 12 // Convert 0 to 12 for 12-hour format
+    return `${formattedHours}:${minutes < 10 ? '0' : ''}${minutes} ${period}`
+  }
+
+  // useEffect(() => {
+  //   document.addEventListener('mousedown', handleOutsideClick)
+  //   return () => {
+  //     document.removeEventListener('mousedown', handleOutsideClick)
+  //   }
+  // }, [isModalOpen])
+
+  // const handleOutsideClick = (e: MouseEvent): void => {
+  //   if (isModalOpen && clickRef.current !== null && !clickRef.current.contains(e.target as Node)) {
+  //     closeModal();
+  //   }
+  // }
 
   // setting next step when there's response and option click
-  const setNextStep = (response: string): void => {
-    setStep((prevState) => prevState + 1)
-    setSendUserResponse(response)
-    const res = analyzeOptions(response)
-    setBotResponse({ ...res, sender: 'bot' })
-    setUserResponse({ options: [], message: '', purpose: '', sender: 'user' })
-  }
+  // const setNextStep = (response: string): void => {
+  //   setStep((prevState) => prevState + 1)
+  //   setSendUserResponse(response)
+  //   const res = analyzeOptions(response)
+  //   setBotResponse({ ...res, sender: 'bot' })
+  //   setUserResponse({ options: [], message: '', purpose: '', sender: 'user' })
+  // }
 
   const optionClick = (e: React.MouseEvent<HTMLElement>): void => {
     const option = e.currentTarget.dataset.id
     if (option !== null && option !== undefined && typeof option === 'string') {
-      setNextStep(option)
+      // setNextStep(option)
     }
   }
 
-  // const setShowModal = () => {
-
-  //   setShowModal(true);
-  // }
-
   const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>): void => {
     const { name, value } = e.target
-    console.log(name, value)
+    // console.log(name, value)
     setUserResponse({ ...userResponse, message: value, sender: 'user' })
   }
 
-  // const handleClick: React.MouseEventHandler<HTMLButtonElement> = (
-  //   e: React.MouseEvent,
-  // ) => {
-  //   e.preventDefault()
-  //   if (showPassword) {
-  //     setShowModal(false)
-  //   } else {
-  //     setShowModal(true)
-  //   }
-  // }
+  const updateModalWindow = (): void => {
+    openModal()
+    // setShowModal(true);
+    console.log(isModalOpen)
+  }
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
     e.preventDefault()
-    // setSendUserResponse(userResponse)
-    console.log(userResponse)
-    alert('submitted')
+    const time = getTime()
+    setSendUserResponse({ ...userResponse, time })
+    // console.log(sendUserResponse);
+    setUserResponse({
+      purpose: '',
+      message: '',
+      sender: '',
+      time: '',
+    })
   }
 
   return (
@@ -96,12 +122,12 @@ export const ChatBotModal: React.FC = () => {
       <div
         className="chatboticon mt-[25px] flow-root float-right drop-shadow-lg cursor-pointer"
         onClick={() => {
-          setShowModal(true)
+          openModal()
         }}
       >
         <img className="w-[100px] object-right-bottom" src={chatboticon} />
       </div>
-      {ShowModal ? (
+      {isModalOpen ? (
         <>
           {/* modal */}
           <div className="modal-bg z-50">
@@ -124,9 +150,7 @@ export const ChatBotModal: React.FC = () => {
                       </div>
                       <button
                         className="mx-[10px] p-1 ml-auto bg-transparent border-0 opacity-60 text-error float-right text-3xl leading-none font-semibold outline-none focus:outline-none cursor-pointer bg-red"
-                        onClick={() => {
-                          setShowModal(false)
-                        }}
+                        onClick={closeModal}
                       >
                         <FontAwesomeIcon
                           icon={solid('circle-xmark')}
@@ -150,9 +174,11 @@ export const ChatBotModal: React.FC = () => {
                           value={userResponse.message}
                           className="textarea border-[#E8E8ED] px-[10px] pr-[48px] focus:border-gray-500 focus:bg-on_secondary text-[20px] ml-[2px] required:border-error invalid:border-error shadow border-0 focus:border-1 rounded-md w-full py-2 focus:outline-none focus:shadow-outline text-gray-600 dark:text-on_background bg-gray-200"
                           rows={3}
-                          // cols={40}
                         ></textarea>
-                        <button type="submit">
+                        <button
+                          type="submit"
+                          disabled={userResponse.message.length < 2}
+                        >
                           <span className="absolute left-[422px] top-[60px] bg-info hover:text-on_primary hover:bg-primary p-[12px] mr-[2px] rounded-br-md cursor-pointer text-on_primary">
                             <FontAwesomeIcon
                               icon={regular('paper-plane')}

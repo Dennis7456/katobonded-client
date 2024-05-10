@@ -1,13 +1,15 @@
 import React, {
   useState,
-  MouseEvent,
+  useEffect,
   ChangeEvent,
   FormEvent,
   MouseEventHandler,
+  useRef,
 } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { regular, solid } from '@fortawesome/fontawesome-svg-core/import.macro'
 import './LoginModal.css'
+import { useLoginModalContext } from 'src/context/LoginModalContext'
 
 interface User {
   email: string
@@ -15,10 +17,26 @@ interface User {
 }
 
 export const LoginModal: React.FC = () => {
+  const { isModalOpen, openModal, closeModal } = useLoginModalContext()
   const [ShowModal, setShowModal] = useState(false)
   const [showPassword, setShowPassword] = useState(false)
   const [isLoggedIn, setIsLoggedIn] = useState(false)
   const [user, setUser] = useState<User>({ email: '', password: '' })
+  const clickRef = useRef<HTMLDivElement>(null)
+
+  // useEffect(() => {
+
+  //   document.addEventListener('mousedown', handleOutsideClick);
+  //   return () => {
+  //     document.removeEventListener('mousedown', handleOutsideClick);
+  //   };
+  // }, [isModalOpen]);
+
+  // const handleOutsideClick = (e: MouseEvent): void => {
+  //   if (isModalOpen && clickRef.current !== null && !clickRef.current.contains(e.target as Node)) {
+  //     closeModal();
+  //   }
+  // }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
     const { name, value } = e.target
@@ -44,10 +62,9 @@ export const LoginModal: React.FC = () => {
   return (
     <>
       <div
-        className="flex flex-col cursor-pointer"
-        onClick={() => {
-          setShowModal(true)
-        }}
+        className="flex flex-col cursor-pointer inset-0"
+        onClick={openModal}
+        // ref={clickRef}
       >
         <FontAwesomeIcon
           className="py-[5px]"
@@ -57,7 +74,7 @@ export const LoginModal: React.FC = () => {
         />
         <div className="">Agent Login</div>
       </div>
-      {ShowModal ? (
+      {isModalOpen ? (
         <>
           {/* modal */}
           <div className="modal-bg z-50">
@@ -74,9 +91,7 @@ export const LoginModal: React.FC = () => {
                       </h3>
                       <button
                         className="p-1 ml-auto bg-transparent border-0 opacity-60 text-error float-right text-3xl leading-none font-semibold outline-none focus:outline-none cursor-pointer bg-red"
-                        onClick={() => {
-                          setShowModal(false)
-                        }}
+                        onClick={closeModal}
                       >
                         <FontAwesomeIcon
                           icon={solid('circle-xmark')}

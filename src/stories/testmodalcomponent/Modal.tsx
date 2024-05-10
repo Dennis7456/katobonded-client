@@ -1,5 +1,5 @@
 import React from 'react'
-import './Modals.css'
+import './Modal.css'
 
 interface ModalProps {
   isOpen: boolean
@@ -16,11 +16,17 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, children }) => {
   // }
 
   return (
-    <div className="modal">
+    <div className="">
       <div className="modal-content">
-        <span className="close" onClick={handleClose}>
-          &times;
-        </span>
+        <div className="flex">
+          Some text
+          <span
+            className="close bg-red-500 text-white text-5xl rounded-[35px]"
+            onClick={handleClose}
+          >
+            &times;
+          </span>
+        </div>
       </div>
     </div>
   )

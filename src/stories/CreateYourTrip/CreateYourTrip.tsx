@@ -8,6 +8,7 @@ import { LocationCompnent } from './LocationCompnent'
 import './CreateYourTrip.css'
 import chatboticon from '../ChatBot/assets/pngwing.png'
 import { ChatBotModal } from '../ChatBotModal/ChatBotModal'
+import TestModalComponent from '../testmodalcomponent/TestModalComponent'
 
 interface Option {
   label: string
