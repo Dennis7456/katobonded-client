@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { solid, regular } from '@fortawesome/fontawesome-svg-core/import.macro'
 import './Header.css'
 import { LoginModal } from '../LoginModal/LoginModal'
+import { LoginModalProvider } from 'src/context/LoginModalContext'
 
 const Header: React.FC = () => {
   return (
@@ -45,7 +46,9 @@ const Header: React.FC = () => {
           />
           <div className="">Agent Login</div>
         </div> */}
-        <LoginModal />
+        <LoginModalProvider>
+          <LoginModal />
+        </LoginModalProvider>
         <div className="flex flex-col cursor-pointer">
           <FontAwesomeIcon
             className="py-[5px]"

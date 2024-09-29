@@ -13,7 +13,9 @@ const LoginModalContext = createContext<BotModalContextType | undefined>(
 export const useLoginModalContext = (): BotModalContextType => {
   const context = useContext(LoginModalContext)
   if (context === undefined) {
-    throw new Error('useModalContext must be used within a ModalProvider')
+    throw new Error(
+      'useLoginModalContext must be used within a LoginModalProvider',
+    )
   }
   return context
 }
