@@ -10,6 +10,8 @@ import TopTours from './components/TopTours/TopTours'
 import SafariCard from './components/SafariCard/SafariCard'
 import image from './assets/elephant-img.jpeg'
 import { ChatBotModal } from './stories/ChatBotModal/ChatBotModal'
+import TopDestinations from './components/TopDestinations/TopDestinations'
+import TopTourOperators from './components/TopTourOperators/TopTourOperators'
 
 const App: React.FC = () => {
   const {
@@ -30,6 +32,8 @@ const App: React.FC = () => {
       <CreateYourTrip />
       <TripCarousel />
       <TopTours />
+      <TopDestinations />
+      <TopTourOperators />
     </div>
   )
 }
