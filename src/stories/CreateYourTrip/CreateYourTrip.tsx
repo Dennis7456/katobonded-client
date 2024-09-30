@@ -301,25 +301,8 @@ export const CreateYourTrip: React.FC = () => {
               </div>
             </div>
           </div>
-          {/* <div className='pt-[25px] inset-x-2'>
-              <div className='flex items-center justify-center'>
-                
-
-              </div>
-            </div>
-            <div className='flex justify-start items-center gap-[120px]'>
-              <div className='flex items-center justify-center'>
-                
-              </div>
-              <div className='flex items-center justify-center'>
-                
-              </div>
-              <div className='flex items-center justify-center'>
-                
-              </div>
-            </div> */}
         </form>
-        <ChatBotModal />
+        {/* <ChatBotModal /> */}
       </div>
     </div>
   )

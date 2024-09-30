@@ -13,8 +13,3 @@
   bottom: 50px;
   transform: translateX(-50%);
 }
-
-textarea {
-  /* resize: none; */
-  /* overflow-y: hidden; */
-}

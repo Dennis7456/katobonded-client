@@ -14,12 +14,6 @@ import chatboticon from '../ChatBot/assets/pngwing.png'
 import ChatBot from '../ChatBot/ChatBot'
 import { analyzeOptions } from './HelperFunctions/analyzeOptions'
 import { useBotModalContext } from 'src/context/BotModalContext'
-// import { useModalContext } from './ModalContext';
-
-// interface User {
-//   email: string
-//   password: string
-// }
 
 interface ResponseObject {
   purpose: string
@@ -120,7 +114,7 @@ export const ChatBotModal: React.FC = () => {
   return (
     <>
       <div
-        className="chatboticon mt-[25px] flow-root float-right drop-shadow-lg cursor-pointer"
+        className="chatboticon mt-[25px] flow-root float-right drop-shadow-lg cursor-pointer z-40"
         onClick={() => {
           openModal()
         }}
@@ -136,7 +130,7 @@ export const ChatBotModal: React.FC = () => {
               <div className="rounded relative w-full py-[40px] mx-auto max-w-lg">
                 {/* content */}
                 <form onSubmit={handleSubmit}>
-                  <div className="bg-[#fff] border-0 rounded-md shadow-lg relative flex flex-col w-full bg-on_primary outline-none focus:outline-none">
+                  <div className="border-0 rounded-md shadow-lg relative flex flex-col w-full bg-on_primary outline-none focus:outline-none">
                     {/* header */}
                     <div className="flex items-center justify-center px-[5px] my-[5px] border-solid border-slate-200">
                       {/* <img
@@ -187,112 +181,7 @@ export const ChatBotModal: React.FC = () => {
                           </span>
                         </button>
                       </div>
-                      {/* <input 
-                      onChange={handleChange} 
-                      name='user-response' 
-                      id="user-response" 
-                      type='text' 
-                      value={userResponse}
-                      className="bg-gray required:border-error invalid:border-error shadow border-0 focus:border-1 rounded-md w-full py-2 px-2 focus:outline-none focus:shadow-outline text-secondary dark:text-on_background"
-                      ></input> */}
                     </div>
-                    <div></div>
-                    {/* body */}
-                    {/* <div className="relative p-6 flex-auto">
-                      <div>
-                        <label className="pb-2 text-start block text-sm font-light text-gray-600">
-                          Email
-                        </label>
-                        <input
-                          className="required:border-error invalid:border-error shadow border-0 focus:border-1 rounded-md w-full py-2 px-3 focus:outline-none focus:shadow-outline text-secondary dark:text-on_background"
-                          id="email"
-                          type="text"
-                          placeholder="Email"
-                          name="email"
-                          onChange={handleChange}
-                        ></input>
-                      </div>
-                      <label className=" pt-5 pb-2 text-start block text-on-background text-sm font-light dark:text-on_primary">
-                        Password
-                      </label>
-                      <span className="flex justify-end items-center">
-                        {showPassword ? (
-                          <input
-                            className="required:border-error invalid:border-error shadow border-0 focus:border-1 rounded-md w-full py-2 px-3 focus:outline-none focus:shadow-outline text-secondary dark:text-on_background"
-                            id="password"
-                            type="text"
-                            placeholder="Password"
-                            name="password"
-                            onChange={handleChange}
-                          ></input>
-                        ) : (
-                          <input
-                            className="required:border-error invalid:border-error shadow border-0 focus:border-1 rounded-md w-full py-2 px-3 focus:outline-none focus:shadow-outline text-secondary dark:text-on_background"
-                            id="password"
-                            type="password"
-                            placeholder="Password"
-                            name="password"
-                            onChange={handleChange}
-                          ></input>
-                        )}
-                        <button
-                          className="absolute mr-4 hover:text-info "
-                          onClick={handleClick}
-                        >
-                          {showPassword ? (
-                            <FontAwesomeIcon
-                              icon={regular('eye')}
-                              className="dark:text-on_background hover:text-info"
-                            />
-                          ) : (
-                            <FontAwesomeIcon
-                              icon={regular('eye-slash')}
-                              className="dark:text-on_background hover:text-info"
-                            />
-                          )}
-                        </button>
-                      </span>
-                    </div> */}
-                    {isLoggedIn ? (
-                      <p className="text-success">
-                        You are logged in successfully
-                      </p>
-                    ) : null}
-                    {/* footer */}
-                    {/* <div className="flex justify-center items-center border-solid border-slate-200 rounded-b">
-                      <div className="flex justify-center items-center h-20">
-                        <button
-                          className="dark:text-on_primary dark:outline-0 border-black dark:border-on_primary border-2 px-10 py-1 rounded-md font-semibold text-black hover:bg-secondary hover:text-on_primary active:bg-tertiary_container"
-                          type="submit"
-                        >
-                          Login
-                        </button>
-                      </div>
-                    </div> */}
-                    {/* <div className="font-light text-on_background text-xs pt-0 mx-1 pb-5 dark:text-on_primary">
-                      This site is protected by reCAPTCHA and the google{' '}
-                      <a
-                        className="text-primary hover:text-on_primary-container hover:font-semibold dark:text-on_primary"
-                        href="#"
-                      >
-                        Privacy Policy
-                      </a>{' '}
-                      and{' '}
-                      <a
-                        href="#"
-                        className="text-primary hover:text-on_primary-container hover:font-semibold dark:text-on_primary"
-                      >
-                        Terms of Service apply
-                      </a>
-                    </div> */}
-                    {/* <div className="flex justify-around items-center text-on-surface-variant">
-                      <div className="px-3 py-2 hover:text-primary dark:text-on_primary hover:font-semibold hover:text-secondary">
-                        <a href="/register">Register</a>
-                      </div>
-                      <div className="px-3 py-5 hover:text-primary dark:text-on_primary hover:font-semibold hover:text-secondary">
-                        <a>Forgot Password</a>
-                      </div>
-                    </div> */}
                   </div>
                 </form>
               </div>
