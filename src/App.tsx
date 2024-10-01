@@ -1,4 +1,5 @@
 import React from 'react'
+import { Routes, Route } from 'react-router-dom'
 import Header from './stories/Header/Header'
 import CreateYourTrip from './stories/CreateYourTrip/CreateYourTrip'
 import TripCarousel from './stories/TripCarrousel/TripCarousel'
@@ -13,6 +14,9 @@ import { ChatBotModal } from './stories/ChatBotModal/ChatBotModal'
 import TopDestinations from './components/TopDestinations/TopDestinations'
 import TopTourOperators from './components/TopTourOperators/TopTourOperators'
 import Footer from './components/Footer/Footer'
+import SafarisAndTours from './components/SafarisAndTours/SafarisAndTours'
+import { BookTrip } from './stories/BookTrip/BookTrip'
+import HomePage from './pages/HomePage'
 
 const App: React.FC = () => {
   const {
@@ -28,14 +32,11 @@ const App: React.FC = () => {
 
   return (
     <div className={isBotModalOpen || isLoginModalOpen ? 'fixed' : ''}>
-      <ChatBotModal />
-      <Header />
-      <CreateYourTrip />
-      <TripCarousel />
-      <TopTours />
-      <TopDestinations />
-      <TopTourOperators />
-      <Footer />
+      <Routes>
+        <Route path="/" element={<HomePage />}></Route>
+        <Route path="/build-your-package" element={<BookTrip />}></Route>
+        <Route path="/safaris-and-tours" element={<SafarisAndTours />}></Route>
+      </Routes>
     </div>
   )
 }
