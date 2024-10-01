@@ -12,6 +12,7 @@ import image from './assets/elephant-img.jpeg'
 import { ChatBotModal } from './stories/ChatBotModal/ChatBotModal'
 import TopDestinations from './components/TopDestinations/TopDestinations'
 import TopTourOperators from './components/TopTourOperators/TopTourOperators'
+import Footer from './components/Footer/Footer'
 
 const App: React.FC = () => {
   const {
@@ -34,6 +35,7 @@ const App: React.FC = () => {
       <TopTours />
       <TopDestinations />
       <TopTourOperators />
+      <Footer />
     </div>
   )
 }

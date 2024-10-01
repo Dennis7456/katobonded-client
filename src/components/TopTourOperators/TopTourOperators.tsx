@@ -1,24 +1,72 @@
 import React, { useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { solid } from '@fortawesome/fontawesome-svg-core/import.macro'
+import SimbaSafaris from '../../assets/TopTourOperators/SimbaSafaris.jpeg'
+import NdovuSafaris from '../../assets/TopTourOperators/NdovuSafaris.jpeg'
+import ChatuSafaris from '../../assets/TopTourOperators/ChatuSafaris.jpeg'
+import TwigaSafaris from '../../assets/TopTourOperators/TwigaSafaris.jpeg'
+import emptyLogo from '../../assets/blank-profile.svg'
+
+interface TourOperator {
+  name: string
+  position: number
+  logo: string
+  backgroundImage: string
+  rating: number
+}
 
 const TopTourOperators: React.FC = (): JSX.Element => {
-  const images: string[] = Array.from(
-    { length: 3 },
-    (_, index) => `./assets/trip-carousel/image${index}.svg`,
-  )
+  const tourOperators: TourOperator[] = [
+    {
+      name: 'Simba Safaris',
+      position: 1,
+      logo: emptyLogo,
+      backgroundImage: SimbaSafaris,
+      rating: 4,
+    },
+    {
+      name: 'Chatu Safaris',
+      position: 2,
+      logo: emptyLogo,
+      backgroundImage: ChatuSafaris,
+      rating: 4,
+    },
+    {
+      name: 'Ndovu Safaris',
+      position: 3,
+      logo: emptyLogo,
+      backgroundImage: NdovuSafaris,
+      rating: 4,
+    },
+    {
+      name: 'Twiga Safaris',
+      position: 4,
+      logo: emptyLogo,
+      backgroundImage: TwigaSafaris,
+      rating: 4,
+    },
+  ]
 
   const [currentIndex, setCurrentIndex] = useState<number>(0)
 
   const handleNextSlide = (): void => {
     setCurrentIndex(
-      (prevIndex) => (prevIndex - 1 + images.length) % images.length,
+      (prevIndex) =>
+        (prevIndex - 1 + tourOperators.length) % tourOperators.length,
     )
   }
 
   const handlePrevSlide = (): void => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length)
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % tourOperators.length)
   }
+
+  const visibleOperators = tourOperators
+    .slice(currentIndex, currentIndex + 4)
+    .concat(
+      currentIndex + 4 > tourOperators.length
+        ? tourOperators.slice(0, (currentIndex + 4) % tourOperators.length)
+        : [],
+    )
 
   return (
     <div>
@@ -27,7 +75,8 @@ const TopTourOperators: React.FC = (): JSX.Element => {
         Top Rated Tour Operators
       </div>
 
-      <div className="flex items-center justify-center gap-[50px] my-[3rem]">
+      <div className="flex items-center justify-center gap-[50px] my-[3rem] mx-[3rem]">
+        {/* Left Carousel Button */}
         <div>
           <button
             className="carousel-control text-gray-300 hover:text-gray-700"
@@ -37,60 +86,33 @@ const TopTourOperators: React.FC = (): JSX.Element => {
           </button>
         </div>
 
-        {/* Carousel Images */}
-        <div className="flex overflow-hidden space-x-10">
-          {/* Display the last image to the left, the current in the center, and the next on the right */}
-          <div
-            className="h-[250px] w-[300px] bg-cover"
-            style={{
-              backgroundImage: `url(${
-                images[(currentIndex - 1 + images.length) % images.length]
-              })`,
-            }}
-          >
-            <div className="flex flex-col items-start gap-[px] relative top-[190px] left-[30px]">
-              <div className=" bg-[#F3533D] inline-block p-[2px] px-[6px] text-sm text-white text-left">
-                Honeymoon Specials
+        {/* Top Tour Operators Carousel */}
+        <div className="flex justify-center items-center overflow-hidden space-x-10">
+          {visibleOperators.map((tourOperator, index) => (
+            <div key={index} className="bg-white p-4 relative">
+              <div className="bg-yellow-500 absolute top-6 -right-0 text-xs font-semibold px-2 py-1">
+                #0{tourOperator.position}
               </div>
-              <div className=" bg-white inline-block text-gray-700 text-left text-xs p-[2px] px-[6px]">
-                1000 packages
+              <img src={tourOperator.backgroundImage} alt="Tour Operator"></img>
+              <div className="py-5 relative bg-white flex justify-center items-center border-l-2 border-r-2 border-b-2">
+                <img src={tourOperator.logo}></img>
               </div>
-            </div>
-          </div>
-          <div
-            className="h-[250px] w-[300px] bg-cover"
-            style={{
-              backgroundImage: `url(${images[currentIndex]})`,
-            }}
-          >
-            <div className="flex flex-col items-start gap-[px] relative top-[190px] left-[30px]">
-              <div className=" bg-[#F3533D] inline-block p-[2px] px-[6px] text-sm text-white text-left">
-                Honeymoon Specials
-              </div>
-              <div className=" bg-white inline-block text-gray-700 text-left text-xs p-[2px] px-[6px]">
-                1000 packages
+              <div className="my-3">
+                <p>{tourOperator.name}</p>
+                {Array.from({ length: tourOperator.rating }, (_, index) => (
+                  <FontAwesomeIcon
+                    key={index}
+                    icon={solid('star')}
+                    size="sm"
+                    className="star-color text-[#F3533D]"
+                  />
+                ))}
               </div>
             </div>
-          </div>
-          <div
-            className="h-[250px] w-[300px] bg-cover"
-            style={{
-              backgroundImage: `url(${
-                images[(currentIndex + 1) % images.length]
-              })`,
-            }}
-          >
-            <div className="flex flex-col items-start gap-[px] relative top-[190px] left-[30px]">
-              <div className=" bg-[#F3533D] inline-block p-[2px] px-[6px] text-sm text-white text-left">
-                Honeymoon Specials
-              </div>
-              <div className=" bg-white inline-block text-gray-700 text-left text-xs p-[2px] px-[6px]">
-                1000 packages
-              </div>
-            </div>
-          </div>
+          ))}
         </div>
 
+        {/* Right Carousel Button */}
         <div>
           <button
             className="carousel-control text-gray-300 hover:text-gray-700"
@@ -100,7 +122,7 @@ const TopTourOperators: React.FC = (): JSX.Element => {
           </button>
         </div>
       </div>
-      <div className="flex justify-center my-[35px]">
+      <div className="flex justify-center my-[35px] pb-[40px]">
         <button className="w-[170px] h-[40px] bg-[#F3533D] rounded-[3px] text-white">
           View All Operators
         </button>
