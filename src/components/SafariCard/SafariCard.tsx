@@ -26,7 +26,7 @@ const SafariCard: React.FC<SafariCardProps> = ({
   specialOffer,
 }) => {
   return (
-    <div className="rounded-sm p-[20px]">
+    <div className="rounded-sm p-[20px] z-0">
       <div className="relative rounded-sm over shadow-md">
         <img className="w-full h-48 object-cover " src={image} alt="Tour"></img>
         <div className="bg-yellow-500 absolute top-3 -right-2 text-xs px-[10px] py-[3px] font-semibold rounded-sm">

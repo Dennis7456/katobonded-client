@@ -68,7 +68,6 @@ export const CreateYourTrip: React.FC = () => {
             <div className="text-[25px] text-gray-600">Create Your Trip</div>
             <div className="flex items-center justify-center gap-[35px]">
               <div>
-                {/* <LocationCompnent isLocationOpen={isLocationOpen} toggleAddLocation={toggleAddLocation}/> */}
                 <LocationCompnent />
               </div>
               <div>

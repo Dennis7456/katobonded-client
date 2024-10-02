@@ -8,7 +8,7 @@ import { LoginModalProvider } from 'src/context/LoginModalContext'
 
 const Header: React.FC = () => {
   return (
-    <div className="flex sticky top-0 z-50" id="header">
+    <div className="flex sticky top-0 z-10" id="header">
       <div className=" flex items-center justify-start basis-[65%] h-[80px] bg-[#134427] w-full">
         <img className="cursor-pointer" src={logo} alt="logo" />
         <span className="px-[20px]"></span>
