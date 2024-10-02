@@ -182,7 +182,7 @@ const getaways: Getaway[] = [
 
 const SafarisAndTours: React.FC = () => {
   const [sortOption, setSortOption] = useState<string>('Price Low - High')
-  const [isModalOpen, setIsModalOpen] = useState(true)
+  const [isModalOpen, setIsModalOpen] = useState(false)
   const [tourLength, setTourLength] = useState(0.5)
   const [rates, setRates] = useState(0)
 

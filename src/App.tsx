@@ -17,6 +17,7 @@ import Footer from './components/Footer/Footer'
 import SafarisAndTours from './components/SafarisAndTours/SafarisAndTours'
 import { BookTrip } from './stories/BookTrip/BookTrip'
 import HomePage from './pages/HomePage'
+import ViewCard from './components/ViewCard/ViewCard'
 
 const App: React.FC = () => {
   const {
@@ -36,6 +37,7 @@ const App: React.FC = () => {
         <Route path="/" element={<HomePage />}></Route>
         <Route path="/build-your-package" element={<BookTrip />}></Route>
         <Route path="/safaris-and-tours" element={<SafarisAndTours />}></Route>
+        <Route path="/view-card-details" element={<ViewCard />}></Route>
       </Routes>
     </div>
   )
