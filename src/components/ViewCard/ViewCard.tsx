@@ -341,8 +341,8 @@ const ViewCard: React.FC = () => {
         </ul>
       </div>
       <div className="px-[145px] py-[35px] border bg-gray-50">
+        {/* Breadcrumb */}
         <div>
-          {/* Breadcrumb */}
           <nav className="text-gray-900 mb-6 font-semibold flex justify-start items-center gap-[20px]">
             <span>Home</span>
             <FontAwesomeIcon icon={solid('caret-right')} />
