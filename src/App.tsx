@@ -20,6 +20,7 @@ import HomePage from './pages/HomePage'
 import ViewCard from './components/ViewCard/ViewCard'
 import TourOperatorDetails from './components/TourOperatorDetails/TourOperatorDetails'
 import TourOperatorDetailsView from './components/TourOperatorDetailsView/TourOperatorDetailsView'
+import GetAFreeQuote from './components/GetAFreeQuote/GetAFreeQuote'
 
 const App: React.FC = () => {
   const {
@@ -47,6 +48,10 @@ const App: React.FC = () => {
         <Route
           path="/view-tour-operator-details-1"
           element={<TourOperatorDetailsView />}
+        ></Route>
+        <Route
+          path="/get-a-free-quote"
+          element={<GetAFreeQuote />}
         ></Route>
       </Routes>
     </div>
