@@ -53,7 +53,7 @@ const SafariCard: React.FC<SafariCardProps> = ({
         {title}
       </div>
       <div className="flex justify-between px-3 py-4 text-[#F3533D] font-semibold text-left relative bg-white border-b-[2px] shadow-md">
-        <div className="text-gray-900 px-3">
+        <div className="text-gray-900 px-3 max-w-[10px]">
           <div className="semi-bold">By: {operator}</div>
           <div className="font-light flex gap-3">
             <div className="flex items-center gap-1">
@@ -86,7 +86,11 @@ const SafariCard: React.FC<SafariCardProps> = ({
             <div className="text-sm">({reviews} Reviews)</div>
           </div>
         </div>
-        <img src={emptyProfile} alt="empty image"></img>
+        <img
+          src={emptyProfile}
+          alt="empty image"
+          className="max-w-[30px]"
+        ></img>
       </div>
       <div className="text-left relative bg-white px-3 py-3 text-xs shadow-md">
         <div className="flex gap-1">

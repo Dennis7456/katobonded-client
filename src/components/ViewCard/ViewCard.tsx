@@ -186,7 +186,7 @@ const getaways: Getaway[] = [
 ]
 
 const ViewCard: React.FC = () => {
-  const [activeTab, setActiveTab] = useState('itenarary')
+  const [activeTab, setActiveTab] = useState('itinerary')
   const [isModalOpen, setIsModalOpen] = useState(false)
 
   const allOffers = getaways.flatMap((getaway) => getaway.offers)
