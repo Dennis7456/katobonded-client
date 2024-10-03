@@ -797,6 +797,8 @@ const SafarisAndTours: React.FC = () => {
             />
           ))}
         </div>
+
+        {/* Pagination */}
         <div className="text-xl px-4 pt-8 flex justify-center items-center gap-8 text-gray-400 text-center">
           <span>
             <FontAwesomeIcon
