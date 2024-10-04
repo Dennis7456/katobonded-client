@@ -250,7 +250,9 @@ const MyPackages: React.FC = () => {
                   <h2 className="py-[10px]">Tour Operators</h2>
                 </div>
               </div>
-              {tabOption === 'option-1' && (
+
+              {/* Safaris and Tours */}
+              {sideBarOption === 'option-1' && tabOption === 'option-1' && (
                 <div>
                   {/* Cards */}
                   <div className="grid grid-cols-2 mt-[20px]">
@@ -271,7 +273,8 @@ const MyPackages: React.FC = () => {
                 </div>
               )}
 
-              {tabOption === 'option-2' && (
+              {/* Tour Operators */}
+              {sideBarOption === 'option-1' && tabOption === 'option-2' && (
                 <div className="px-[25px] py-[15px]">
                   {/* Packages */}
                   <div className="mt-[20px] bg-white w-[860px] rounded-sm shadow-sm">
@@ -540,39 +543,212 @@ const MyPackages: React.FC = () => {
               )}
             </div>
           )}
+
           {/* Quoted Tours Option */}
           {sideBarOption === 'option-2' && (
-            <div className="col-span-3 bg-white shadow-md py-[15px] px-[45px]">
-              <div className="flex justify-start items-center gap-[55px] tracking-wider">
-                <div>Safaris And Tours</div>
-                <div>Tour Operators</div>
-              </div>
-              <div className="grid gap-3 mt-[10px]">
-                <h2 className=" text-gray-900 font-semibold tracking-wide text-sm">
-                  Safaris & Tours (20):
-                </h2>
-              </div>
+            <div>
+              {/* Tour Operators */}
+              <div className="px-[25px] py-[15px]">
+                <div className="w-[400px] text-sm text-gray-400 font-semibold">
+                  3 Quotes Based on your trip #1 Created on Jul, 6 2020
+                </div>
 
-              {/* Cards */}
-              <div className="grid grid-cols-2">
-                {allOffers.map((offer, index) => (
-                  <SafariCard
-                    key={index}
-                    title={offer.title}
-                    tourType={offer.tourType}
-                    price={offer.price}
-                    reviews={offer.reviews}
-                    image={offer.image}
-                    tags={offer.tags}
-                    operator={offer.operator}
-                    specialOffer={offer.specialOffer}
-                  />
-                ))}
-              </div>
-              <div className="px-[23px] py-[20px]">
-                <button className="text-white bg-orange-500 px-[35px] py-[10px] text-sm rounded-md">
-                  All 20 tours
-                </button>
+                {/* Packages */}
+                <div className="mt-[20px] bg-white w-[860px] rounded-sm shadow-sm">
+                  <div className="flex">
+                    <div className="px-[20px] py-[10px] bg-green-400">
+                      <h2 className="text-orange-500 text-xl tracking-wider font-semibold">
+                        7 Days Beach Holiday
+                      </h2>
+                      <div className="flex justify-start items-center">
+                        <p className="mr-[5px] text-xl font-semibold">
+                          $ 2,170
+                        </p>
+                        <p className="text-gray-400">/ person sharing</p>
+                      </div>
+                    </div>
+                    <div className="flex justify-between gap-[5px] px-[20px] py-[10px]">
+                      TEx
+                    </div>
+                  </div>
+                  <div className="flex justify-start items-center gap-[px]">
+                    <div className="px-[100px] py-[20px] bg-green-400">
+                      text
+                    </div>
+                  </div>
+                </div>
+
+                {/* Packages */}
+                <div className="mt-[20px] bg-white w-[860px] rounded-sm shadow-sm">
+                  <div className="flex">
+                    <div>
+                      <img
+                        src={leopardImage}
+                        alt="giraffe image"
+                        className="h-[200px] w-[300px] object-cover"
+                      />
+                    </div>
+                    <div className="flex justify-between gap-[5px] px-[20px] py-[10px]">
+                      {/* Details */}
+                      <div>
+                        <h2 className="text-orange-500 text-2xl tracking-wider font-semibold">
+                          Twiga Safaris
+                        </h2>
+                        <div className="flex gap-[5px]">
+                          <FontAwesomeIcon
+                            icon={solid('star')}
+                            className="text-orange-500"
+                            size="sm"
+                          />
+                          <FontAwesomeIcon
+                            icon={solid('star')}
+                            className="text-orange-500"
+                            size="sm"
+                          />
+                          <FontAwesomeIcon
+                            icon={solid('star')}
+                            className="text-orange-500"
+                            size="sm"
+                          />
+                          <FontAwesomeIcon
+                            icon={solid('star')}
+                            className="text-orange-500"
+                            size="sm"
+                          />
+                          <FontAwesomeIcon
+                            icon={solid('star')}
+                            className="text-orange-500"
+                            size="sm"
+                          />
+                        </div>
+                        <div className="flex text-sm mt-[20px]">
+                          <p className="uppercase mr-[10px]">Tour Types: </p>
+                          <p>
+                            Custom mid-range & luxury tours that can start every
+                            day
+                          </p>
+                        </div>
+                        <div className="flex text-sm">
+                          <p className="uppercase mr-[10px]">Tour Types: </p>
+                          <p>
+                            Custom mid-range & luxury tours that can start every
+                            day
+                          </p>
+                        </div>
+                      </div>
+
+                      {/* Heart */}
+                      <div className="px-[0px] py-[20px]">
+                        <FontAwesomeIcon
+                          icon={solid('heart')}
+                          size="xl"
+                          className="text-red-500 border rounded-full p-2"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div className="flex justify-start items-center gap-[px]">
+                    <div className="px-[100px] py-[20px]">
+                      <img
+                        src={EmptyPhoto}
+                        alt="Empty image"
+                        className="h-[100px] w-[100px] object-cover"
+                      />
+                    </div>
+                    <div className="flex justify-start items-center gap-[20px] h-[100px] px-[35px] py-[40px]">
+                      <button className="px-[20px] bg-orange-500 text-white py-[10px] rounded-sm">
+                        All 30 Tours
+                      </button>
+                      <p className="text-gray-400">Offered by Twiga Safaris</p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Packages */}
+                <div className="mt-[20px] bg-white w-[860px] rounded-sm shadow-sm">
+                  <div className="flex">
+                    <div>
+                      <img
+                        src={elephantsImage}
+                        alt="giraffe image"
+                        className="h-[200px] w-[300px] object-cover"
+                      />
+                    </div>
+                    <div className="flex justify-between gap-[5px] px-[20px] py-[10px]">
+                      {/* Details */}
+                      <div>
+                        <h2 className="text-orange-500 text-2xl tracking-wider font-semibold">
+                          Twiga Safaris
+                        </h2>
+                        <div className="flex gap-[5px]">
+                          <FontAwesomeIcon
+                            icon={solid('star')}
+                            className="text-orange-500"
+                            size="sm"
+                          />
+                          <FontAwesomeIcon
+                            icon={solid('star')}
+                            className="text-orange-500"
+                            size="sm"
+                          />
+                          <FontAwesomeIcon
+                            icon={solid('star')}
+                            className="text-orange-500"
+                            size="sm"
+                          />
+                          <FontAwesomeIcon
+                            icon={solid('star')}
+                            className="text-orange-500"
+                            size="sm"
+                          />
+                          <FontAwesomeIcon
+                            icon={solid('star')}
+                            className="text-orange-500"
+                            size="sm"
+                          />
+                        </div>
+                        <div className="flex text-sm mt-[20px]">
+                          <p className="uppercase mr-[10px]">Tour Types: </p>
+                          <p>
+                            Custom mid-range & luxury tours that can start every
+                            day
+                          </p>
+                        </div>
+                        <div className="flex text-sm">
+                          <p className="uppercase mr-[10px]">Tour Types: </p>
+                          <p>
+                            Custom mid-range & luxury tours that can start every
+                            day
+                          </p>
+                        </div>
+                      </div>
+
+                      {/* Heart */}
+                      <div className="px-[0px] py-[20px]">
+                        <FontAwesomeIcon
+                          icon={solid('heart')}
+                          size="xl"
+                          className="text-red-500 border rounded-full p-2"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div className="flex justify-start items-center gap-[px]">
+                    <div className="px-[100px] py-[20px]">
+                      <img
+                        src={EmptyPhoto}
+                        alt="Empty image"
+                        className="h-[100px] w-[100px] object-cover"
+                      />
+                    </div>
+                    <div className="flex justify-start items-center gap-[20px] h-[100px] px-[35px] py-[40px]">
+                      <button className="px-[20px] bg-orange-500 text-white py-[10px] rounded-sm">
+                        All 30 Tours
+                      </button>
+                      <p className="text-gray-400">Offered by Twiga Safaris</p>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           )}
