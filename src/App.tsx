@@ -49,10 +49,7 @@ const App: React.FC = () => {
           path="/view-tour-operator-details-1"
           element={<TourOperatorDetailsView />}
         ></Route>
-        <Route
-          path="/get-a-free-quote"
-          element={<GetAFreeQuote />}
-        ></Route>
+        <Route path="/get-a-free-quote" element={<GetAFreeQuote />}></Route>
       </Routes>
     </div>
   )
