@@ -81,7 +81,7 @@ export const LocationCompnent: React.FC = () => {
             onPlacesChanged={handlePlaceChanged}
           >
             <input
-              className="-translate-y-[0px] left-[100px] w-[348px] h-[49px] border-[#E8E8ED] border-[2px] rounded-[3px] bg-gray-50 p-[10px] text-gray-700 focus:ring-gray-500 focus:border-gray-500 truncate ..."
+              className="-translate-y-[0px] left-[100px] w-[348px] h-[49px] border-[#E8E8ED] border-[2px] rounded-[3px] bg-gray-50 p-[10px] text-gray-700 focus:outline-none focus:border-gray-500 truncate ..."
               placeholder="Where to?"
               type="text"
               required
