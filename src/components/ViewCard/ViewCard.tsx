@@ -1201,7 +1201,7 @@ const ViewCard: React.FC = () => {
                 <button>Get A Free Quote</button>
               </div>
             </div>
-            <div className="mt-[20px] shadow-md bg-white">
+            <div className="mt-[20px] shadow-md bg-white ">
               <div className="flex justify-center items-center py-[25px]">
                 <img src={EmpytPhoto} />
               </div>
