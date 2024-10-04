@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Header from 'src/stories/Header/Header'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { solid } from '@fortawesome/fontawesome-svg-core/import.macro'
@@ -6,16 +6,45 @@ import Elephants from '../../assets/ElephantsImage.jpeg'
 import EmptyImage from '../../assets/blank-profile.svg'
 import { DateComponent } from 'src/stories/CreateYourTrip/DateComponent'
 import Travellers from '../Travellers/Travellers'
+import Footer from '../Footer/Footer'
+import './GetAFreeQuote.css'
 
 const GetAFreeQuote: React.FC = () => {
+  const [isOpen, setIsOpen] = useState(true)
+  const [inputValue, setInputValue] = useState<string>('')
+  const [selectedOption, setSelectedOption] = useState<string>('Select')
+
+  const options = ['1 - 2 Weeks', '3 - 4 Weeks', '4+ Weeks', 'I’m Not Sure']
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
+    setInputValue(e.target.value)
+    setSelectedOption('') // Clear the dropdown selection when typing
+  }
+
+  const handleSelectChange = (
+    e: React.ChangeEvent<HTMLSelectElement>,
+  ): void => {
+    setSelectedOption(e.target.value)
+    setInputValue('') // Clear the input field when selecting an option
+  }
+
+  const toggleDropDown = (): void => {
+    setIsOpen(!isOpen)
+  }
+
+  const handleOnClick = (option: string): void => {
+    setSelectedOption(option)
+    setIsOpen(false)
+  }
+
   return (
     <div>
       <Header />
       <div className="my-[100px] py-[35px] px-[105px] bg-gray-50">
         {/* Breadcrumb */}
-        <div className="">
+        <div className="cursor-pointer hover:opacity-80">
           <nav className="text-gray-900 mb-6 font-semibold flex justify-start items-center gap-[20px]">
-            <FontAwesomeIcon icon={solid('caret-right')} />
+            <FontAwesomeIcon icon={solid('caret-left')} />
             <span className="text-gray-400">Back to Tour</span>
           </nav>
         </div>
@@ -87,15 +116,39 @@ const GetAFreeQuote: React.FC = () => {
                 <div className="grid grid-cols-3 gap-[20px]">
                   <input
                     placeholder="First name"
-                    className="px-[15px] py-[15px] border-gray-400 border-[2px] rounded-[3px] text-gray-400 focus:border-gray-500 focus:outline-none"
+                    className="
+                    px-[15px] 
+                    py-[15px] 
+                    border-gray-400 
+                    border-[1px] 
+                    rounded-[3px] 
+                    text-gray-400 
+                    focus:border-gray-500 
+                    focus:outline-none"
                   />
                   <input
                     placeholder="Middle name"
-                    className="px-[15px] py-[15px] border-gray-400 border-[2px] rounded-[3px] text-gray-400 focus:border-gray-500 focus:outline-none"
+                    className="
+                    px-[15px] 
+                    py-[15px] 
+                    border-gray-400 
+                    border-[1px] 
+                    rounded-[3px] 
+                    text-gray-400 
+                    focus:border-gray-500 
+                    focus:outline-none"
                   />
                   <input
                     placeholder="Surname"
-                    className="px-[15px] py-[15px] border-gray-400 border-[2px] rounded-[3px] text-gray-400 focus:border-gray-500 focus:outline-none"
+                    className="
+                    px-[15px] 
+                    py-[15px] 
+                    border-gray-400 
+                    border-[1px] 
+                    rounded-[3px] 
+                    text-gray-400 
+                    focus:border-gray-500 
+                    focus:outline-none"
                   />
                 </div>
               </div>
@@ -107,14 +160,30 @@ const GetAFreeQuote: React.FC = () => {
                   </label>
                   <input
                     placeholder="Email"
-                    className="px-[15px] py-[15px] border-gray-400 border-[2px] rounded-[3px] text-gray-400 focus:border-gray-500 focus:outline-none"
+                    className="
+                    px-[15px] 
+                    py-[15px]
+                     border-gray-400 
+                     border-[1px] 
+                     rounded-[3px] 
+                     text-gray-400 
+                     focus:border-gray-500 
+                     focus:outline-none"
                   />
                 </div>
                 <div className="grid gap-[10px]">
                   <label htmlFor="firstName text-center">Phone</label>
                   <input
                     placeholder="Phone"
-                    className="px-[15px] py-[15px] border-gray-400 border-[2px] rounded-[3px] text-gray-400 focus:border-gray-500 focus:outline-none"
+                    className="
+                    px-[15px]
+                    py-[15px] 
+                    border-gray-400 
+                    border-[1px] 
+                    rounded-[3px] 
+                    text-gray-400 
+                    focus:border-gray-500 
+                    focus:outline-none"
                   />
                 </div>
               </div>
@@ -126,14 +195,30 @@ const GetAFreeQuote: React.FC = () => {
                   </label>
                   <input
                     placeholder="Email"
-                    className="px-[15px] py-[15px] border-gray-400 border-[2px] rounded-[3px] text-gray-400 focus:border-gray-500 focus:outline-none"
+                    className="
+                    px-[15px] 
+                    py-[15px]
+                     border-gray-400 
+                     border-[1px] 
+                     rounded-[3px]
+                      text-gray-400 
+                      focus:border-gray-500 
+                      focus:outline-none"
                   />
                 </div>
                 <div className="grid gap-[10px]">
                   <label htmlFor="firstName text-center">Nationality</label>
                   <input
                     placeholder="Phone"
-                    className="px-[15px] py-[15px] border-gray-400 border-[2px] rounded-[3px] text-gray-400 focus:border-gray-500 focus:outline-none"
+                    className="
+                    px-[15px] 
+                    py-[15px] 
+                    border-gray-400 
+                    border-[1px] 
+                    rounded-[3px] 
+                    text-gray-400 
+                    focus:border-gray-500 
+                    focus:outline-none"
                   />
                 </div>
               </div>
@@ -143,7 +228,16 @@ const GetAFreeQuote: React.FC = () => {
                   <label htmlFor="firstName text-center">Your Message</label>
                   <textarea
                     placeholder="Enter Message"
-                    className="px-[15px] py-[15px] h-[250px] border-gray-400 border-[2px] rounded-[3px] text-gray-400 focus:border-gray-500 focus:outline-none"
+                    className="
+                    px-[15px] 
+                    py-[15px] 
+                    h-[250px] 
+                    border-gray-400 
+                    border-[1px] 
+                    rounded-[3px] 
+                    text-gray-400 
+                    focus:border-gray-500 
+                    focus:outline-none"
                   ></textarea>
                 </div>
               </div>
@@ -172,8 +266,9 @@ const GetAFreeQuote: React.FC = () => {
               checked:bg-[#F3533D] 
               ring
               ring-gray-300
+               ring-transparent
               hover:ring 
-               hover:ring-[#F3533D] 
+               hover:ring-[#F3533D]
               focus:outline-none"
                 />
                 <label
@@ -182,14 +277,159 @@ const GetAFreeQuote: React.FC = () => {
               cursor-pointer 
               font-medium 
               text-orange-500 
-              peer-checked:text-gray-500 
+              peer-checked:text-orange-500 
               peer-checked:line-through
               pl-[10px]
               "
                 >
                   {' '}
-                  My dates are flexible{' '}
+                  Remember my message for future requests{' '}
                 </label>
+              </div>
+              <div className="grid gap-[35px]">
+                {/* Title */}
+                <div>
+                  <h2 className="text-lg font-semibold">
+                    Provide Trip Details
+                  </h2>
+                </div>
+
+                {/* Select/Input Functionality */}
+                <div className="flex flex-col relative gap-[10px]">
+                  <label className="text-gray-400 font-semibold">
+                    Tour Duration: How Much Time Are You Planning to go on
+                    Holiday
+                  </label>
+
+                  {/* Optional: Input for typing (to replace native select if needed) */}
+                  <input
+                    type="text"
+                    className="
+                select
+                mt-4
+                w-[400px]
+                px-[15px] 
+                text-gray-700
+                py-[15px] 
+                border-gray-400 
+                border-[1px] 
+                rounded-[3px] 
+                focus:border-gray-500 
+                focus:outline-none"
+                    placeholder="Type Number of Days"
+                    value={selectedOption !== '' ? selectedOption : ''}
+                    onChange={(e) => {
+                      setSelectedOption(e.target.value)
+                    }}
+                    // disabled={selectedOption !== 'Select'}
+                  ></input>
+
+                  {/* Custom Input/Dropdown Button */}
+                  <button
+                    onClick={toggleDropDown}
+                    className="
+                flex
+                justify-between
+                items-center
+                border
+                rounded-r-md
+                px-[15px]
+                py-[15px]
+                bg-white
+                text-gray-700
+                focus:outline-none
+                focus:ring-gray-500
+                w-[50px]
+                absolute
+                z-10
+                top-[50px]
+                right-[306px]
+                focus:right-[306px]
+                focus:border-gray-500 
+                border-gray-500 
+                h-[56px]
+                "
+                  >
+                    {/* {selectedOption !== '' ? selectedOption : 'Type Number of Days or Select Options'} */}
+                    <FontAwesomeIcon
+                      icon={solid('chevron-down')}
+                      className="text-gray-700 ml-[0px]"
+                    />
+                  </button>
+
+                  {/* Custom Dropdown Menu */}
+                  {isOpen && (
+                    <ul className=" absolute top-[110px] left-0 z-10 w-[400px] bg-white border rounded-md mt-1 shadow-md">
+                      {options.map((option, index) => (
+                        <li
+                          key={index}
+                          onClick={() => {
+                            handleOnClick(option)
+                          }}
+                          className="
+                        px-4
+                        py-2
+                        hover:bg-orange-500
+                        hover:text-white
+                        cursor-pointer
+                        "
+                        >
+                          {option}
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </div>
+                <div>
+                  <label className="text-gray-400 font-semibold">
+                    Type of tour
+                  </label>
+                  <div className="flex items-center space-x-6">
+                    <label className="flex items-center">
+                      <input
+                        type="radio"
+                        name="option"
+                        value="Option 1"
+                        className="mr-2"
+                      />
+                      Option 1
+                    </label>
+                    <label className="flex items-center">
+                      <input
+                        type="radio"
+                        name="option"
+                        value="Option 2"
+                        className="mr-2"
+                      />
+                      Option 2
+                    </label>
+                  </div>
+                </div>
+                <div>
+                  <label className="text-gray-400 font-semibold">
+                    Comfort Level
+                  </label>
+                  <div className="flex items-center space-x-6">
+                    <label className="flex items-center">
+                      <input
+                        type="radio"
+                        name="option"
+                        value="Option 1"
+                        className="mr-2"
+                      />
+                      Option 1
+                    </label>
+                    <label className="flex items-center">
+                      <input
+                        type="radio"
+                        name="option"
+                        value="Option 2"
+                        className="mr-2"
+                      />
+                      Option 2
+                    </label>
+                  </div>
+                </div>
               </div>
               <div className="mt-[35px]">
                 <button className="bg-orange-500 px-[35px] py-[10px] text-white rounded-md">
@@ -227,9 +467,9 @@ const GetAFreeQuote: React.FC = () => {
                 after:bg-no-repeat after:content-['']
               checked:bg-[#F3533D] 
               ring
-              ring-gray-300
+              ring-transparent
               hover:ring 
-               hover:ring-[#F3533D] 
+               hover:ring-[#F3533D]
               focus:outline-none"
               />
               <label
@@ -238,7 +478,7 @@ const GetAFreeQuote: React.FC = () => {
               cursor-pointer 
               font-medium 
               text-orange-500 
-              peer-checked:text-gray-500 
+              peer-checked:text-orange-500 
               peer-checked:line-through
               pl-[10px]
               "
@@ -251,6 +491,7 @@ const GetAFreeQuote: React.FC = () => {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   )
 }

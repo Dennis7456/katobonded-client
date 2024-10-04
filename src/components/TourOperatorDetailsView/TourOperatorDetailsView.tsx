@@ -182,7 +182,7 @@ const TourOperatorDetailsView: React.FC = () => {
 
   const allOffers = getaways.flatMap((getaway) => getaway.offers)
   return (
-    <div>
+    <div className="">
       <Header />
       <div className="mt-[100px] ml-[100px] mb-[20px]">
         <h1 className="text-3xl ml-[55px]">Twiga Safaris</h1>
@@ -198,7 +198,7 @@ const TourOperatorDetailsView: React.FC = () => {
       </div>
 
       {/* Top Section */}
-      <div className=" px-[75px] grid gap-[20px] border-b-2">
+      <div className=" px-[75px] grid gap-[20px] border-b-2 bg-white">
         <div className="flex justify-between items-center mb-[10px]">
           <h2 className="text-lg tracking-wider">Twiga Safaris</h2>
           <button className="bg-orange-500 px-[55px] text-white py-[10px] rounded-md">
@@ -221,9 +221,9 @@ const TourOperatorDetailsView: React.FC = () => {
       </div>
 
       {/* Main Section */}
-      <div className="px-[75px] grid gap-[20px]">
+      <div className="px-[75px] grid gap-[20px] bg-gray-50">
         <div className="">
-          <div className="grid grid-cols-4">
+          <div className="grid grid-cols-5">
             <div className="grid text-lg text-orange-500 gap-4 font-bold tracking-wide col-span-1 py-[85px] h-[10px] bg-gray-50">
               <div
                 className={`${sideBarOption === 'option-1' ? 'opacity-100 cursor-pointer' : 'opacity-50 cursor-pointer'}`}
@@ -261,7 +261,7 @@ const TourOperatorDetailsView: React.FC = () => {
 
             {/* Overview Option */}
             {sideBarOption === 'option-1' && (
-              <div className="col-span-3 bg-white shadow-md py-[55px] px-[45px] my-[35px]">
+              <div className="col-span-4 bg-white shadow-md py-[55px] px-[45px] my-[35px]">
                 <div className="grid gap-3">
                   <h2 className="text-lg text-gray-900 font-bold tracking-wide ">
                     Overview
@@ -768,6 +768,31 @@ const TourOperatorDetailsView: React.FC = () => {
                       egestas! ...
                     </p>
                   </div>
+                </div>
+
+                {/* Pagination */}
+                <div className="text-xl px-4 pt-8 flex justify-center items-center gap-8 text-gray-400 text-center mb-[35px]">
+                  <span>
+                    <FontAwesomeIcon
+                      icon={solid('circle-chevron-left')}
+                      size="xl"
+                      className="cursor-pointer hover:text-gray-900"
+                    />
+                  </span>
+                  <span className="text-[#F3533D] border-b-2 border-b-[#F3533D]">
+                    1
+                  </span>
+                  <span className="cursor-pointer hover:text-gray-900">2</span>
+                  <span className="cursor-pointer hover:text-gray-900">3</span>
+                  <span className="">...</span>
+                  <span className="cursor-pointer hover:text-gray-900">10</span>
+                  <span>
+                    <FontAwesomeIcon
+                      icon={solid('circle-chevron-right')}
+                      size="xl"
+                      className="cursor-pointer hover:text-gray-900"
+                    />
+                  </span>
                 </div>
               </div>
             )}
