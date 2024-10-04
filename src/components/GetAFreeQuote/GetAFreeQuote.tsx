@@ -19,7 +19,7 @@ const GetAFreeQuote: React.FC = () => {
             <span className="text-gray-400">Back to Tour</span>
           </nav>
         </div>
-        <div className="grid grid-cols-3">
+        <div className="grid grid-cols-3 gap-[10px]">
           <div className="col-span-2">
             <div className="flex">
               <img
