@@ -253,7 +253,9 @@ const GetAFreeQuote: React.FC = () => {
                 w-5 
                 shrink-0 
                 appearance-none 
-                rounded-sm border 
+                rounded-sm 
+                border-[2px]
+                border-orange-200 
                 after:absolute 
                 after:left-0 
                 after:top-0 
@@ -286,7 +288,7 @@ const GetAFreeQuote: React.FC = () => {
                   Remember my message for future requests{' '}
                 </label>
               </div>
-              <div className="grid gap-[35px]">
+              <div className="grid gap-[35px] mt-[75px]">
                 {/* Title */}
                 <div>
                   <h2 className="text-lg font-semibold">
@@ -295,44 +297,51 @@ const GetAFreeQuote: React.FC = () => {
                 </div>
 
                 {/* Select/Input Functionality */}
-                <div className="flex flex-col relative gap-[10px]">
+                <div className="flex flex-col gap-[10px]">
                   <label className="text-gray-400 font-semibold">
                     Tour Duration: How Much Time Are You Planning to go on
                     Holiday
                   </label>
-
-                  {/* Optional: Input for typing (to replace native select if needed) */}
-                  <input
-                    type="text"
-                    className="
+                  <div>
+                    <div className="flex justify-start items-center">
+                      {/* Optional: Input for typing (to replace native select if needed) */}
+                      <input
+                        type="text"
+                        className="
                 select
-                mt-4
-                w-[400px]
+                h-[56px]
+                w-[350px]
                 px-[15px] 
                 text-gray-700
                 py-[15px] 
                 border-gray-400 
-                border-[1px] 
-                rounded-[3px] 
+                border-t-[1px]
+                border-l-[1px]
+                border-b-[1px]
+                rounded-[3px]
+                rounded-l-sm
+                rounded-r-none
                 focus:border-gray-500 
                 focus:outline-none"
-                    placeholder="Type Number of Days"
-                    value={selectedOption !== '' ? selectedOption : ''}
-                    onChange={(e) => {
-                      setSelectedOption(e.target.value)
-                    }}
-                    // disabled={selectedOption !== 'Select'}
-                  ></input>
-
-                  {/* Custom Input/Dropdown Button */}
-                  <button
-                    onClick={toggleDropDown}
-                    className="
+                        placeholder="Type Number of Days"
+                        value={selectedOption !== '' ? selectedOption : ''}
+                        onChange={(e) => {
+                          setSelectedOption(e.target.value)
+                        }}
+                        // disabled={selectedOption !== 'Select'}
+                      ></input>
+                      {/* Custom Input/Dropdown Button */}
+                      <button
+                        onClick={toggleDropDown}
+                        className="
                 flex
                 justify-between
                 items-center
-                border
-                rounded-r-md
+                border-r-[1px]
+                border-t-[1px]
+                border-b-[1px]
+                border-l-[1px]
+                rounded-r-sm
                 px-[15px]
                 py-[15px]
                 bg-white
@@ -340,93 +349,290 @@ const GetAFreeQuote: React.FC = () => {
                 focus:outline-none
                 focus:ring-gray-500
                 w-[50px]
-                absolute
-                z-10
-                top-[50px]
+                z-0
                 right-[306px]
                 focus:right-[306px]
                 focus:border-gray-500 
                 border-gray-500 
                 h-[56px]
                 "
-                  >
-                    {/* {selectedOption !== '' ? selectedOption : 'Type Number of Days or Select Options'} */}
-                    <FontAwesomeIcon
-                      icon={solid('chevron-down')}
-                      className="text-gray-700 ml-[0px]"
-                    />
-                  </button>
+                      >
+                        {/* {selectedOption !== '' ? selectedOption : 'Type Number of Days or Select Options'} */}
+                        <FontAwesomeIcon
+                          icon={solid('chevron-down')}
+                          className="text-gray-700 ml-[0px]"
+                        />
+                      </button>
+                    </div>
 
-                  {/* Custom Dropdown Menu */}
-                  {isOpen && (
-                    <ul className=" absolute top-[110px] left-0 z-10 w-[400px] bg-white border rounded-md mt-1 shadow-md">
-                      {options.map((option, index) => (
-                        <li
-                          key={index}
-                          onClick={() => {
-                            handleOnClick(option)
-                          }}
-                          className="
+                    {/* Custom Dropdown Menu */}
+                    {isOpen && (
+                      <ul className="absolute z-20 w-[400px] bg-white border rounded-md mt-1 shadow-md">
+                        {options.map((option, index) => (
+                          <li
+                            key={index}
+                            onClick={() => {
+                              handleOnClick(option)
+                            }}
+                            className="
                         px-4
                         py-2
                         hover:bg-orange-500
                         hover:text-white
                         cursor-pointer
                         "
-                        >
-                          {option}
-                        </li>
-                      ))}
-                    </ul>
-                  )}
+                          >
+                            {option}
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                  </div>
                 </div>
-                <div>
+
+                {/* Radio buttons */}
+                <div className="flex flex-col gap-[10px]">
                   <label className="text-gray-400 font-semibold">
                     Type of tour
                   </label>
                   <div className="flex items-center space-x-6">
-                    <label className="flex items-center">
+                    <label
+                      className="
+                    flex 
+                    justify-start 
+                    items-center 
+                    gap-[5px] 
+                    cursor-pointer 
+                    font-medium 
+                    text-orange-500 
+                    peer-checked:text-orange-500 
+                    peer-checked:line-through"
+                    >
                       <input
                         type="radio"
                         name="option"
                         value="Option 1"
-                        className="mr-2"
+                        className="
+                peer 
+                relative 
+                h-5 
+                w-5 
+                shrink-0 
+                appearance-none 
+                rounded-sm 
+                border-[2px]
+                border-orange-500
+                after:absolute 
+                after:left-0 
+                after:top-0 
+                after:h-full 
+                after:w-full 
+                after:bg-[url('data:image/svg+xml;base64,PHN2ZyBoZWlnaHQ9JzMwMHB4JyB3aWR0aD0nMzAwcHgnICBmaWxsPSIjZmZmZmZmIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2aWV3Qm94PSIwIDAgMTAwIDEwMCIgdmVyc2lvbj0iMS4xIiB4PSIwcHgiIHk9IjBweCI+PHRpdGxlPmljb25fYnlfUG9zaGx5YWtvdjEwPC90aXRsZT48ZGVzYz5DcmVhdGVkIHdpdGggU2tldGNoLjwvZGVzYz48ZyBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj48ZyBmaWxsPSIjZmZmZmZmIj48ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgyNi4wMDAwMDAsIDI2LjAwMDAwMCkiPjxwYXRoIGQ9Ik0xNy45OTk5ODc4LDMyLjQgTDEwLjk5OTk4NzgsMjUuNCBDMTAuMjI2Nzg5MSwyNC42MjY4MDE0IDguOTczMTg2NDQsMjQuNjI2ODAxNCA4LjE5OTk4Nzc5LDI1LjQgTDguMTk5OTg3NzksMjUuNCBDNy40MjY3ODkxNCwyNi4xNzMxOTg2IDcuNDI2Nzg5MTQsMjcuNDI2ODAxNCA4LjE5OTk4Nzc5LDI4LjIgTDE2LjU4NTc3NDIsMzYuNTg1Nzg2NCBDMTcuMzY2ODIyOCwzNy4zNjY4MzUgMTguNjMzMTUyOCwzNy4zNjY4MzUgMTkuNDE0MjAxNCwzNi41ODU3ODY0IEw0MC41OTk5ODc4LDE1LjQgQzQxLjM3MzE4NjQsMTQuNjI2ODAxNCA0MS4zNzMxODY0LDEzLjM3MzE5ODYgNDAuNTk5OTg3OCwxMi42IEw0MC41OTk5ODc4LDEyLjYgQzM5LjgyNjc4OTEsMTEuODI2ODAxNCAzOC41NzMxODY0LDExLjgyNjgwMTQgMzcuNzk5OTg3OCwxMi42IEwxNy45OTk5ODc4LDMyLjQgWiI+PC9wYXRoPjwvZz48L2c+PC9nPjwvc3ZnPg==')] 
+                after:bg-[length:40px] 
+                after:bg-center 
+                after:bg-no-repeat after:content-['']
+              checked:bg-[#F3533D] 
+              ring
+              ring-gray-300
+               ring-transparent
+              hover:ring 
+               hover:ring-[#F3533D]
+              focus:outline-none"
                       />
-                      Option 1
+                      Private tour
                     </label>
-                    <label className="flex items-center">
+                    <label
+                      className="
+                    flex 
+                    justify-start 
+                    items-center 
+                    gap-[5px] 
+                    cursor-pointer 
+                    font-medium 
+                    text-orange-500 
+                    peer-checked:text-orange-500 
+                    peer-checked:line-through
+                    "
+                    >
                       <input
                         type="radio"
                         name="option"
                         value="Option 2"
-                        className="mr-2"
+                        className="
+                        peer 
+                relative 
+                h-5 
+                w-5 
+                shrink-0 
+                appearance-none 
+                rounded-sm 
+                border-[2px] 
+                border-orange-500
+                after:absolute 
+                after:left-0 
+                after:top-0 
+                after:h-full 
+                after:w-full 
+                after:bg-[url('data:image/svg+xml;base64,PHN2ZyBoZWlnaHQ9JzMwMHB4JyB3aWR0aD0nMzAwcHgnICBmaWxsPSIjZmZmZmZmIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2aWV3Qm94PSIwIDAgMTAwIDEwMCIgdmVyc2lvbj0iMS4xIiB4PSIwcHgiIHk9IjBweCI+PHRpdGxlPmljb25fYnlfUG9zaGx5YWtvdjEwPC90aXRsZT48ZGVzYz5DcmVhdGVkIHdpdGggU2tldGNoLjwvZGVzYz48ZyBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj48ZyBmaWxsPSIjZmZmZmZmIj48ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgyNi4wMDAwMDAsIDI2LjAwMDAwMCkiPjxwYXRoIGQ9Ik0xNy45OTk5ODc4LDMyLjQgTDEwLjk5OTk4NzgsMjUuNCBDMTAuMjI2Nzg5MSwyNC42MjY4MDE0IDguOTczMTg2NDQsMjQuNjI2ODAxNCA4LjE5OTk4Nzc5LDI1LjQgTDguMTk5OTg3NzksMjUuNCBDNy40MjY3ODkxNCwyNi4xNzMxOTg2IDcuNDI2Nzg5MTQsMjcuNDI2ODAxNCA4LjE5OTk4Nzc5LDI4LjIgTDE2LjU4NTc3NDIsMzYuNTg1Nzg2NCBDMTcuMzY2ODIyOCwzNy4zNjY4MzUgMTguNjMzMTUyOCwzNy4zNjY4MzUgMTkuNDE0MjAxNCwzNi41ODU3ODY0IEw0MC41OTk5ODc4LDE1LjQgQzQxLjM3MzE4NjQsMTQuNjI2ODAxNCA0MS4zNzMxODY0LDEzLjM3MzE5ODYgNDAuNTk5OTg3OCwxMi42IEw0MC41OTk5ODc4LDEyLjYgQzM5LjgyNjc4OTEsMTEuODI2ODAxNCAzOC41NzMxODY0LDExLjgyNjgwMTQgMzcuNzk5OTg3OCwxMi42IEwxNy45OTk5ODc4LDMyLjQgWiI+PC9wYXRoPjwvZz48L2c+PC9nPjwvc3ZnPg==')] 
+                after:bg-[length:40px] 
+                after:bg-center 
+                after:bg-no-repeat after:content-['']
+              checked:bg-[#F3533D] 
+              ring
+              ring-gray-300
+               ring-transparent
+              hover:ring 
+               hover:ring-[#F3533D]
+              focus:outline-none"
                       />
-                      Option 2
+                      Shared tour
                     </label>
                   </div>
                 </div>
-                <div>
+
+                {/* Radio buttons */}
+                <div className="flex flex-col gap-[10px]">
                   <label className="text-gray-400 font-semibold">
                     Comfort Level
                   </label>
                   <div className="flex items-center space-x-6">
-                    <label className="flex items-center">
+                    <label
+                      className="
+                    flex 
+                    justify-start 
+                    items-center 
+                    gap-[5px] 
+                    cursor-pointer 
+                    font-medium 
+                    text-orange-500 
+                    peer-checked:text-orange-500 
+                    peer-checked:line-through"
+                    >
                       <input
                         type="radio"
                         name="option"
                         value="Option 1"
-                        className="mr-2"
+                        className="
+                peer 
+                relative 
+                h-5 
+                w-5 
+                shrink-0 
+                appearance-none 
+                rounded-sm 
+                border-[2px]
+                border-orange-500
+                after:absolute 
+                after:left-0 
+                after:top-0 
+                after:h-full 
+                after:w-full 
+                after:bg-[url('data:image/svg+xml;base64,PHN2ZyBoZWlnaHQ9JzMwMHB4JyB3aWR0aD0nMzAwcHgnICBmaWxsPSIjZmZmZmZmIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2aWV3Qm94PSIwIDAgMTAwIDEwMCIgdmVyc2lvbj0iMS4xIiB4PSIwcHgiIHk9IjBweCI+PHRpdGxlPmljb25fYnlfUG9zaGx5YWtvdjEwPC90aXRsZT48ZGVzYz5DcmVhdGVkIHdpdGggU2tldGNoLjwvZGVzYz48ZyBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj48ZyBmaWxsPSIjZmZmZmZmIj48ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgyNi4wMDAwMDAsIDI2LjAwMDAwMCkiPjxwYXRoIGQ9Ik0xNy45OTk5ODc4LDMyLjQgTDEwLjk5OTk4NzgsMjUuNCBDMTAuMjI2Nzg5MSwyNC42MjY4MDE0IDguOTczMTg2NDQsMjQuNjI2ODAxNCA4LjE5OTk4Nzc5LDI1LjQgTDguMTk5OTg3NzksMjUuNCBDNy40MjY3ODkxNCwyNi4xNzMxOTg2IDcuNDI2Nzg5MTQsMjcuNDI2ODAxNCA4LjE5OTk4Nzc5LDI4LjIgTDE2LjU4NTc3NDIsMzYuNTg1Nzg2NCBDMTcuMzY2ODIyOCwzNy4zNjY4MzUgMTguNjMzMTUyOCwzNy4zNjY4MzUgMTkuNDE0MjAxNCwzNi41ODU3ODY0IEw0MC41OTk5ODc4LDE1LjQgQzQxLjM3MzE4NjQsMTQuNjI2ODAxNCA0MS4zNzMxODY0LDEzLjM3MzE5ODYgNDAuNTk5OTg3OCwxMi42IEw0MC41OTk5ODc4LDEyLjYgQzM5LjgyNjc4OTEsMTEuODI2ODAxNCAzOC41NzMxODY0LDExLjgyNjgwMTQgMzcuNzk5OTg3OCwxMi42IEwxNy45OTk5ODc4LDMyLjQgWiI+PC9wYXRoPjwvZz48L2c+PC9nPjwvc3ZnPg==')] 
+                after:bg-[length:40px] 
+                after:bg-center 
+                after:bg-no-repeat after:content-['']
+              checked:bg-[#F3533D] 
+              ring
+              ring-gray-300
+               ring-transparent
+              hover:ring 
+               hover:ring-[#F3533D]
+              focus:outline-none"
                       />
-                      Option 1
+                      Budget
                     </label>
-                    <label className="flex items-center">
+                    <label
+                      className="
+                    flex 
+                    justify-start 
+                    items-center 
+                    gap-[5px] 
+                    cursor-pointer 
+                    font-medium 
+                    text-orange-500 
+                    peer-checked:text-orange-500 
+                    peer-checked:line-through
+                    "
+                    >
                       <input
                         type="radio"
                         name="option"
                         value="Option 2"
-                        className="mr-2"
+                        className="
+                        peer 
+                relative 
+                h-5 
+                w-5 
+                shrink-0 
+                appearance-none 
+                rounded-sm 
+                border-[2px]
+                border-orange-500 
+                after:absolute 
+                after:left-0 
+                after:top-0 
+                after:h-full 
+                after:w-full 
+                after:bg-[url('data:image/svg+xml;base64,PHN2ZyBoZWlnaHQ9JzMwMHB4JyB3aWR0aD0nMzAwcHgnICBmaWxsPSIjZmZmZmZmIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2aWV3Qm94PSIwIDAgMTAwIDEwMCIgdmVyc2lvbj0iMS4xIiB4PSIwcHgiIHk9IjBweCI+PHRpdGxlPmljb25fYnlfUG9zaGx5YWtvdjEwPC90aXRsZT48ZGVzYz5DcmVhdGVkIHdpdGggU2tldGNoLjwvZGVzYz48ZyBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj48ZyBmaWxsPSIjZmZmZmZmIj48ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgyNi4wMDAwMDAsIDI2LjAwMDAwMCkiPjxwYXRoIGQ9Ik0xNy45OTk5ODc4LDMyLjQgTDEwLjk5OTk4NzgsMjUuNCBDMTAuMjI2Nzg5MSwyNC42MjY4MDE0IDguOTczMTg2NDQsMjQuNjI2ODAxNCA4LjE5OTk4Nzc5LDI1LjQgTDguMTk5OTg3NzksMjUuNCBDNy40MjY3ODkxNCwyNi4xNzMxOTg2IDcuNDI2Nzg5MTQsMjcuNDI2ODAxNCA4LjE5OTk4Nzc5LDI4LjIgTDE2LjU4NTc3NDIsMzYuNTg1Nzg2NCBDMTcuMzY2ODIyOCwzNy4zNjY4MzUgMTguNjMzMTUyOCwzNy4zNjY4MzUgMTkuNDE0MjAxNCwzNi41ODU3ODY0IEw0MC41OTk5ODc4LDE1LjQgQzQxLjM3MzE4NjQsMTQuNjI2ODAxNCA0MS4zNzMxODY0LDEzLjM3MzE5ODYgNDAuNTk5OTg3OCwxMi42IEw0MC41OTk5ODc4LDEyLjYgQzM5LjgyNjc4OTEsMTEuODI2ODAxNCAzOC41NzMxODY0LDExLjgyNjgwMTQgMzcuNzk5OTg3OCwxMi42IEwxNy45OTk5ODc4LDMyLjQgWiI+PC9wYXRoPjwvZz48L2c+PC9nPjwvc3ZnPg==')] 
+                after:bg-[length:40px] 
+                after:bg-center 
+                after:bg-no-repeat after:content-['']
+              checked:bg-[#F3533D] 
+              ring
+              ring-gray-300
+               ring-transparent
+              hover:ring 
+               hover:ring-[#F3533D]
+              focus:outline-none"
                       />
-                      Option 2
+                      Midrange
+                    </label>
+
+                    <label
+                      className="
+                    flex 
+                    justify-start 
+                    items-center 
+                    gap-[5px] 
+                    cursor-pointer 
+                    font-medium 
+                    text-orange-500 
+                    peer-checked:text-orange-500 
+                    peer-checked:line-through
+                    "
+                    >
+                      <input
+                        type="radio"
+                        name="option"
+                        value="Option 2"
+                        className="
+                        peer 
+                relative 
+                h-5 
+                w-5 
+                shrink-0 
+                appearance-none 
+                rounded-sm 
+                border-[2px] 
+                border-orange-500
+                after:absolute 
+                after:left-0 
+                after:top-0 
+                after:h-full 
+                after:w-full 
+                after:bg-[url('data:image/svg+xml;base64,PHN2ZyBoZWlnaHQ9JzMwMHB4JyB3aWR0aD0nMzAwcHgnICBmaWxsPSIjZmZmZmZmIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2aWV3Qm94PSIwIDAgMTAwIDEwMCIgdmVyc2lvbj0iMS4xIiB4PSIwcHgiIHk9IjBweCI+PHRpdGxlPmljb25fYnlfUG9zaGx5YWtvdjEwPC90aXRsZT48ZGVzYz5DcmVhdGVkIHdpdGggU2tldGNoLjwvZGVzYz48ZyBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj48ZyBmaWxsPSIjZmZmZmZmIj48ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgyNi4wMDAwMDAsIDI2LjAwMDAwMCkiPjxwYXRoIGQ9Ik0xNy45OTk5ODc4LDMyLjQgTDEwLjk5OTk4NzgsMjUuNCBDMTAuMjI2Nzg5MSwyNC42MjY4MDE0IDguOTczMTg2NDQsMjQuNjI2ODAxNCA4LjE5OTk4Nzc5LDI1LjQgTDguMTk5OTg3NzksMjUuNCBDNy40MjY3ODkxNCwyNi4xNzMxOTg2IDcuNDI2Nzg5MTQsMjcuNDI2ODAxNCA4LjE5OTk4Nzc5LDI4LjIgTDE2LjU4NTc3NDIsMzYuNTg1Nzg2NCBDMTcuMzY2ODIyOCwzNy4zNjY4MzUgMTguNjMzMTUyOCwzNy4zNjY4MzUgMTkuNDE0MjAxNCwzNi41ODU3ODY0IEw0MC41OTk5ODc4LDE1LjQgQzQxLjM3MzE4NjQsMTQuNjI2ODAxNCA0MS4zNzMxODY0LDEzLjM3MzE5ODYgNDAuNTk5OTg3OCwxMi42IEw0MC41OTk5ODc4LDEyLjYgQzM5LjgyNjc4OTEsMTEuODI2ODAxNCAzOC41NzMxODY0LDExLjgyNjgwMTQgMzcuNzk5OTg3OCwxMi42IEwxNy45OTk5ODc4LDMyLjQgWiI+PC9wYXRoPjwvZz48L2c+PC9nPjwvc3ZnPg==')] 
+                after:bg-[length:40px] 
+                after:bg-center 
+                after:bg-no-repeat after:content-['']
+              checked:bg-[#F3533D] 
+              ring
+              ring-gray-300
+               ring-transparent
+              hover:ring 
+               hover:ring-[#F3533D]
+              focus:outline-none"
+                      />
+                      Luxury
                     </label>
                   </div>
                 </div>
