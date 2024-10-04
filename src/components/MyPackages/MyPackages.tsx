@@ -554,9 +554,11 @@ const MyPackages: React.FC = () => {
                 </div>
 
                 {/* Packages */}
-                <div className="mt-[20px] bg-white w-[860px] rounded-sm shadow-sm">
-                  <div className="flex">
-                    <div className="px-[20px] py-[10px] bg-green-400">
+                <div className="mt-[20px] bg-white w-[860px] rounded-sm shadow-sm flex justify-start items-start">
+                  {/* Right Section */}
+                  <div className="flex flex-col gap-[55px]">
+                    {/* Details */}
+                    <div className="px-[20px] py-[10px]">
                       <h2 className="text-orange-500 text-xl tracking-wider font-semibold">
                         7 Days Beach Holiday
                       </h2>
@@ -567,185 +569,229 @@ const MyPackages: React.FC = () => {
                         <p className="text-gray-400">/ person sharing</p>
                       </div>
                     </div>
-                    <div className="flex justify-between gap-[5px] px-[20px] py-[10px]">
-                      TEx
+
+                    {/* Buttons */}
+                    <div className="flex justify-between items-center gap-[105px] border-t-[1px] border-r-[1px] py-[10px] px-[20px]">
+                      <div className="flex justify-start items-center gap-[10px] px-[20px] py-[15px]">
+                        <div>
+                          <button className="bg-orange-500 px-[20px] py-[8px] rounded-sm text-white hover:opacity-80">
+                            Accept Quote
+                          </button>
+                        </div>
+                        <div>
+                          <button className="bg-gray-300 px-[20px] py-[8px] rounded-sm text-gray-900 hover:opacity-80">
+                            Reject Quote
+                          </button>
+                        </div>
+                      </div>
+                      <div>
+                        <button className="bg-white border-gray-300 border-[2px] px-[20px] py-[8px] rounded-sm text-gray-900 hover:opacity-80">
+                          View Details
+                        </button>
+                      </div>
                     </div>
                   </div>
-                  <div className="flex justify-start items-center gap-[px]">
-                    <div className="px-[100px] py-[20px] bg-green-400">
-                      text
+
+                  {/* Left Section */}
+                  <div className="flex flex-col gap-[20px] justify-center items-center">
+                    <div className="py-[25px]">
+                      <img
+                        src={EmptyPhoto}
+                        alt="blank image"
+                        className="w-[50px] h-[50px] object-cover"
+                      ></img>
+                    </div>
+                    <div className="px-[60px] py-[30px]">
+                      <p>By: Ndovu Safaris</p>
+                      <div className="flex justify-start items-center gap-[10px]">
+                        <FontAwesomeIcon
+                          icon={solid('star')}
+                          size="sm"
+                          className="text-orange-500"
+                        />
+                        <FontAwesomeIcon
+                          icon={solid('star')}
+                          size="sm"
+                          className="text-orange-500"
+                        />
+                        <FontAwesomeIcon
+                          icon={solid('star')}
+                          size="sm"
+                          className="text-orange-500"
+                        />
+                        <FontAwesomeIcon
+                          icon={solid('star')}
+                          size="sm"
+                          className="text-orange-500"
+                        />
+                        <FontAwesomeIcon
+                          icon={solid('star')}
+                          size="sm"
+                          className="text-orange-500"
+                        />
+                      </div>
                     </div>
                   </div>
                 </div>
 
                 {/* Packages */}
-                <div className="mt-[20px] bg-white w-[860px] rounded-sm shadow-sm">
-                  <div className="flex">
-                    <div>
-                      <img
-                        src={leopardImage}
-                        alt="giraffe image"
-                        className="h-[200px] w-[300px] object-cover"
-                      />
+                <div className="mt-[20px] bg-white w-[860px] rounded-sm shadow-sm flex justify-start items-start">
+                  {/* Right Section */}
+                  <div className="flex flex-col gap-[55px]">
+                    {/* Details */}
+                    <div className="px-[20px] py-[10px]">
+                      <h2 className="text-orange-500 text-xl tracking-wider font-semibold">
+                        7 Days Beach Holiday
+                      </h2>
+                      <div className="flex justify-start items-center">
+                        <p className="mr-[5px] text-xl font-semibold">
+                          $ 2,170
+                        </p>
+                        <p className="text-gray-400">/ person sharing</p>
+                      </div>
                     </div>
-                    <div className="flex justify-between gap-[5px] px-[20px] py-[10px]">
-                      {/* Details */}
-                      <div>
-                        <h2 className="text-orange-500 text-2xl tracking-wider font-semibold">
-                          Twiga Safaris
-                        </h2>
-                        <div className="flex gap-[5px]">
-                          <FontAwesomeIcon
-                            icon={solid('star')}
-                            className="text-orange-500"
-                            size="sm"
-                          />
-                          <FontAwesomeIcon
-                            icon={solid('star')}
-                            className="text-orange-500"
-                            size="sm"
-                          />
-                          <FontAwesomeIcon
-                            icon={solid('star')}
-                            className="text-orange-500"
-                            size="sm"
-                          />
-                          <FontAwesomeIcon
-                            icon={solid('star')}
-                            className="text-orange-500"
-                            size="sm"
-                          />
-                          <FontAwesomeIcon
-                            icon={solid('star')}
-                            className="text-orange-500"
-                            size="sm"
-                          />
+
+                    {/* Buttons */}
+                    <div className="flex justify-between items-center gap-[105px] border-t-[1px] border-r-[1px] py-[10px] px-[20px]">
+                      <div className="flex justify-start items-center gap-[10px] px-[20px] py-[15px]">
+                        <div>
+                          <button className="bg-orange-500 px-[20px] py-[8px] rounded-sm text-white hover:opacity-80">
+                            Accept Quote
+                          </button>
                         </div>
-                        <div className="flex text-sm mt-[20px]">
-                          <p className="uppercase mr-[10px]">Tour Types: </p>
-                          <p>
-                            Custom mid-range & luxury tours that can start every
-                            day
-                          </p>
-                        </div>
-                        <div className="flex text-sm">
-                          <p className="uppercase mr-[10px]">Tour Types: </p>
-                          <p>
-                            Custom mid-range & luxury tours that can start every
-                            day
-                          </p>
+                        <div>
+                          <button className="bg-gray-300 px-[20px] py-[8px] rounded-sm text-gray-900 hover:opacity-80">
+                            Reject Quote
+                          </button>
                         </div>
                       </div>
-
-                      {/* Heart */}
-                      <div className="px-[0px] py-[20px]">
-                        <FontAwesomeIcon
-                          icon={solid('heart')}
-                          size="xl"
-                          className="text-red-500 border rounded-full p-2"
-                        />
+                      <div>
+                        <button className="bg-white border-gray-300 border-[2px] px-[20px] py-[8px] rounded-sm text-gray-900 hover:opacity-80">
+                          View Details
+                        </button>
                       </div>
                     </div>
                   </div>
-                  <div className="flex justify-start items-center gap-[px]">
-                    <div className="px-[100px] py-[20px]">
+
+                  {/* Left Section */}
+                  <div className="flex flex-col gap-[20px] justify-center items-center">
+                    <div className="py-[25px]">
                       <img
                         src={EmptyPhoto}
-                        alt="Empty image"
-                        className="h-[100px] w-[100px] object-cover"
-                      />
+                        alt="blank image"
+                        className="w-[50px] h-[50px] object-cover"
+                      ></img>
                     </div>
-                    <div className="flex justify-start items-center gap-[20px] h-[100px] px-[35px] py-[40px]">
-                      <button className="px-[20px] bg-orange-500 text-white py-[10px] rounded-sm">
-                        All 30 Tours
-                      </button>
-                      <p className="text-gray-400">Offered by Twiga Safaris</p>
+                    <div className="px-[60px] py-[30px]">
+                      <p>By: Ndovu Safaris</p>
+                      <div className="flex justify-start items-center gap-[10px]">
+                        <FontAwesomeIcon
+                          icon={solid('star')}
+                          size="sm"
+                          className="text-orange-500"
+                        />
+                        <FontAwesomeIcon
+                          icon={solid('star')}
+                          size="sm"
+                          className="text-orange-500"
+                        />
+                        <FontAwesomeIcon
+                          icon={solid('star')}
+                          size="sm"
+                          className="text-orange-500"
+                        />
+                        <FontAwesomeIcon
+                          icon={solid('star')}
+                          size="sm"
+                          className="text-orange-500"
+                        />
+                        <FontAwesomeIcon
+                          icon={solid('star')}
+                          size="sm"
+                          className="text-orange-500"
+                        />
+                      </div>
                     </div>
                   </div>
                 </div>
 
                 {/* Packages */}
-                <div className="mt-[20px] bg-white w-[860px] rounded-sm shadow-sm">
-                  <div className="flex">
-                    <div>
-                      <img
-                        src={elephantsImage}
-                        alt="giraffe image"
-                        className="h-[200px] w-[300px] object-cover"
-                      />
+                <div className="mt-[20px] bg-white w-[860px] rounded-sm shadow-sm flex justify-start items-start">
+                  {/* Right Section */}
+                  <div className="flex flex-col gap-[55px]">
+                    {/* Details */}
+                    <div className="px-[20px] py-[10px]">
+                      <h2 className="text-orange-500 text-xl tracking-wider font-semibold">
+                        7 Days Beach Holiday
+                      </h2>
+                      <div className="flex justify-start items-center">
+                        <p className="mr-[5px] text-xl font-semibold">
+                          $ 2,170
+                        </p>
+                        <p className="text-gray-400">/ person sharing</p>
+                      </div>
                     </div>
-                    <div className="flex justify-between gap-[5px] px-[20px] py-[10px]">
-                      {/* Details */}
-                      <div>
-                        <h2 className="text-orange-500 text-2xl tracking-wider font-semibold">
-                          Twiga Safaris
-                        </h2>
-                        <div className="flex gap-[5px]">
-                          <FontAwesomeIcon
-                            icon={solid('star')}
-                            className="text-orange-500"
-                            size="sm"
-                          />
-                          <FontAwesomeIcon
-                            icon={solid('star')}
-                            className="text-orange-500"
-                            size="sm"
-                          />
-                          <FontAwesomeIcon
-                            icon={solid('star')}
-                            className="text-orange-500"
-                            size="sm"
-                          />
-                          <FontAwesomeIcon
-                            icon={solid('star')}
-                            className="text-orange-500"
-                            size="sm"
-                          />
-                          <FontAwesomeIcon
-                            icon={solid('star')}
-                            className="text-orange-500"
-                            size="sm"
-                          />
+
+                    {/* Buttons */}
+                    <div className="flex justify-between items-center gap-[105px] border-t-[1px] border-r-[1px] py-[10px] px-[20px]">
+                      <div className="flex justify-start items-center gap-[10px] px-[20px] py-[15px]">
+                        <div>
+                          <button className="bg-orange-500 px-[20px] py-[8px] rounded-sm text-white hover:opacity-80">
+                            Accept Quote
+                          </button>
                         </div>
-                        <div className="flex text-sm mt-[20px]">
-                          <p className="uppercase mr-[10px]">Tour Types: </p>
-                          <p>
-                            Custom mid-range & luxury tours that can start every
-                            day
-                          </p>
-                        </div>
-                        <div className="flex text-sm">
-                          <p className="uppercase mr-[10px]">Tour Types: </p>
-                          <p>
-                            Custom mid-range & luxury tours that can start every
-                            day
-                          </p>
+                        <div>
+                          <button className="bg-gray-300 px-[20px] py-[8px] rounded-sm text-gray-900 hover:opacity-80">
+                            Reject Quote
+                          </button>
                         </div>
                       </div>
-
-                      {/* Heart */}
-                      <div className="px-[0px] py-[20px]">
-                        <FontAwesomeIcon
-                          icon={solid('heart')}
-                          size="xl"
-                          className="text-red-500 border rounded-full p-2"
-                        />
+                      <div>
+                        <button className="bg-white border-gray-300 border-[2px] px-[20px] py-[8px] rounded-sm text-gray-900 hover:opacity-80">
+                          View Details
+                        </button>
                       </div>
                     </div>
                   </div>
-                  <div className="flex justify-start items-center gap-[px]">
-                    <div className="px-[100px] py-[20px]">
+
+                  {/* Left Section */}
+                  <div className="flex flex-col gap-[20px] justify-center items-center">
+                    <div className="py-[25px]">
                       <img
                         src={EmptyPhoto}
-                        alt="Empty image"
-                        className="h-[100px] w-[100px] object-cover"
-                      />
+                        alt="blank image"
+                        className="w-[50px] h-[50px] object-cover"
+                      ></img>
                     </div>
-                    <div className="flex justify-start items-center gap-[20px] h-[100px] px-[35px] py-[40px]">
-                      <button className="px-[20px] bg-orange-500 text-white py-[10px] rounded-sm">
-                        All 30 Tours
-                      </button>
-                      <p className="text-gray-400">Offered by Twiga Safaris</p>
+                    <div className="px-[60px] py-[30px]">
+                      <p>By: Ndovu Safaris</p>
+                      <div className="flex justify-start items-center gap-[10px]">
+                        <FontAwesomeIcon
+                          icon={solid('star')}
+                          size="sm"
+                          className="text-orange-500"
+                        />
+                        <FontAwesomeIcon
+                          icon={solid('star')}
+                          size="sm"
+                          className="text-orange-500"
+                        />
+                        <FontAwesomeIcon
+                          icon={solid('star')}
+                          size="sm"
+                          className="text-orange-500"
+                        />
+                        <FontAwesomeIcon
+                          icon={solid('star')}
+                          size="sm"
+                          className="text-orange-500"
+                        />
+                        <FontAwesomeIcon
+                          icon={solid('star')}
+                          size="sm"
+                          className="text-orange-500"
+                        />
+                      </div>
                     </div>
                   </div>
                 </div>
