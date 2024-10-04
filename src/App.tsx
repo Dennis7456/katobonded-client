@@ -21,6 +21,7 @@ import ViewCard from './components/ViewCard/ViewCard'
 import TourOperatorDetails from './components/TourOperatorDetails/TourOperatorDetails'
 import TourOperatorDetailsView from './components/TourOperatorDetailsView/TourOperatorDetailsView'
 import GetAFreeQuote from './components/GetAFreeQuote/GetAFreeQuote'
+import MyPackages from './components/MyPackages/MyPackages'
 
 const App: React.FC = () => {
   const {
@@ -50,6 +51,7 @@ const App: React.FC = () => {
           element={<TourOperatorDetailsView />}
         ></Route>
         <Route path="/get-a-free-quote" element={<GetAFreeQuote />}></Route>
+        <Route path="/my-packages" element={<MyPackages />}></Route>
       </Routes>
     </div>
   )

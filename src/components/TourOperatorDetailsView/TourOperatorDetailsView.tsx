@@ -224,6 +224,7 @@ const TourOperatorDetailsView: React.FC = () => {
       <div className="px-[75px] grid gap-[20px] bg-gray-50">
         <div className="">
           <div className="grid grid-cols-5">
+            {/* SidBar */}
             <div className="grid text-lg text-orange-500 gap-4 font-bold tracking-wide col-span-1 py-[85px] h-[10px] bg-gray-50">
               <div
                 className={`${sideBarOption === 'option-1' ? 'opacity-100 cursor-pointer' : 'opacity-50 cursor-pointer'}`}
