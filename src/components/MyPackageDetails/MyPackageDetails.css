@@ -1,17 +1,17 @@
 .parent {
   position: relative;
 }
-    .icon-wrapper {
-      width: 200px;
-      height: 200px;
-      background-color: #759C3E; /* Green circle */
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-      left: 30%;
-    }
+.icon-wrapper {
+  width: 200px;
+  height: 200px;
+  background-color: #759c3e; /* Green circle */
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  left: 30%;
+}
 
 .envelope {
   width: 100px;
@@ -33,17 +33,17 @@
   border-radius: 0 0 10px 10px;
 }
 
-    .paper {
-      width: 100px;
-      height: 80px;
-      background-color: rgb(245, 226, 226);
-      border-radius: 5px;
-      position: absolute;
-      top: 45px;
-      left: 50%;
-      transform: translateX(-50%);
-      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-    }
+.paper {
+  width: 100px;
+  height: 80px;
+  background-color: rgb(245, 226, 226);
+  border-radius: 5px;
+  position: absolute;
+  top: 45px;
+  left: 50%;
+  transform: translateX(-50%);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
 
 .paper::before {
   content: '';
