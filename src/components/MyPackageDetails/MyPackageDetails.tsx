@@ -4,6 +4,7 @@ import Footer from '../Footer/Footer'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { solid } from '@fortawesome/fontawesome-svg-core/import.macro'
 import EmptyPhoto from '../../assets/blank-profile.svg'
+import './MyPackageDetails.css'
 
 const MyPackageDetails: React.FC = () => {
   const [isAcceptQuoteModalOpen, setIsAcceptQuoteModalOpen] = useState(false)
@@ -390,12 +391,20 @@ const MyPackageDetails: React.FC = () => {
                 Success: Message Sent
               </h2>
             </div>
-            <div className="flex flex-col gap-[30px] px-[30px] py-[20px]">
+            <div className="flex flex-col gap-[30px] px-[30px] py-[20px] parent">
               <div className="max-w-[500px]">
                 <p className="text-center">
                   Ndovu Safaris will review your comments and send a response to
                   your email.
                 </p>
+              </div>
+              <div className="icon-wrapper">
+                <div className="paper">
+                  <div className="lines"></div>
+                  <div className="lines"></div>
+                  <div className="lines"></div>
+                </div>
+                <div className="envelope"></div>
               </div>
               <div className="flex flex-col gap-[10px]">
                 <button className="bg-orange-500 text-white py-[10px] rounded-md">
