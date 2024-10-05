@@ -23,8 +23,8 @@ const TourOperatorDetails: React.FC = () => {
       {/* Filter Panel */}
 
       {isModalOpen ? (
-        <div className="z-20 modal-bg">
-          <div className="z-20 fixed top-0 right-0 w-[430px] bg-white h-full px-[35px] py-[35px] overflow-auto">
+        <div className="z-40 modal-bg">
+          <div className="z-40 fixed top-0 right-0 w-[430px] bg-white h-full px-[35px] py-[35px] overflow-auto">
             <div className="flex justify-between items-center gap-[35px]">
               <span className="text-lg">Filter Results</span>
               <span>
