@@ -380,7 +380,7 @@ const MyPackageDetails: React.FC = () => {
       {/* Message Sent Modal */}
       {isMessageSentModalOpen ? (
         <div className="z-40 modal-bg">
-          <div className="bg-white absolute top-[25%] left-[27.5%] border-[2px] border-green-500">
+          <div className="bg-white absolute top-[15%] left-[27.5%] border-[2px] border-green-500">
             <div className="flex justify-start items-center gap-[10px] px-[25px] py-[25px] bg-green-100 border-b-[2px] border-green-500">
               <FontAwesomeIcon
                 icon={solid('circle-check')}
@@ -407,7 +407,12 @@ const MyPackageDetails: React.FC = () => {
                 <div className="envelope"></div>
               </div>
               <div className="flex flex-col gap-[10px]">
-                <button className="bg-orange-500 text-white py-[10px] rounded-md">
+                <button
+                  className="bg-orange-500 text-white py-[10px] rounded-md"
+                  onClick={() => {
+                    setIsMessageSentModalOpen(false)
+                  }}
+                >
                   Close and Continue
                 </button>
               </div>
