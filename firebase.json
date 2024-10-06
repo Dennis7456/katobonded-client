@@ -1,5 +1,6 @@
 {
   "hosting": {
+    "site": "safarihub",
     "public": "public",
     "ignore": [
       "firebase.json",
