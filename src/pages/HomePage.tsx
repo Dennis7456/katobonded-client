@@ -11,14 +11,14 @@ import Footer from 'src/components/Footer/Footer'
 const HomePage: React.FC = () => {
   return (
     <div>
-      <ChatBotModal />
+      {/* <ChatBotModal /> */}
       <Header />
-      <CreateYourTrip />
+      {/* <CreateYourTrip />
       <TripCarousel />
       <TopTours />
       <TopDestinations />
       <TopTourOperators />
-      <Footer />
+      <Footer /> */}
     </div>
   )
 }

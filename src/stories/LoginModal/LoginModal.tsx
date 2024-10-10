@@ -62,7 +62,7 @@ export const LoginModal: React.FC = () => {
   return (
     <>
       <div
-        className="flex flex-col cursor-pointer inset-0"
+        className="flex flex-col cursor-pointer inset-0 hover:text-orange-500 text-white"
         onClick={openModal}
         // ref={clickRef}
       >
@@ -70,7 +70,6 @@ export const LoginModal: React.FC = () => {
           className="py-[5px]"
           icon={regular('user')}
           size="lg"
-          style={{ color: '#ffffff' }}
         />
         <div className="">Agent Login</div>
       </div>
