@@ -11,9 +11,10 @@ import Footer from 'src/components/Footer/Footer'
 const HomePage: React.FC = () => {
   return (
     <div>
+      <CreateYourTrip />
       {/* <ChatBotModal /> */}
-      <Header />
-      {/* <CreateYourTrip />
+      {/* <Header /> */}
+      {/* 
       <TripCarousel />
       <TopTours />
       <TopDestinations />

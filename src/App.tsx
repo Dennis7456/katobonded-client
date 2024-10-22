@@ -6,7 +6,10 @@ import TripCarousel from './stories/TripCarrousel/TripCarousel'
 import './App.css'
 import TestModalComponent from './stories/testmodalcomponent/TestModalComponent'
 import { useBotModalContext } from './context/BotModalContext'
-import { useLoginModalContext } from './context/LoginModalContext'
+import {
+  LoginModalProvider,
+  useLoginModalContext,
+} from './context/LoginModalContext'
 import TopTours from './components/TopTours/TopTours'
 import SafariCard from './components/SafariCard/SafariCard'
 import image from './assets/elephant-img.jpeg'
@@ -38,6 +41,9 @@ const App: React.FC = () => {
 
   return (
     <div className={isBotModalOpen || isLoginModalOpen ? 'fixed' : ''}>
+      <div>
+        <Header />
+      </div>
       <Routes>
         <Route path="/" element={<HomePage />}></Route>
         <Route path="/build-your-package" element={<BookTrip />}></Route>

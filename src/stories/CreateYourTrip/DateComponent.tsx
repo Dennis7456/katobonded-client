@@ -158,11 +158,11 @@ export const DateComponent: React.FC = () => {
 
   return (
     <div ref={clickRef}>
-      <div className="flex items-center justify-center gap-[35px]">
+      <div className="flex items-center justify-center lg:gap-[35px] gap-[10px]">
         <div className="flex flex-col gap-[10px]">
           <label className="text-[15px] text-gray-600">Departing</label>
           <div
-            className="flex items-start justify-start cursor-pointer w-[162px] h-[49px] border-[#E8E8ED] border-[2px] rounded-[3px] py-[10px]"
+            className="flex items-start justify-start cursor-pointer w-[130px] lg:w-[162px] h-[49px] border-[#E8E8ED] border-[2px] rounded-[3px] py-[10px] bg-gray-50"
             onClick={() => {
               setShowDatePicker(!showDatepicker)
             }}
@@ -186,7 +186,7 @@ export const DateComponent: React.FC = () => {
         <div className="flex flex-col gap-[10px]">
           <label className="text-[15px] text-gray-600">Returning</label>
           <div
-            className="flex items-start justify-start cursor-pointer w-[162px] h-[49px] border-[#E8E8ED] border-[2px] rounded-[3px] py-[10px]"
+            className="flex items-start justify-start cursor-pointer w-[130px] lg:w-[162px] h-[49px] border-[#E8E8ED] border-[2px] rounded-[3px] py-[10px] bg-gray-50"
             onClick={() => {
               setShowDatePicker(!showDatepicker)
             }}
@@ -209,6 +209,7 @@ export const DateComponent: React.FC = () => {
         </div>
       </div>
       <div>
+        {/* Calendar */}
         <AnimatePresence initial={false}>
           {showDatepicker && (
             <motion.div

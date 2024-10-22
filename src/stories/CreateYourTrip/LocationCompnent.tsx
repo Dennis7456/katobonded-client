@@ -72,7 +72,7 @@ export const LocationCompnent: React.FC = () => {
   }
 
   return (
-    <div className="flex flex-col items-start gap-[10px]">
+    <div className="flex flex-col items-start gap-[10px] ">
       <label className="text-[15px] text-gray-600">Select Destination</label>
       <div className="relative" ref={clickRef}>
         <LoadScript googleMapsApiKey={googleMapsApiKey} libraries={['places']}>
@@ -81,7 +81,7 @@ export const LocationCompnent: React.FC = () => {
             onPlacesChanged={handlePlaceChanged}
           >
             <input
-              className="-translate-y-[0px] left-[100px] w-[348px] h-[49px] border-[#E8E8ED] border-[2px] rounded-[3px] bg-gray-50 p-[10px] text-gray-700 focus:outline-none focus:border-gray-500 truncate ..."
+              className="-translate-y-[0px] left-[100px] w-[310px] lg:w-[348px] h-[49px] border-[#E8E8ED] border-[2px] rounded-[3px] bg-gray-50 p-[10px] text-gray-700 focus:outline-none focus:border-gray-500 truncate ..."
               placeholder="Where to?"
               type="text"
               required
@@ -89,7 +89,7 @@ export const LocationCompnent: React.FC = () => {
           </StandaloneSearchBox>
         </LoadScript>
         <span
-          className="absolute top-[13px] left-[300px] flex items-center pl-2 text-gray-500 hover:text-gray-900 rounded-sm "
+          className="absolute top-[13px] left-[270px] lg:left-[300px] flex items-center pl-2 text-gray-500 hover:text-gray-900 rounded-sm cursor-pointer"
           onClick={() => {
             setIsLocationOpen(true)
           }}

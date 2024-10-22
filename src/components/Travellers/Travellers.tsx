@@ -30,11 +30,13 @@ const Travellers: React.FC = () => {
   }
 
   return (
-    <div ref={clickRef}>
+    <div ref={clickRef} className="flex justify-center">
       <div className="flex flex-col gap-[10px]">
-        <label className="text-[15px] text-gray-600">Travellers</label>
+        <label className="text-[15px] text-gray-600 text-left">
+          Travellers
+        </label>
         <div
-          className="flex items-start justify-start gap-[5px] cursor-pointer w-[162px] h-[49px] border-[#E8E8ED] border-[2px] rounded-[3px] py-[10px] text-gray-700"
+          className="flex items-start justify-start gap-[5px] cursor-pointer w-[162px] h-[49px] border-[#E8E8ED] border-[2px] rounded-[3px] py-[10px] text-gray-700 bg-gray-50"
           onClick={toggleDropDown}
         >
           <span className="px-[10px]">

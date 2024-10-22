@@ -1,18 +1,27 @@
 import React, { useState } from 'react'
-import logo from './assets/logo.svg'
+// import logo from './assets/logo.svg'
+import logo from './assets/safarihub-logo.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { solid, regular } from '@fortawesome/fontawesome-svg-core/import.macro'
 import './Header.css'
 import { LoginModal } from '../LoginModal/LoginModal'
-import { LoginModalProvider } from 'src/context/LoginModalContext'
+import {
+  LoginModalProvider,
+  useLoginModalContext,
+} from 'src/context/LoginModalContext'
 
 const Header: React.FC = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false)
+  const { isModalOpen, openModal, closeModal } = useLoginModalContext()
 
   return (
-    <div className="sticky top-0 z-30">
+    <div className="sticky top-0 z-20 w-[100vw]">
       <div className="flex justify-between items-center bg-[#134427]">
-        <img src={logo} alt="logo image" className="" />
+        <img
+          src={logo}
+          alt="logo image"
+          className="w-[150px] rotate-[15deg] ml-6 cursor-pointer"
+        />
         <button
           className="mr-[35px] lg:hidden"
           onClick={() => {
@@ -56,7 +65,7 @@ const Header: React.FC = () => {
               icon={solid('dollar-sign')}
               size="lg"
             />
-            <div className="">Search</div>
+            <div className="">Currency</div>
           </div>
           <LoginModal />
           <div className="flex flex-col cursor-pointer hover:text-orange-500 text-white">
@@ -65,14 +74,14 @@ const Header: React.FC = () => {
               icon={solid('heart')}
               size="lg"
             />
-            <div className="">Search</div>
+            <div className="">Likes</div>
           </div>
         </div>
       </div>
 
       {/* Sidebar for small screens */}
       {isSidebarOpen ? (
-        <div className="modal-bg lg:hidden">
+        <div className="modal-bg lg:hidden z-10">
           <div className="absolute top-0 right-0 h-[100vh] w-[75vw] overflow-hidden">
             <div className="bg-[#134427] flex justify-end items-center h-[81px]">
               {/* <img src={logo} alt='logo image' /> */}
@@ -127,13 +136,7 @@ const Header: React.FC = () => {
               </div>
               <div className="flex justify-center tracking-wider">
                 <div>
-                  <button className="bg-orange-500 px-[15px] py-[5px] font-semibold rounded-sm hover:opacity-70">
-                    Agent Login
-                    <FontAwesomeIcon
-                      icon={solid('user')}
-                      className="ml-[5px]"
-                    />
-                  </button>
+                  <LoginModal />
                 </div>
               </div>
             </div>
