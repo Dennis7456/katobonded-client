@@ -81,7 +81,7 @@ export const LocationCompnent: React.FC = () => {
             onPlacesChanged={handlePlaceChanged}
           >
             <input
-              className="-translate-y-[0px] left-[100px] w-[310px] lg:w-[348px] h-[49px] border-[#E8E8ED] border-[2px] rounded-[3px] bg-gray-50 p-[10px] text-gray-700 focus:outline-none focus:border-gray-500 truncate ..."
+              className="-translate-y-[0px] left-[100px] w-[290px] lg:w-[348px] md:w-[350px] h-[49px] border-[#E8E8ED] border-[2px] rounded-[3px] bg-gray-50 p-[10px] text-gray-700 focus:outline-none focus:border-gray-500 truncate ..."
               placeholder="Where to?"
               type="text"
               required
@@ -89,7 +89,7 @@ export const LocationCompnent: React.FC = () => {
           </StandaloneSearchBox>
         </LoadScript>
         <span
-          className="absolute top-[13px] left-[270px] lg:left-[300px] flex items-center pl-2 text-gray-500 hover:text-gray-900 rounded-sm cursor-pointer"
+          className="absolute top-[13px] left-[250px] md:left-[300px] lg:left-[300px] flex items-center pl-2 text-gray-500 hover:text-gray-900 rounded-sm cursor-pointer"
           onClick={() => {
             setIsLocationOpen(true)
           }}

@@ -64,17 +64,18 @@ export const CreateYourTrip: React.FC = () => {
           width: '100%',
         }}
       >
-        <form className="w-[90vw] lg:w-[95vw] bg-[#ffffff] rounded-[5px] p-[5vmin] mt-[vmin] pr-[7vmin]">
-          <div className="flex flex-col items-start justify-center gap-[35px]">
+        <form className="w-[90vw] lg:w-[95vw] md:w-[90vw] bg-[#ffffff] rounded-[5px] p-[5vmin] mt-[vmin] pr-[7vmin]">
+          <div className="flex flex-col items-start lg:items-start md:items-center justify-center gap-[35px]">
             <div className="text-[25px] text-gray-600 text-center">
               Create Your Trip
             </div>
 
-            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-start sm:justify-center gap-6 sm:gap-8">
+            {/* Parent flex container with responsive direction */}
+            <div className="flex flex-col md:flex-col sm:flex-row lg:flex-row items-start sm:items-center md:items-center justify-start sm:justify-center md:justify-center gap-6 sm:gap-8 md:gap-8">
               <div className="w-full sm:w-auto mb-4 sm:mb-0">
                 <LocationCompnent />
               </div>
-              <div className="w-full sm:w-auto mb- sm:mb-0 mt-4 lg:mt-0">
+              <div className="w-full sm:w-auto mb- sm:mb-0 mt-4 lg:mt-0 md:mt-0">
                 <DateComponent />
               </div>
 
@@ -89,12 +90,13 @@ export const CreateYourTrip: React.FC = () => {
               </div>
             </div>
           </div>
-          <div className="flex flex-col items-start justify-around pt-[50px] gap-[30px]">
-            <div className="flex items-center justify-center">
-              <input
-                type="checkbox"
-                id="checkbox1"
-                className="
+          <div className=" flex justify-center lg:justify-start md:items-center lg:items-start ">
+            <div className="flex flex-col items-start justify-around pt-[50px] gap-[30px]">
+              <div className="flex items-center justify-center">
+                <input
+                  type="checkbox"
+                  id="checkbox1"
+                  className="
                 peer 
                 relative 
                 h-5 
@@ -118,26 +120,26 @@ export const CreateYourTrip: React.FC = () => {
                hover:ring-[#F3533D] 
               focus:outline-none
               "
-              />
-              <label
-                className="
+                />
+                <label
+                  className="
               w-full 
               cursor-pointer 
               font-medium text-gray-700 
               peer-checked:text-gray-500 
               peer-checked:line-through
               pl-[10px]"
-              >
-                {' '}
-                I have exact dates{' '}
-              </label>
-            </div>
-            <div className="flex items-center justify-center gap-[10px]">
-              <div className="flex items-center justify-center">
-                <input
-                  type="checkbox"
-                  id="checkbox1"
-                  className="
+                >
+                  {' '}
+                  I have exact dates{' '}
+                </label>
+              </div>
+              <div className="flex items-center justify-center gap-[10px]">
+                <div className="flex items-center justify-center">
+                  <input
+                    type="checkbox"
+                    id="checkbox1"
+                    className="
                 peer 
                 relative 
                 h-5 
@@ -161,9 +163,9 @@ export const CreateYourTrip: React.FC = () => {
               hover:ring 
                hover:ring-[#F3533D] 
               focus:outline-none"
-                />
-                <label
-                  className="
+                  />
+                  <label
+                    className="
               w-full 
               cursor-pointer 
               font-medium text-gray-700 
@@ -171,16 +173,16 @@ export const CreateYourTrip: React.FC = () => {
               peer-checked:line-through
               pl-[10px]
               "
-                >
-                  {' '}
-                  Add Transport{' '}
-                </label>
-              </div>
-              <div className="flex items-center justify-center">
-                <input
-                  type="checkbox"
-                  id="checkbox1"
-                  className="
+                  >
+                    {' '}
+                    Add Transport{' '}
+                  </label>
+                </div>
+                <div className="flex items-center justify-center">
+                  <input
+                    type="checkbox"
+                    id="checkbox1"
+                    className="
                 peer 
                 relative 
                 h-5 
@@ -203,9 +205,9 @@ export const CreateYourTrip: React.FC = () => {
               hover:ring 
                hover:ring-[#F3533D] 
               focus:outline-none"
-                />
-                <label
-                  className="
+                  />
+                  <label
+                    className="
               w-full 
               cursor-pointer 
               font-medium text-gray-700 
@@ -213,18 +215,18 @@ export const CreateYourTrip: React.FC = () => {
               peer-checked:line-through
               pl-[10px]
               "
-                >
-                  {' '}
-                  Add Accommodation{' '}
-                </label>
+                  >
+                    {' '}
+                    Add Accommodation{' '}
+                  </label>
+                </div>
               </div>
-            </div>
-            <div className="flex items-center justify-center gap-[10px]">
-              <div className="flex items-center justify-center">
-                <input
-                  type="checkbox"
-                  id="checkbox1"
-                  className="
+              <div className="flex items-center justify-center gap-[10px]">
+                <div className="flex items-center justify-center">
+                  <input
+                    type="checkbox"
+                    id="checkbox1"
+                    className="
                 peer 
                 relative 
                 h-5 
@@ -247,19 +249,20 @@ export const CreateYourTrip: React.FC = () => {
               hover:ring 
               hover:ring-[#F3533D] 
               focus:outline-none"
-                />
-                <label
-                  className="
+                  />
+                  <label
+                    className="
               w-full 
               cursor-pointer 
               font-medium text-gray-700 
               peer-checked:text-gray-500 
               peer-checked:line-through
               pl-[10px]"
-                >
-                  {' '}
-                  Add Activity{' '}
-                </label>
+                  >
+                    {' '}
+                    Add Activity{' '}
+                  </label>
+                </div>
               </div>
             </div>
           </div>

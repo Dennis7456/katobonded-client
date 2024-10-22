@@ -10,10 +10,13 @@ import {
   LoginModalProvider,
   useLoginModalContext,
 } from 'src/context/LoginModalContext'
+import { useNavigate } from 'react-router-dom'
 
 const Header: React.FC = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false)
   const { isModalOpen, openModal, closeModal } = useLoginModalContext()
+
+  const navigate = useNavigate()
 
   return (
     <div className="sticky top-0 z-20 w-[100vw]">
@@ -23,11 +26,17 @@ const Header: React.FC = () => {
             src={logoCircle}
             alt="logo image"
             className="w-[80px] rotate-[10deg] ml-6 cursor-pointer"
+            onClick={() => {
+              navigate('/')
+            }}
           />
           <img
             src={logo}
             alt="logo image"
             className="w-[150px] rotate-[15deg] ml-6 cursor-pointer"
+            onClick={() => {
+              navigate('/')
+            }}
           />
         </div>
         <button
