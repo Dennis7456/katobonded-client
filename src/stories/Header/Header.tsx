@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 // import logo from './assets/logo.svg'
 import logo from './assets/safarihub-logo.png'
+import logoCircle from './assets/circle-logo.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { solid, regular } from '@fortawesome/fontawesome-svg-core/import.macro'
 import './Header.css'
@@ -17,11 +18,18 @@ const Header: React.FC = () => {
   return (
     <div className="sticky top-0 z-20 w-[100vw]">
       <div className="flex justify-between items-center bg-[#134427]">
-        <img
-          src={logo}
-          alt="logo image"
-          className="w-[150px] rotate-[15deg] ml-6 cursor-pointer"
-        />
+        <div className="flex py-[10px]">
+          <img
+            src={logoCircle}
+            alt="logo image"
+            className="w-[80px] rotate-[10deg] ml-6 cursor-pointer"
+          />
+          <img
+            src={logo}
+            alt="logo image"
+            className="w-[150px] rotate-[15deg] ml-6 cursor-pointer"
+          />
+        </div>
         <button
           className="mr-[35px] lg:hidden"
           onClick={() => {
