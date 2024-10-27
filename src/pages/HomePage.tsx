@@ -12,10 +12,11 @@ const HomePage: React.FC = () => {
   return (
     <div>
       <CreateYourTrip />
+      <TripCarousel />
       {/* <ChatBotModal /> */}
       {/* <Header /> */}
       {/* 
-      <TripCarousel />
+     
       <TopTours />
       <TopDestinations />
       <TopTourOperators />
